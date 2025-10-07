@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmq51s3tga5a"]
+
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="1_tlcvv"]
+[ext_resource type="Script" uid="uid://b1ph27fxhjq44" path="res://Entities/HUD/Utility/label.gd" id="2_vgbq4"]
+[ext_resource type="AudioStream" uid="uid://b1pmpg8wq6knf" path="res://Assets/SFX/UI_SFX/Bleep.ogg" id="3_1bb0y"]
+
+[node name="AutoLabel" type="Label"]
+custom_minimum_size = Vector2(380, 380)
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0.643137, 0, 1)
+theme_override_fonts/font = ExtResource("1_tlcvv")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+script = ExtResource("2_vgbq4")
+char_interval = 0.01
+line_pause = 0.2
+typing_sound = ExtResource("3_1bb0y")

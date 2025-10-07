@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0t32p8tq35hg"]
+
+[ext_resource type="Script" uid="uid://drhcjo04g755x" path="res://Entities/Weapons/rocket_launcher.gd" id="1_vxgim"]
+[ext_resource type="PackedScene" uid="uid://f4fl3o6r4pve" path="res://Entities/Weapons/missile.tscn" id="2_nq4hs"]
+[ext_resource type="AudioStream" uid="uid://2fldcuiahtgd" path="res://Assets/SFX/3beep.ogg" id="4_rs3on"]
+[ext_resource type="AudioStream" uid="uid://bb72r7703nvus" path="res://Assets/SFX/beep.mp3" id="5_t1fs0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_os4w7"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.2
+
+[node name="RocketLauncher" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_vxgim")
+missile = ExtResource("2_nq4hs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_os4w7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rs3on")
+volume_db = -11.524
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t1fs0")
+
+[node name="LoadTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="LoadTimer" to="." method="_on_load_timer_timeout"]

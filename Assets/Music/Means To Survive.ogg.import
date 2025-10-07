@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc1fh76bay2m2"
+path="res://.godot/imported/Means To Survive.ogg-a87f8ec425a96156b7ec047f5ed571ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Means To Survive.ogg"
+dest_files=["res://.godot/imported/Means To Survive.ogg-a87f8ec425a96156b7ec047f5ed571ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

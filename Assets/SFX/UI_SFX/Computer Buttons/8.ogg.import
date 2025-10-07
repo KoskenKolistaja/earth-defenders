@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwxowedyijkux"
+path="res://.godot/imported/8.ogg-93f36ce1764080ed918468035619d7ff.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/UI_SFX/Computer Buttons/8.ogg"
+dest_files=["res://.godot/imported/8.ogg-93f36ce1764080ed918468035619d7ff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

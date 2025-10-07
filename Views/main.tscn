@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwj1g2ngbyou5"]
+
+[ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
+[ext_resource type="Script" uid="uid://gosxpph4udt1" path="res://Entities/HUD/hud.gd" id="2_y1b1f"]
+[ext_resource type="Script" uid="uid://dee4rxs13gw4l" path="res://Views/music.gd" id="3_3njbj"]
+[ext_resource type="PackedScene" uid="uid://cdmq51s3tga5a" path="res://Entities/HUD/Utility/auto_label.tscn" id="3_s1q8p"]
+[ext_resource type="FontFile" uid="uid://crppnyfkhwx6t" path="res://Assets/Fonts/VT323-Regular.ttf" id="4_uuvqm"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Space" parent="." instance=ExtResource("1_8r4uk")]
+
+[node name="HUD" type="Control" parent="." groups=["hud"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_y1b1f")
+
+[node name="Label" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100%"
+
+[node name="Time" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 26.0
+offset_right = 20.0
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "2025"
+
+[node name="Timer" type="Timer" parent="HUD"]
+wait_time = 2.0
+autostart = true
+
+[node name="AutoLabel" parent="HUD" instance=ExtResource("3_s1q8p")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_uuvqm")
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+char_interval = 0.03
+line_pause = 0.5
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -14.312
+script = ExtResource("3_3njbj")
+
+[connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

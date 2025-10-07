@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://1xlu7eekkykn"]
+
+[ext_resource type="Script" uid="uid://drhcjo04g755x" path="res://Entities/Weapons/rocket_launcher.gd" id="1_vxgim"]
+[ext_resource type="Texture2D" uid="uid://ddrsiefi7wqc6" path="res://Assets/Textures/reticle_white.png" id="1_yw3a3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_os4w7"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw3a3"]
+radius = 4.2802734
+height = 58.34543
+
+[node name="RocketLauncher" type="Node3D"]
+script = ExtResource("1_vxgim")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.1)
+mesh = SubResource("CylinderMesh_os4w7")
+
+[node name="Reticle" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_yw3a3")
+
+[node name="MissileArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MissileArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.80671, 0)
+shape = SubResource("CapsuleShape3D_yw3a3")

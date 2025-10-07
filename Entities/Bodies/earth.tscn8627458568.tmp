@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckxwhsa8ysdud"]
+
+[ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
+[ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
+albedo_texture = ExtResource("1_uyjwy")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3jv0l"]
+material = SubResource("StandardMaterial3D_pcr5l")
+radius = 5.0
+height = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3jv0l"]
+radius = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_u04n2"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m8fv3"]
+radius = 1.0
+
+[node name="Earth" type="StaticBody3D"]
+script = ExtResource("1_pcr5l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.87964857, 0, 0.47562426, 0, 1, 0, -0.47562426, 0, -0.87964857, 0, 0, 0)
+mesh = SubResource("SphereMesh_3jv0l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3jv0l")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/StaticBody3D"]
+mesh = SubResource("SphereMesh_u04n2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/StaticBody3D"]
+shape = SubResource("SphereShape3D_m8fv3")

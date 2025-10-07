@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8grsy3bm3s6o"]
+
+[ext_resource type="Script" uid="uid://cde12ga5wtmi5" path="res://Entities/Weapons/bullet.gd" id="1_5gubn"]
+[ext_resource type="Texture2D" uid="uid://cyl848tyhoueh" path="res://Assets/Textures/BlasterShot.png" id="2_m5rde"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g0mh"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.36
+
+[sub_resource type="SphereMesh" id="SphereMesh_3g0mh"]
+material = SubResource("StandardMaterial3D_3g0mh")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5gubn"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b61ib"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("2_m5rde")
+emission_enabled = true
+emission = Color(0.98429334, 0.8752098, 0.34797767, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_q10k8"]
+size = Vector2(0.5, 0.1)
+
+[node name="Bullet" type="Area3D"]
+script = ExtResource("1_5gubn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_3g0mh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5gubn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0.13962409)
+material_override = SubResource("StandardMaterial3D_b61ib")
+mesh = SubResource("QuadMesh_q10k8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 0, 0, 0.13962409)
+material_override = SubResource("StandardMaterial3D_b61ib")
+mesh = SubResource("QuadMesh_q10k8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7wbxvnlhrljh"
+path="res://.godot/imported/Martian Offense.ogg-254b23214a0f933998db6ee5936b42ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Martian Offense.ogg"
+dest_files=["res://.godot/imported/Martian Offense.ogg-254b23214a0f933998db6ee5936b42ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

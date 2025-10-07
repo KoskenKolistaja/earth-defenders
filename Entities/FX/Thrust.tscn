@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://6g2r7f8l86n4"]
+
+[ext_resource type="Texture2D" uid="uid://dnmfyet72bemm" path="res://Assets/Textures/FX/Flare00.PNG" id="1_3coag"]
+
+[sub_resource type="Curve" id="Curve_ys4lp"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.323529, 360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wy1w"]
+curve = SubResource("Curve_ys4lp")
+
+[sub_resource type="Curve" id="Curve_vlbii"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0441176, 0.269663), 0.0, 0.0, 0, 0, Vector2(0.272059, 1), 0.0, 0.0, 0, 0, Vector2(0.948529, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_gbi2p"]
+curve = SubResource("Curve_vlbii")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_40jbl"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 149.0
+angle_curve = SubResource("CurveTexture_0wy1w")
+spread = 2.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_gbi2p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys4lp"]
+transparency = 1
+albedo_color = Color(0.08, 0.724, 1, 1)
+albedo_texture = ExtResource("1_3coag")
+emission_enabled = true
+emission = Color(0.22, 0.714, 1, 1)
+emission_energy_multiplier = 4.58
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_i2itc"]
+material = SubResource("StandardMaterial3D_ys4lp")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(-1, 1.9107e-15, 1.50996e-07, -4.68956e-15, 1, -4.37114e-08, -1.50996e-07, -4.37114e-08, -1, 0, 0, 0)
+amount = 50
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_40jbl")
+draw_pass_1 = SubResource("QuadMesh_i2itc")

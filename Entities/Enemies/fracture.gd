@@ -1,0 +1,48 @@
+extends Area3D
+
+var velocity = Vector3.ZERO
+
+var active = false
+
+var gravitation_strength = 5.0
+
+func activate():
+	active = true
+	$CollisionShape3D.disabled = false
+
+func _ready():
+	monitoring = true
+	monitorable = true
+	connect("area_entered", Callable(self, "_on_area_entered"))
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
+func _physics_process(delta):
+	velocity.z = 0.0
+	global_position.z = 0.0
+	if active:
+		global_position += velocity * delta
+		gravitate(delta)
+
+func get_collision_shape_position():
+	return $CollisionShape3D.global_position
+
+
+func gravitate(delta):
+	var center = Vector3(0, 0, 0)
+	var offset = center - global_position
+	var distance = offset.length()
+	if distance > 0.001: # prevent divide-by-zero
+		var direction = offset / distance
+		var force = gravitation_strength / (distance * distance)
+		velocity += direction * force * delta
+
+
+func _on_area_entered(area):
+	if area.has_method("get_hit"):
+		area.get_hit(1)
+	queue_free()
+
+func _on_body_entered(body):
+	if body.has_method("get_hit"):
+		body.get_hit(1)
+	queue_free()

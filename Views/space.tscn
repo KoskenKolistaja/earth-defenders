@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxfda5ay2mfgn"]
+
+[ext_resource type="Script" uid="uid://cjw87n2iwyru4" path="res://Views/sun.gd" id="1_aujwv"]
+[ext_resource type="PackedScene" uid="uid://cx6mjn602ti21" path="res://Entities/Player/player.tscn" id="1_d5lh8"]
+[ext_resource type="Texture2D" uid="uid://cyngrcuvoiuvv" path="res://Assets/Textures/8k_stars_milky_way.jpg" id="1_qtpbo"]
+[ext_resource type="PackedScene" uid="uid://ckxwhsa8ysdud" path="res://Entities/Bodies/earth.tscn" id="2_81phd"]
+[ext_resource type="PackedScene" uid="uid://dbie15kbtglpv" path="res://Entities/Bodies/asteroid.tscn" id="5_ulv8f"]
+[ext_resource type="Script" uid="uid://bfyw00ea7y2dl" path="res://Entities/Utility/spawn_manager.gd" id="6_w5eul"]
+[ext_resource type="PackedScene" uid="uid://cc62jnr1trjns" path="res://Entities/Enemies/big_martian.tscn" id="7_aujwv"]
+[ext_resource type="PackedScene" uid="uid://n4bmvhrg6lyu" path="res://Entities/Enemies/small_martian.tscn" id="8_pu55j"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rxlph"]
+panorama = ExtResource("1_qtpbo")
+
+[sub_resource type="Sky" id="Sky_ulv8f"]
+sky_material = SubResource("PanoramaSkyMaterial_rxlph")
+
+[sub_resource type="Environment" id="Environment_w5eul"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_ulv8f")
+ambient_light_color = Color(0.8560673, 0.8560673, 0.85606724, 1)
+ambient_light_sky_contribution = 0.3
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 2.08
+glow_strength = 1.27
+glow_bloom = 1.0
+fog_light_energy = 0.31
+volumetric_fog_density = 0.001
+
+[node name="Space" type="Node3D"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1.0000002, -2.0699476e-08, 1.7957537e-07, -2.6483379e-08, 0.9659258, 0.25881907, -1.7881393e-07, -0.25881907, 0.9659258, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("1_aujwv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 47)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w5eul")
+
+[node name="Objects" type="Node3D" parent="." groups=["objects"]]
+
+[node name="Earth" parent="Objects" instance=ExtResource("2_81phd")]
+
+[node name="Player" parent="Objects" instance=ExtResource("1_d5lh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+player_id = 1
+player_color = Color(0.37435263, 0.47513688, 1, 1)
+
+[node name="Player2" parent="Objects" instance=ExtResource("1_d5lh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 11, 0)
+player_id = 2
+player_color = Color(0, 1, 0, 1)
+
+[node name="SpawnManager" type="Node3D" parent="Objects"]
+script = ExtResource("6_w5eul")
+asteroid = ExtResource("5_ulv8f")
+big_martian = ExtResource("7_aujwv")
+small_martian = ExtResource("8_pu55j")

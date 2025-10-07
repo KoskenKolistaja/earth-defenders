@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://1xlu7eekkykn"]
+
+[ext_resource type="Script" uid="uid://6qns6xr12r8l" path="res://Entities/Weapons/missile_launcher.gd" id="1_y2k8k"]
+[ext_resource type="PackedScene" uid="uid://f4fl3o6r4pve" path="res://Entities/Weapons/missile.tscn" id="2_xrj0b"]
+[ext_resource type="Texture2D" uid="uid://ddrsiefi7wqc6" path="res://Assets/Textures/reticle_white.png" id="3_p70w0"]
+[ext_resource type="AudioStream" uid="uid://2fldcuiahtgd" path="res://Assets/SFX/3beep.ogg" id="4_qjqhb"]
+[ext_resource type="AudioStream" uid="uid://bb72r7703nvus" path="res://Assets/SFX/beep.mp3" id="5_05krr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_os4w7"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw3a3"]
+radius = 4.6796875
+height = 57.24456
+
+[node name="MissileLauncher" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_y2k8k")
+missile = ExtResource("2_xrj0b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_os4w7")
+
+[node name="Reticle" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_p70w0")
+
+[node name="MissileArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MissileArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.256275, 0)
+shape = SubResource("CapsuleShape3D_yw3a3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qjqhb")
+volume_db = -11.524
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_05krr")
