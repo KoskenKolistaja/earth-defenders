@@ -1,33 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxfda5ay2mfgn"]
+[gd_scene load_steps=9 format=3 uid="uid://dxfda5ay2mfgn"]
 
 [ext_resource type="Script" uid="uid://cjw87n2iwyru4" path="res://Views/sun.gd" id="1_aujwv"]
 [ext_resource type="PackedScene" uid="uid://cx6mjn602ti21" path="res://Entities/Player/player.tscn" id="1_d5lh8"]
-[ext_resource type="Texture2D" uid="uid://cyngrcuvoiuvv" path="res://Assets/Textures/8k_stars_milky_way.jpg" id="1_qtpbo"]
 [ext_resource type="PackedScene" uid="uid://ckxwhsa8ysdud" path="res://Entities/Bodies/earth.tscn" id="2_81phd"]
+[ext_resource type="Environment" uid="uid://bus24w32avav2" path="res://Views/BaseEnvironment.tres" id="2_pu55j"]
 [ext_resource type="PackedScene" uid="uid://dbie15kbtglpv" path="res://Entities/Bodies/asteroid.tscn" id="5_ulv8f"]
 [ext_resource type="Script" uid="uid://bfyw00ea7y2dl" path="res://Entities/Utility/spawn_manager.gd" id="6_w5eul"]
 [ext_resource type="PackedScene" uid="uid://cc62jnr1trjns" path="res://Entities/Enemies/big_martian.tscn" id="7_aujwv"]
 [ext_resource type="PackedScene" uid="uid://n4bmvhrg6lyu" path="res://Entities/Enemies/small_martian.tscn" id="8_pu55j"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rxlph"]
-panorama = ExtResource("1_qtpbo")
-
-[sub_resource type="Sky" id="Sky_ulv8f"]
-sky_material = SubResource("PanoramaSkyMaterial_rxlph")
-
-[sub_resource type="Environment" id="Environment_w5eul"]
-background_mode = 2
-background_energy_multiplier = 1.5
-sky = SubResource("Sky_ulv8f")
-ambient_light_color = Color(0.8560673, 0.8560673, 0.85606724, 1)
-ambient_light_sky_contribution = 0.3
-ambient_light_energy = 0.05
-glow_enabled = true
-glow_intensity = 2.08
-glow_strength = 1.27
-glow_bloom = 1.0
-fog_light_energy = 0.31
-volumetric_fog_density = 0.001
 
 [node name="Space" type="Node3D"]
 
@@ -40,7 +20,7 @@ script = ExtResource("1_aujwv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 47)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w5eul")
+environment = ExtResource("2_pu55j")
 
 [node name="Objects" type="Node3D" parent="." groups=["objects"]]
 

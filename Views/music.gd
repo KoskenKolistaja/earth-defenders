@@ -20,6 +20,7 @@ func _ready():
 	play()
 
 
+
 func _on_finished():
 	songs.push_back(songs[0])
 	songs.remove_at(0)

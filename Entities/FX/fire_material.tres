@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsf4p4mp3enn6"]
 
-[ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Explosions_Textures/Flare00.PNG" id="1_1cafr"]
+[ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="1_1cafr"]
 
 [resource]
 transparency = 1

@@ -4,7 +4,7 @@ var velocity = Vector3.ZERO
 
 var active = false
 
-var gravitation_strength = 5.0
+var gravitation_strength = 15.0
 
 func activate():
 	active = true
@@ -30,19 +30,15 @@ func get_collision_shape_position():
 func gravitate(delta):
 	var center = Vector3(0, 0, 0)
 	var offset = center - global_position
-	var distance = offset.length()
-	if distance > 0.001: # prevent divide-by-zero
-		var direction = offset / distance
-		var force = gravitation_strength / (distance * distance)
-		velocity += direction * force * delta
+	velocity += offset.normalized() * delta
 
 
 func _on_area_entered(area):
 	if area.has_method("get_hit"):
-		area.get_hit(1)
+		area.get_hit(0)
 	queue_free()
 
 func _on_body_entered(body):
 	if body.has_method("get_hit"):
-		body.get_hit(1)
+		body.get_hit(0)
 	queue_free()

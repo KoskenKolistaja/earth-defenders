@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://clkdeynk3bnj0"]
+[gd_scene load_steps=38 format=3 uid="uid://clkdeynk3bnj0"]
 
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="1_3nwap"]
 [ext_resource type="Script" uid="uid://4jj54p1jusq4" path="res://Entities/FX/explosion.gd" id="1_62aac"]
@@ -6,6 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://cjwj47fkldkjg" path="res://Assets/SFX/explosion_1.mp3" id="2_vmiha"]
 [ext_resource type="AudioStream" uid="uid://b60coylqu6hhe" path="res://Assets/SFX/explosion_2.mp3" id="3_5osfy"]
 [ext_resource type="AudioStream" uid="uid://dy1mx77m0lwxp" path="res://Assets/SFX/explosion_3.mp3" id="4_tfc5x"]
+
+[sub_resource type="Curve" id="Curve_x26ay"]
+_limits = [0.0, 4.0983887, 0.0, 1.0]
+_data = [Vector2(0, 4.0983887), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k72qn"]
+curve = SubResource("Curve_x26ay")
 
 [sub_resource type="Curve" id="Curve_t3qd4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -36,7 +44,8 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.15
 scale_max = 0.5
 scale_curve = SubResource("CurveXYZTexture_5dyuy")
-color = Color(5, 2, 1, 1)
+color = Color(1, 0.92314893, 0.16409835, 1)
+emission_curve = SubResource("CurveTexture_k72qn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_012fs"]
 transparency = 1
@@ -48,8 +57,16 @@ albedo_texture = ExtResource("1_3nwap")
 [sub_resource type="QuadMesh" id="QuadMesh_whjpr"]
 material = SubResource("StandardMaterial3D_012fs")
 
+[sub_resource type="Curve" id="Curve_gj64t"]
+_data = [Vector2(0, 0.73033714), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x26ay"]
+curve = SubResource("Curve_gj64t")
+
 [sub_resource type="Curve" id="Curve_60m3q"]
-_data = [Vector2(0, 1), 0.0, -0.694737, 0, 0, Vector2(1, 0), -0.926316, 0.0, 0, 0]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1.5), 0.0, -0.694737, 0, 0, Vector2(1, 0), -0.926316, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_lg0jt"]
@@ -60,7 +77,8 @@ gravity = Vector3(0, 0, 0)
 scale_min = 4.0
 scale_max = 4.0
 scale_curve = SubResource("CurveTexture_lg0jt")
-color = Color(2.5, 1, 0.5, 1)
+color = Color(1, 0.7445036, 0.17558163, 1)
+emission_curve = SubResource("CurveTexture_x26ay")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ud0v5"]
 
@@ -88,7 +106,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.75
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_18sxm")
-color = Color(5, 2, 1, 1)
+color = Color(1, 0.6636825, 0.16409835, 1)
 color_ramp = SubResource("GradientTexture1D_hvoss")
 
 [sub_resource type="QuadMesh" id="QuadMesh_8elga"]
@@ -100,8 +118,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0.14, 0.14, 0.14, 1)
 gradient = SubResource("Gradient_gomr7")
 
 [sub_resource type="Curve" id="Curve_o0436"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.31060606, 0.92134833), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_xloil"]
 curve = SubResource("Curve_o0436")
@@ -178,7 +196,7 @@ draw_pass_1 = SubResource("QuadMesh_whjpr")
 material_override = ExtResource("2_qx75y")
 emitting = false
 amount = 1
-lifetime = 0.1
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
@@ -216,6 +234,7 @@ one_shot = true
 autostart = true
 
 [node name="light" type="OmniLight3D" parent="."]
+visible = false
 light_energy = 0.0
 omni_range = 15.0
 omni_attenuation = 0.329877

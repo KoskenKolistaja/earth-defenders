@@ -4,15 +4,24 @@ var strength = 5
 
 func shoot():
 	var bodies = $VacuumArea.get_overlapping_areas()
+	
+	
 	for item in bodies:
-		var vector =$CollectArea.global_position - item.global_position
+		var vector :Vector3=$CollectArea.global_position - item.global_position
 		var direction = vector.normalized()
 		var distance = $CollectArea.global_position.distance_to(item.global_position)
 		
 		# Invert distance so closer objects get stronger pull
 		var force = strength / max(distance, 1)  # prevent division by zero
 		
-		item.velocity = item.velocity.move_toward(direction * (force*2) * strength,1)
+		item.velocity = item.velocity.move_toward(vector.clampf(2,100),1)
+
+
+
+
+
+
+
 
 func release():
 	pass

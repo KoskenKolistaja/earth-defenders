@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=7 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
+[ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
 [ext_resource type="Script" uid="uid://gosxpph4udt1" path="res://Entities/HUD/hud.gd" id="2_y1b1f"]
 [ext_resource type="Script" uid="uid://dee4rxs13gw4l" path="res://Views/music.gd" id="3_3njbj"]
 [ext_resource type="PackedScene" uid="uid://cdmq51s3tga5a" path="res://Entities/HUD/Utility/auto_label.tscn" id="3_s1q8p"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_esl2e")
 
 [node name="Space" parent="." instance=ExtResource("1_8r4uk")]
 
@@ -70,7 +72,7 @@ horizontal_alignment = 1
 char_interval = 0.03
 line_pause = 0.5
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312
 script = ExtResource("3_3njbj")
 

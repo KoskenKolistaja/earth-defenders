@@ -17,12 +17,14 @@ func _physics_process(delta):
 		move_fractures()
 
 
+
+
 func move_fractures():
 	var fractures = $FracturedEarth.get_children()
 	
 	for fracture in fractures:
 		var movement_vector = fracture.global_position.normalized()
-		fracture.global_position += movement_vector * 0.005
+		fracture.global_position += movement_vector * 0.02
 
 func setup_fractures():
 	var fractures = $FracturedEarth.get_children()
@@ -45,6 +47,10 @@ func die():
 	$MeshInstance3D.hide()
 	$CollisionShape3D.disabled = true
 	$FracturedEarth.show()
-	
-	await get_tree().create_timer(5).timeout
-	get_tree().quit()
+	$GPUParticles3D.emitting = true
+	$AudioStreamPlayer.play()
+	var music : AudioStreamPlayer = get_tree().get_first_node_in_group("music")
+	await get_tree().create_timer(0.5).timeout
+	music.stop()
+	await get_tree().create_timer(13.0).timeout
+	get_parent().get_parent().process_mode = Node.PROCESS_MODE_DISABLED

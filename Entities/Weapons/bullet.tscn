@@ -22,11 +22,11 @@ cull_mode = 2
 albedo_color = Color(1, 1, 0, 1)
 albedo_texture = ExtResource("2_m5rde")
 emission_enabled = true
-emission = Color(0.98429334, 0.8752098, 0.34797767, 1)
-emission_energy_multiplier = 16.0
+emission = Color(1.353256, 1.2052121, 0.49121526, 1)
+emission_energy_multiplier = 32.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_q10k8"]
-size = Vector2(0.5, 0.1)
+size = Vector2(0.5, 0.2)
 
 [node name="Bullet" type="Area3D"]
 script = ExtResource("1_5gubn")

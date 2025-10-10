@@ -1,10 +1,12 @@
-[gd_scene load_steps=172 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=181 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
 [ext_resource type="PackedScene" uid="uid://0kixacobjpl5" path="res://Entities/FX/nozzle.tscn" id="2_u04n2"]
 [ext_resource type="Texture2D" uid="uid://tylqohjfc4wu" path="res://Assets/Textures/emissionsGlobe_12_2021.png" id="4_m8fv3"]
 [ext_resource type="Texture2D" uid="uid://d3fdysoeiwtpp" path="res://Assets/Textures/lroc_color_poles_8k.jpg" id="5_f326w"]
+[ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="6_2xukj"]
+[ext_resource type="AudioStream" uid="uid://24u3csu8n0re" path="res://Assets/SFX/EarthBoom.ogg" id="7_yadye"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
 albedo_texture = ExtResource("1_uyjwy")
@@ -1510,6 +1512,41 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sqrh7")
 
+[sub_resource type="Curve" id="Curve_yadye"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0.73033714), 0.0, 0.0, 0, 0, Vector2(0.5984848, 35.955063), 97.33145, 97.33145, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p5bix"]
+curve = SubResource("Curve_yadye")
+
+[sub_resource type="Curve" id="Curve_apjqm"]
+_limits = [0.0, 70.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, -0.694737, 0, 0, Vector2(0.009600002, 2.9754982), 130.67912, 130.67912, 0, 0, Vector2(0.3636363, 29.213486), 57.460197, 57.460197, 0, 0, Vector2(1, 70), -0.926316, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8w3be"]
+curve = SubResource("Curve_apjqm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3am25"]
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_8w3be")
+color = Color(1, 0.74509805, 0.1764706, 1)
+emission_curve = SubResource("CurveTexture_p5bix")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rlno"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_2xukj")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_i0aoh"]
+material = SubResource("StandardMaterial3D_8rlno")
+
 [node name="Earth" type="StaticBody3D"]
 collision_layer = 3
 script = ExtResource("1_pcr5l")
@@ -1779,3 +1816,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06991446, -0.89317214, -0.1
 material_override = SubResource("StandardMaterial3D_bx5y3")
 mesh = SubResource("ArrayMesh_x5od3")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FracturedEarth"]
+light_color = Color(1, 0.77254903, 0.39607844, 1)
+light_energy = 11.392
+shadow_enabled = true
+omni_range = 52.221
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 1
+lifetime = 14.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_3am25")
+draw_pass_1 = SubResource("QuadMesh_i0aoh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yadye")

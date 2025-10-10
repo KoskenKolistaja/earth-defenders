@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ddvywvn25kdju" path="res://Entities/Player/player.gd" id="1_mv1ah"]
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="3_lu8i8"]
+[ext_resource type="PackedScene" uid="uid://v2eouu05j3u2" path="res://Entities/Weapons/vacuum_gun.tscn" id="3_tekja"]
 [ext_resource type="PackedScene" uid="uid://dg5ago5c5sw8p" path="res://Entities/Weapons/blaster.tscn" id="4_5c2io"]
-[ext_resource type="PackedScene" uid="uid://1xlu7eekkykn" path="res://Entities/Weapons/missile_launcher.tscn" id="4_tekja"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ix6vc"]
 
@@ -233,6 +233,9 @@ shadow_mesh = SubResource("ArrayMesh_j2br1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tekja"]
 resource_local_to_scene = true
+albedo_color = Color(0.16862746, 0.35686275, 0.61960787, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
 
 [sub_resource type="Curve" id="Curve_ys4lp"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -307,7 +310,7 @@ transform = Transform3D(1, 3.0475318e-15, 0, -5.051819e-16, 1, 0, 0, 0, 1, 0.699
 [node name="Weapon1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.1, 0.72113514, -0.072089314)
 
-[node name="MissileLauncher" parent="Weapon1" instance=ExtResource("4_tekja")]
+[node name="VacuumGun" parent="Weapon1" instance=ExtResource("3_tekja")]
 
 [node name="Weapon2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.1, 0.72113514, -0.072089314)

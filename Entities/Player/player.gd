@@ -20,7 +20,7 @@ var gravitation_strength = 0.02
 
 func _ready():
 	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).albedo_color = player_color
-
+	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).emission = player_color
 
 func _physics_process(delta):
 	handle_movement()

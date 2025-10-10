@@ -13,6 +13,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	velocity.z = 0
 	
 	gravitate()
 	
