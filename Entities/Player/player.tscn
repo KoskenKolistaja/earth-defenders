@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://cx6mjn602ti21"]
+[gd_scene load_steps=23 format=4 uid="uid://cx6mjn602ti21"]
 
 [ext_resource type="Script" uid="uid://ddvywvn25kdju" path="res://Entities/Player/player.gd" id="1_mv1ah"]
+[ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="2_5c2io"]
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://v2eouu05j3u2" path="res://Entities/Weapons/vacuum_gun.tscn" id="3_tekja"]
 [ext_resource type="PackedScene" uid="uid://dg5ago5c5sw8p" path="res://Entities/Weapons/blaster.tscn" id="4_5c2io"]
@@ -283,6 +284,7 @@ material = SubResource("StandardMaterial3D_4wf4l")
 collision_layer = 33
 axis_lock_linear_z = true
 script = ExtResource("1_mv1ah")
+explosion = ExtResource("2_5c2io")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ix6vc")

@@ -33,9 +33,15 @@ func _ready():
 	
 	var players = get_tree().get_nodes_in_group("player")
 	
-	target_player = players[randi_range(0,players.size()-1)]
+	if players:
+		target_player = players[randi_range(0,players.size()-1)]
 	
 	
+
+
+
+
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -46,11 +52,12 @@ func _physics_process(delta: float) -> void:
 	if shooting:
 		$Blaster.shoot()
 	
-	if not is_instance_valid(target_player):
-		get_new_player_target()
 	
 	if active:
-		move_toward_position(target_player.global_position, delta)
+		if not is_instance_valid(target_player):
+			get_new_player_target()
+		else:
+			move_toward_position(target_player.global_position, delta)
 	elif random_position:
 		move_toward_position(random_position, delta)
 		if (self.global_position - random_position).length() < 0.5:
@@ -62,6 +69,11 @@ func _physics_process(delta: float) -> void:
 
 func get_new_player_target():
 	var players = get_tree().get_nodes_in_group("player")
+	
+	if not players:
+		active = false
+		return
+	
 	target_player = players[randi_range(0,players.size()-1)]
 
 

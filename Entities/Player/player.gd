@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var player_id : int
 @export var player_color : Color
 
+@export var explosion : PackedScene
+
 var hp = 100
 
 
@@ -46,7 +48,21 @@ func handle_actions():
 func get_hit(damage : int = 100):
 	hp -= damage
 	if hp <= 0:
-		queue_free()
+		die()
+
+func die():
+	explode()
+
+
+func explode():
+	
+	var explosion_instance = explosion.instantiate()
+	get_parent().add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	
+	
+	queue_free()
+
 
 
 #func gravitate():

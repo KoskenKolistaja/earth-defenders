@@ -16,8 +16,11 @@ func _physics_process(delta):
 	if dead:
 		move_fractures()
 
+func _ready():
+	show_hp()
 
-
+func show_hp():
+	$HpBar.show_hp(hp)
 
 func move_fractures():
 	var fractures = $FracturedEarth.get_children()
@@ -36,13 +39,13 @@ func setup_fractures():
 
 func get_hit(damage : int = 5):
 	hp -= damage
-	var hud = get_tree().get_first_node_in_group("hud")
-	hud.update_earth_hp(hp)
-	if hp <= 0:
+	show_hp()
+	if hp <= 0 and not dead:
 		die()
 
 
 func die():
+	$DeathArea.active = true
 	dead = true
 	$MeshInstance3D.hide()
 	$CollisionShape3D.disabled = true

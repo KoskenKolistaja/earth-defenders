@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=184 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d3fdysoeiwtpp" path="res://Assets/Textures/lroc_color_poles_8k.jpg" id="5_f326w"]
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="6_2xukj"]
 [ext_resource type="AudioStream" uid="uid://24u3csu8n0re" path="res://Assets/SFX/EarthBoom.ogg" id="7_yadye"]
+[ext_resource type="Script" uid="uid://cpwgb856erwvs" path="res://Entities/Bodies/death_area.gd" id="8_p5bix"]
+[ext_resource type="Script" uid="uid://bfmlaqt86ysvu" path="res://Entities/Bodies/hp_bar.gd" id="9_apjqm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
 albedo_texture = ExtResource("1_uyjwy")
@@ -1547,6 +1549,8 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_i0aoh"]
 material = SubResource("StandardMaterial3D_8rlno")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_apjqm"]
+
 [node name="Earth" type="StaticBody3D"]
 collision_layer = 3
 script = ExtResource("1_pcr5l")
@@ -1833,3 +1837,32 @@ draw_pass_1 = SubResource("QuadMesh_i0aoh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_yadye")
+
+[node name="DeathArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 48
+script = ExtResource("8_p5bix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+shape = SubResource("SphereShape3D_apjqm")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -13.5
+offset_right = 37.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+value = 20.0
+script = ExtResource("9_apjqm")
+
+[node name="Timer" type="Timer" parent="HpBar"]
+wait_time = 2.0
+
+[connection signal="timeout" from="HpBar/Timer" to="HpBar" method="_on_timer_timeout"]

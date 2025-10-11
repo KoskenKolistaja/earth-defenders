@@ -14,7 +14,8 @@ func shoot():
 		# Invert distance so closer objects get stronger pull
 		var force = strength / max(distance, 1)  # prevent division by zero
 		
-		item.velocity = item.velocity.move_toward(vector.clampf(2,100),1)
+		item.velocity += direction * force * 0.5
+		item.velocity = item.velocity.move_toward(item.velocity.limit_length(10),1)
 
 
 

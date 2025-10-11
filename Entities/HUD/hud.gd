@@ -13,8 +13,7 @@ var time = 2025
 
 
 
-func update_earth_hp(hp):
-	$Label.text = str(hp) + "%"
+
 
 func update_time():
 	time += 1
