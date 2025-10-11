@@ -23,6 +23,12 @@ func _ready():
 
 
 func _physics_process(delta):
+	if global_position.x < 0:
+		rotation_degrees.y = 180
+	else:
+		rotation_degrees.y = 0
+	
+	
 	if not spawning:
 		global_position += basis.y * speed
 		var direction : Vector3 = (target - self.global_position).normalized()

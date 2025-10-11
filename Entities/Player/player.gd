@@ -5,6 +5,9 @@ extends CharacterBody3D
 
 @export var explosion : PackedScene
 
+@export var stored_weapon1 : String
+@export var stored_weapon2 : String
+
 var hp = 100
 
 
@@ -23,6 +26,7 @@ var gravitation_strength = 0.02
 func _ready():
 	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).albedo_color = player_color
 	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).emission = player_color
+	initiate_weapons()
 
 func _physics_process(delta):
 	handle_movement()
@@ -32,6 +36,27 @@ func _physics_process(delta):
 	gravitate()
 	
 	move_and_slide()
+
+
+func initiate_weapons():
+	change_weapon1(stored_weapon1)
+	change_weapon2(stored_weapon2)
+
+func change_weapon1(weapon_name : String):
+	var weapons = $Weapon1.get_children()
+	for item in weapons:
+		item.queue_free()
+	
+	var weapon_instance = ItemData[weapon_name].instantiate()
+	$Weapon1.add_child(weapon_instance)
+
+func change_weapon2(weapon_name : String):
+	var weapons = $Weapon2.get_children()
+	for item in weapons:
+		item.queue_free()
+	
+	var weapon_instance = ItemData[weapon_name].instantiate()
+	$Weapon2.add_child(weapon_instance)
 
 
 func handle_actions():

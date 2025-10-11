@@ -45,6 +45,8 @@ func get_hit(damage : int = 5):
 
 
 func die():
+	$HpBar.active = false
+	$HpBar.hide()
 	$DeathArea.active = true
 	dead = true
 	$MeshInstance3D.hide()

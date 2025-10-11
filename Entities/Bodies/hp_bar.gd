@@ -1,12 +1,15 @@
 extends ProgressBar
 
-
+var active = true
 
 
 func show_hp(hp):
-	value = hp
-	show()
-	$Timer.start()
+	if active:
+		value = hp
+		show()
+		$Timer.start()
+	else:
+		hide()
 
 
 
