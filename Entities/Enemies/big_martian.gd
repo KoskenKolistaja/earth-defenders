@@ -24,9 +24,9 @@ func _ready():
 
 func _physics_process(delta):
 	if global_position.x < 0:
-		rotation_degrees.y = 180
+		rotation_degrees.y = -90
 	else:
-		rotation_degrees.y = 0
+		rotation_degrees.y = 90
 	
 	
 	if not spawning:
@@ -81,7 +81,7 @@ func spawn_ship():
 	if ships:
 		await get_tree().create_timer(0.5).timeout
 		var ship_instance = ship.instantiate()
-		ship_instance.initial_direction = -basis.x
+		ship_instance.initial_direction = -$Martian.basis.x
 		var objects = get_tree().get_first_node_in_group("objects")
 		ship_instance.global_position = self.global_position
 		objects.add_child(ship_instance)

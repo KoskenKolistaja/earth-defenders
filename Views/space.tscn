@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxfda5ay2mfgn"]
+[gd_scene load_steps=10 format=3 uid="uid://dxfda5ay2mfgn"]
 
 [ext_resource type="Script" uid="uid://cjw87n2iwyru4" path="res://Views/sun.gd" id="1_aujwv"]
 [ext_resource type="PackedScene" uid="uid://cx6mjn602ti21" path="res://Entities/Player/player.tscn" id="1_d5lh8"]
+[ext_resource type="Script" uid="uid://bxwk3vr3v8gje" path="res://Views/space.gd" id="1_pu55j"]
 [ext_resource type="PackedScene" uid="uid://ckxwhsa8ysdud" path="res://Entities/Bodies/earth.tscn" id="2_81phd"]
 [ext_resource type="Environment" uid="uid://bus24w32avav2" path="res://Views/BaseEnvironment.tres" id="2_pu55j"]
 [ext_resource type="PackedScene" uid="uid://dbie15kbtglpv" path="res://Entities/Bodies/asteroid.tscn" id="5_ulv8f"]
@@ -10,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://n4bmvhrg6lyu" path="res://Entities/Enemies/small_martian.tscn" id="8_pu55j"]
 
 [node name="Space" type="Node3D"]
+script = ExtResource("1_pu55j")
+player_scene = ExtResource("1_d5lh8")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1.0000002, -2.0699476e-08, 1.7957537e-07, -2.6483379e-08, 0.9659258, 0.25881907, -1.7881393e-07, -0.25881907, 0.9659258, 0, 0, 0)
@@ -25,16 +28,6 @@ environment = ExtResource("2_pu55j")
 [node name="Objects" type="Node3D" parent="." groups=["objects"]]
 
 [node name="Earth" parent="Objects" instance=ExtResource("2_81phd")]
-
-[node name="Player" parent="Objects" instance=ExtResource("1_d5lh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
-player_id = 1
-player_color = Color(0.37435263, 0.47513688, 1, 1)
-
-[node name="Player2" parent="Objects" instance=ExtResource("1_d5lh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 11, 0)
-player_id = 2
-player_color = Color(0, 1, 0, 1)
 
 [node name="SpawnManager" type="Node3D" parent="Objects"]
 script = ExtResource("6_w5eul")
