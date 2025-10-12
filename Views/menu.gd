@@ -10,6 +10,7 @@ func _ready():
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	print("Waiting for players to join...")
 
+
 func _process(_delta):
 	for device_id in range(8):  # supports up to 8 controllers
 		if _any_gamepad_input(device_id):
@@ -30,6 +31,8 @@ func _any_gamepad_input(device_id: int) -> bool:
 
 func _register_player(device_id: int):
 	PlayerData.add_player(device_id)
+	$Start.show()
+	$Start.grab_focus()
 	$Label.text = str(PlayerData.players)
 
 
@@ -41,5 +44,5 @@ func _on_joy_connection_changed(device_id: int, connected: bool):
 		joined_players.erase(device_id)
 
 
-func _on_button_pressed():
+func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Views/main.tscn")

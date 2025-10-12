@@ -34,3 +34,6 @@ script = ExtResource("6_w5eul")
 asteroid = ExtResource("5_ulv8f")
 big_martian = ExtResource("7_aujwv")
 small_martian = ExtResource("8_pu55j")
+
+[node name="BigMartian" parent="." instance=ExtResource("7_aujwv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14, 0, 0)

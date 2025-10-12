@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	gravitate()
 	
-	global_position += velocity * delta
+	global_position += velocity * delta * 0.75
 
 func get_hit(damage : int = 1):
 	hp -= damage

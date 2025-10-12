@@ -11,7 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6k64v")
 
-[node name="Button" type="Button" parent="."]
+[node name="Start" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,4 +39,4 @@ offset_bottom = 50.000004
 grow_horizontal = 2
 text = "PLAYERDATA"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

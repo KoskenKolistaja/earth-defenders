@@ -1865,4 +1865,18 @@ script = ExtResource("9_apjqm")
 [node name="Timer" type="Timer" parent="HpBar"]
 wait_time = 2.0
 
+[node name="Positions" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="Positions"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="2" type="Node3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="3" type="Node3D" parent="Positions"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="4" type="Node3D" parent="Positions"]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -5, 0)
+
 [connection signal="timeout" from="HpBar/Timer" to="HpBar" method="_on_timer_timeout"]

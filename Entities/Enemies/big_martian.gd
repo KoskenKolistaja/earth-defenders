@@ -24,9 +24,9 @@ func _ready():
 
 func _physics_process(delta):
 	if global_position.x < 0:
-		rotation_degrees.y = -90
+		$Martian.rotation_degrees.y = -90
 	else:
-		rotation_degrees.y = 90
+		$Martian.rotation_degrees.y = 90
 	
 	
 	if not spawning:

@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhh7shqfkqpf3"]
+
+[ext_resource type="Script" uid="uid://bahpebxfxbwdi" path="res://Entities/UI/weapon_selection_panel.gd" id="1_wciot"]
+[ext_resource type="Texture2D" uid="uid://dp3ya8e37pfvj" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_22.png" id="2_dclpn"]
+[ext_resource type="Texture2D" uid="uid://ddofepjgia6xb" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_23.png" id="3_kl0a2"]
+[ext_resource type="Texture2D" uid="uid://4tcjh4le7x7h" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_20.png" id="4_c8olx"]
+[ext_resource type="Texture2D" uid="uid://c3veslpvk13dn" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/2 Frames/Frame_14.png" id="5_oiojl"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="6_i4m0w"]
+
+[node name="WeaponSelectionPanel" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(384, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -64.0
+offset_right = 200.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wciot")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blaster" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_dclpn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="missile_launcher" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_kl0a2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="vacuum_gun" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_c8olx")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Cursor" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.20784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = -760.0
+offset_top = -477.0
+offset_right = -632.0
+offset_bottom = -349.0
+texture = ExtResource("5_oiojl")
+
+[node name="LEFT" type="Label" parent="."]
+visible = false
+layout_mode = 1
+offset_left = -760.0
+offset_top = -476.0
+offset_right = -616.0
+offset_bottom = -431.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i4m0w")
+theme_override_font_sizes/font_size = 32
+text = "   L     "
+
+[node name="RIGHT" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -763.0
+offset_top = -476.0
+offset_right = -667.0
+offset_bottom = -383.0
+theme_override_colors/font_color = Color(0, 0.29999995, 1, 1)
+theme_override_fonts/font = ExtResource("6_i4m0w")
+theme_override_font_sizes/font_size = 32
+text = "     R
+"
+horizontal_alignment = 2

@@ -1,0 +1,80 @@
+extends Control
+
+var player_id = 1
+
+var selected_item = 0
+
+var assigned_weapon_l = null
+var assigned_weapon_r = null
+
+var supervisor
+
+var ready_to_continue = false
+
+
+func _ready():
+	update_cursor_position()
+	$Cursor.show()
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
+		selected_item -= 1
+		if selected_item < 0:
+			selected_item = $HBoxContainer.get_children().size() - 1
+		update_cursor_position()
+	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
+		selected_item += 1
+		if selected_item > $HBoxContainer.get_children().size() -1:
+			selected_item = 0
+		update_cursor_position()
+	
+	if Input.is_action_just_pressed("p%s_shoot1" % player_id):
+		assign_right_weapon()
+	if Input.is_action_just_pressed("p%s_shoot2" % player_id):
+		assign_left_weapon()
+	
+	
+	if Input.is_action_just_pressed("p%s_ready" % player_id):
+		supervisor.player_ready(player_id)
+		queue_free()
+
+func assign_selections():
+	var players = get_tree().get_nodes_in_group("player")
+	
+	if not players:
+		return
+	
+	var player_in_question = null
+	for player in players:
+		if player.player_id == player_id:
+			player_in_question = player
+	
+	if not player_in_question:
+		return
+	
+	
+	if assigned_weapon_r:
+		player_in_question.stored_weapon1 = assigned_weapon_r
+	if assigned_weapon_l:
+		player_in_question.stored_weapon2 = assigned_weapon_l
+	
+	player_in_question.initiate_weapons()
+
+
+func assign_right_weapon():
+	assigned_weapon_r = $HBoxContainer.get_child(selected_item).name
+	print(assigned_weapon_r)
+	$RIGHT.global_position = $HBoxContainer.get_child(selected_item).global_position
+	$RIGHT.show()
+
+func assign_left_weapon():
+	assigned_weapon_l = $HBoxContainer.get_child(selected_item).name
+	print(assigned_weapon_l)
+	$LEFT.global_position = $HBoxContainer.get_child(selected_item).global_position
+	$LEFT.show()
+
+
+
+func update_cursor_position():
+	$Cursor.global_position = $HBoxContainer.get_child(selected_item).global_position
