@@ -7,6 +7,7 @@ var target_acquired = false
 
 var focusing = 0
 
+var loaded = true
 
 const FOCUS_TRESHOLD = 50
 
@@ -73,7 +74,8 @@ func get_closest_item(list):
 func release():
 	if target_acquired:
 		shoot_missile()
-	
+		loaded = false
+		$Timer.start()
 	
 	reset_targeting()
 
@@ -91,3 +93,7 @@ func reset_targeting():
 	target = null
 	$Reticle.hide()
 	focusing = 0
+
+
+func _on_timer_timeout():
+	loaded = true

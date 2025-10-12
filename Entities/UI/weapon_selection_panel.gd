@@ -36,11 +36,14 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("p%s_ready" % player_id):
+		assign_selections()
 		supervisor.player_ready(player_id)
 		queue_free()
 
 func assign_selections():
 	var players = get_tree().get_nodes_in_group("player")
+	
+	print(players)
 	
 	if not players:
 		return
@@ -50,6 +53,7 @@ func assign_selections():
 		if player.player_id == player_id:
 			player_in_question = player
 	
+	print(player_in_question)
 	if not player_in_question:
 		return
 	

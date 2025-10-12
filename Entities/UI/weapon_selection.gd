@@ -9,7 +9,6 @@ var ids = []
 
 
 func _ready():
-	get_parent().pause_space()
 	
 	for item in PlayerData.players:
 		var panel_instance = weapon_selection_panel.instantiate()
@@ -17,8 +16,9 @@ func _ready():
 		panel_instance.supervisor = self
 		$HBoxContainer.add_child(panel_instance)
 		ids.append(item + 1)
-
-
+	
+	await get_tree().create_timer(0.1).timeout
+	get_parent().pause_space()
 
 func player_ready(exported_id):
 	
