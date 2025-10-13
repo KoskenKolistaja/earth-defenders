@@ -8,7 +8,7 @@ const MAX_JOY_AXES := 8
 
 func _ready():
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
-	print("Waiting for players to join...")
+
 
 
 func _process(_delta):

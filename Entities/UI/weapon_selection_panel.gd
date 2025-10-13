@@ -4,6 +4,9 @@ var player_id = 1
 
 var selected_item = 0
 
+var l = null
+var r = null
+
 var assigned_weapon_l = null
 var assigned_weapon_r = null
 
@@ -29,9 +32,9 @@ func _physics_process(delta):
 			selected_item = 0
 		update_cursor_position()
 	
-	if Input.is_action_just_pressed("p%s_shoot1" % player_id):
+	if Input.is_action_just_pressed("p%s_shoot1" % player_id) and not l == selected_item:
 		assign_right_weapon()
-	if Input.is_action_just_pressed("p%s_shoot2" % player_id):
+	if Input.is_action_just_pressed("p%s_shoot2" % player_id) and not r == selected_item:
 		assign_left_weapon()
 	
 	
@@ -71,13 +74,14 @@ func assign_right_weapon():
 	print(assigned_weapon_r)
 	$RIGHT.global_position = $HBoxContainer.get_child(selected_item).global_position
 	$RIGHT.show()
+	r = selected_item
 
 func assign_left_weapon():
 	assigned_weapon_l = $HBoxContainer.get_child(selected_item).name
 	print(assigned_weapon_l)
 	$LEFT.global_position = $HBoxContainer.get_child(selected_item).global_position
 	$LEFT.show()
-
+	l = selected_item
 
 
 func update_cursor_position():
