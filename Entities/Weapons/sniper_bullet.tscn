@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8grsy3bm3s6o"]
+[gd_scene load_steps=7 format=3 uid="uid://btwxbtko631hi"]
 
-[ext_resource type="Script" uid="uid://cde12ga5wtmi5" path="res://Entities/Weapons/bullet.gd" id="1_5gubn"]
-[ext_resource type="Texture2D" uid="uid://cyl848tyhoueh" path="res://Assets/Textures/BlasterShot.png" id="2_m5rde"]
+[ext_resource type="Script" uid="uid://ks6ixob6ku0c" path="res://Entities/Weapons/sniper_bullet.gd" id="1_fynwj"]
+[ext_resource type="Texture2D" uid="uid://cyl848tyhoueh" path="res://Assets/Textures/BlasterShot.png" id="2_6vcy1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5gubn"]
 radius = 0.1
@@ -10,19 +10,19 @@ radius = 0.1
 transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 1, 0, 1)
-albedo_texture = ExtResource("2_m5rde")
+albedo_texture = ExtResource("2_6vcy1")
 emission_enabled = true
 emission = Color(2.4318616, 2.1730304, 0.90660506, 1)
 emission_energy_multiplier = 6.0
 
-[sub_resource type="QuadMesh" id="QuadMesh_m5rde"]
-size = Vector2(0.5, 0.2)
+[sub_resource type="QuadMesh" id="QuadMesh_fynwj"]
+size = Vector2(1, 0.2)
 
-[sub_resource type="QuadMesh" id="QuadMesh_q10k8"]
-size = Vector2(0.5, 0.2)
+[sub_resource type="QuadMesh" id="QuadMesh_6vcy1"]
+size = Vector2(1, 0.2)
 
-[node name="Bullet" type="Area3D"]
-script = ExtResource("1_5gubn")
+[node name="SniperBullet" type="Area3D"]
+script = ExtResource("1_fynwj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5gubn")
@@ -30,12 +30,12 @@ shape = SubResource("SphereShape3D_5gubn")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0.13962409)
 material_override = SubResource("StandardMaterial3D_b61ib")
-mesh = SubResource("QuadMesh_m5rde")
+mesh = SubResource("QuadMesh_fynwj")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, 0, 0, 0.13962409)
 material_override = SubResource("StandardMaterial3D_b61ib")
-mesh = SubResource("QuadMesh_q10k8")
+mesh = SubResource("QuadMesh_6vcy1")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

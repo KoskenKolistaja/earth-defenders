@@ -55,7 +55,7 @@ func die():
 	$GPUParticles3D.emitting = true
 	$AudioStreamPlayer.play()
 	var music : AudioStreamPlayer = get_tree().get_first_node_in_group("music")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5,false).timeout
 	music.stop()
-	await get_tree().create_timer(13.0).timeout
-	get_parent().get_parent().process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(13.0,false).timeout
+	get_parent().get_parent().get_parent().pause_space()

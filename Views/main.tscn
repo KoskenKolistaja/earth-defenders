@@ -20,6 +20,7 @@ script = ExtResource("1_esl2e")
 [node name="Space" parent="." instance=ExtResource("1_8r4uk")]
 
 [node name="HUD" type="Control" parent="." groups=["hud"]]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_y1b1f")
+weapon_selection = ExtResource("6_uuvqm")
 
 [node name="Time" type="Label" parent="HUD"]
 layout_mode = 1
@@ -57,9 +59,6 @@ theme_override_font_sizes/font_size = 44
 horizontal_alignment = 1
 char_interval = 0.03
 line_pause = 0.5
-
-[node name="WeaponSelection" parent="HUD" instance=ExtResource("6_uuvqm")]
-layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312

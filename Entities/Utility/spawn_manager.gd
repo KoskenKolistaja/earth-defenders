@@ -30,7 +30,7 @@ func _ready():
 	recursive_spawn()
 	
 	
-	await get_tree().create_timer(212).timeout
+	await get_tree().create_timer(212,false).timeout
 	spawn_war_fleet()
 
 
@@ -45,7 +45,7 @@ func recursive_spawn():
 	if randf_range(0,1) < 0.05:
 		spawn_big_martian()
 	
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(5,false).timeout
 	recursive_spawn()
 
 

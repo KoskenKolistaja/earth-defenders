@@ -13,10 +13,11 @@ const FOCUS_TRESHOLD = 50
 
 
 func shoot():
-	if not target:
-		target = get_target()
-	else:
-		focus_target()
+	if loaded:
+		if not target:
+			target = get_target()
+		else:
+			focus_target()
 	
 
 func focus_target():
@@ -97,3 +98,4 @@ func reset_targeting():
 
 func _on_timer_timeout():
 	loaded = true
+	$AudioStreamPlayer3.play()

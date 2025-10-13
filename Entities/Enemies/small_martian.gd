@@ -176,7 +176,7 @@ func explode():
 	$Area3D2.call_deferred("queue_free")
 	$Blaster.call_deferred("queue_free")
 	
-	await get_tree().create_timer(50).timeout
+	await get_tree().create_timer(50,false).timeout
 
 
 func fracture():
@@ -203,7 +203,7 @@ func _on_shoot_check_timer_timeout():
 		if item.is_in_group("player"):
 			shooting = true
 			$ShootCheckTimer.stop()
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.5,false).timeout
 			random_position = get_random_position()
 			shooting = false
 			active = false

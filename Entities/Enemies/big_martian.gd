@@ -79,7 +79,7 @@ func _on_spawn_timer_timeout():
 
 func spawn_ship():
 	if ships:
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5,false).timeout
 		var ship_instance = ship.instantiate()
 		ship_instance.initial_direction = -$Martian.basis.x
 		var objects = get_tree().get_first_node_in_group("objects")

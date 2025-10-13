@@ -10,7 +10,7 @@ var acceleration = 0.1
 @export var explosion : PackedScene
 
 func _ready():
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(5,false).timeout
 	explode()
 
 

@@ -13,7 +13,7 @@ var use_line_pause: bool = false	# flag to pause *after* showing a newline
 
 func _ready():
 	start()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(5,false).timeout
 	hide()
 
 

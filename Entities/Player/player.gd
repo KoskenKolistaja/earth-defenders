@@ -43,6 +43,10 @@ func initiate_weapons():
 	change_weapon2(stored_weapon2)
 
 func change_weapon1(weapon_name : String):
+	
+	if not ItemData.weapons.has(weapon_name):
+		return
+	
 	var weapons = $Weapon1.get_children()
 	for item in weapons:
 		item.queue_free()
@@ -51,6 +55,10 @@ func change_weapon1(weapon_name : String):
 	$Weapon1.add_child(weapon_instance)
 
 func change_weapon2(weapon_name : String):
+	
+	if not ItemData.weapons.has(weapon_name):
+		return
+	
 	var weapons = $Weapon2.get_children()
 	for item in weapons:
 		item.queue_free()
@@ -60,15 +68,20 @@ func change_weapon2(weapon_name : String):
 
 
 func handle_actions():
-	if Input.is_action_pressed("p%s_shoot1" % player_id):
-		$Weapon1.get_child(0).shoot()
-	if Input.is_action_pressed("p%s_shoot2" % player_id):
-		$Weapon2.get_child(0).shoot()
-	if Input.is_action_just_released("p%s_shoot1" % player_id):
-		$Weapon1.get_child(0).release()
-	if Input.is_action_just_released("p%s_shoot2" % player_id):
-		$Weapon2.get_child(0).release()
-
+	var weapon1 = $Weapon1.get_child(0) if $Weapon1.get_child_count() > 0 else null
+	var weapon2 = $Weapon2.get_child(0) if $Weapon2.get_child_count() > 0 else null
+	
+	if weapon1:
+		if Input.is_action_pressed("p%s_shoot1" % player_id):
+			weapon1.shoot()
+		elif Input.is_action_just_released("p%s_shoot1" % player_id):
+			weapon1.release()
+			
+	if weapon2:
+		if Input.is_action_pressed("p%s_shoot2" % player_id):
+			weapon2.shoot()
+		elif Input.is_action_just_released("p%s_shoot2" % player_id):
+			weapon2.release()
 
 func get_hit(damage : int = 100):
 	hp -= damage

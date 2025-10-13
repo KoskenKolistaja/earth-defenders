@@ -1,5 +1,6 @@
 extends Control
 
+
 @export var weapon_selection_panel : PackedScene
 
 
@@ -17,7 +18,7 @@ func _ready():
 		$HBoxContainer.add_child(panel_instance)
 		ids.append(item + 1)
 	
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1,false).timeout
 	get_parent().pause_space()
 
 func player_ready(exported_id):
@@ -30,3 +31,4 @@ func player_ready(exported_id):
 
 func scene_ready():
 	get_parent().unpause_space()
+	queue_free()
