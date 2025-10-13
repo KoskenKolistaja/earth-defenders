@@ -8,8 +8,12 @@ extends Node3D
 func get_random_position():
 	var origin = Vector3(0, 0, 0)
 	var distance = 70
-	var random_angle = randf() * TAU
-	var direction = Vector3(cos(random_angle), sin(random_angle), 0)
+	var random_x = randf_range(30,50)
+	var random_y = randf_range(-50,50)
+	if randf_range(0,1) < 0.5:
+		random_x *= -1
+	
+	var direction = Vector3(random_x,random_y,0).normalized()
 	var target_position = origin + direction * distance
 	
 	return target_position

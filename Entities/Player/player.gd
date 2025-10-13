@@ -88,6 +88,12 @@ func get_hit(damage : int = 100):
 	if hp <= 0:
 		die()
 
+func heal(amount):
+	hp += amount
+	hp = clamp(hp,-100,100)
+
+
+
 func die():
 	explode()
 

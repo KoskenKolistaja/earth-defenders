@@ -6,6 +6,12 @@ var direction : Vector3 = Vector3.UP
 var speed : float = 0.3
 var damage : int = 1
 
+
+var shooter
+var weapon_ref
+
+
+
 func  _ready():
 	await get_tree().create_timer(1.2,false).timeout
 	queue_free()
@@ -22,12 +28,18 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body.has_method("get_hit"):
+	if body.is_in_group("bullet_damaged"):
 		body.get_hit(damage)
+		if body.hp <= 0:
+			if weapon_ref:
+				weapon_ref.award_xp(1)
 	queue_free()
 
 
 func _on_area_entered(area):
-	if area.has_method("get_hit"):
+	if area.is_in_group("bullet_damaged"):
 		area.get_hit(damage)
+		if area.hp <= 0:
+			if weapon_ref:
+				weapon_ref.award_xp(1)
 	queue_free()

@@ -600,7 +600,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fyl6d")
 
-[node name="SmallMartian" type="CharacterBody3D"]
+[node name="SmallMartian" type="CharacterBody3D" groups=["bullet_damaged"]]
 collision_layer = 17
 collision_mask = 0
 script = ExtResource("1_djnk5")

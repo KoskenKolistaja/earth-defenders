@@ -90,7 +90,7 @@ mesh = SubResource("ArrayMesh_oa5d6")
 skeleton = NodePath("")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.2
 one_shot = true
 
 [node name="Barrel" type="Node3D" parent="."]

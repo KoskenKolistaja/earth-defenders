@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=185 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://24u3csu8n0re" path="res://Assets/SFX/EarthBoom.ogg" id="7_yadye"]
 [ext_resource type="Script" uid="uid://cpwgb856erwvs" path="res://Entities/Bodies/death_area.gd" id="8_p5bix"]
 [ext_resource type="Script" uid="uid://bfmlaqt86ysvu" path="res://Entities/Bodies/hp_bar.gd" id="9_apjqm"]
+[ext_resource type="PackedScene" uid="uid://dsrenu45eux01" path="res://Entities/Buildings/repair_station.tscn" id="10_8w3be"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
 albedo_texture = ExtResource("1_uyjwy")
@@ -1869,6 +1870,8 @@ wait_time = 2.0
 
 [node name="1" type="Node3D" parent="Positions"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="RepairStation" parent="Positions/1" instance=ExtResource("10_8w3be")]
 
 [node name="2" type="Node3D" parent="Positions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)

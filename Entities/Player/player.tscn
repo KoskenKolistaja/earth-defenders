@@ -279,7 +279,7 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_5c2io"]
 material = SubResource("StandardMaterial3D_4wf4l")
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" groups=["bullet_damaged", "player"]]
 collision_layer = 33
 axis_lock_linear_z = true
 script = ExtResource("1_mv1ah")

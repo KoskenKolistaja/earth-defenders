@@ -56,7 +56,7 @@ shadow_mesh = SubResource("ArrayMesh_i87gi")
 [sub_resource type="SphereShape3D" id="SphereShape3D_3h6nn"]
 radius = 0.4
 
-[node name="Asteroid" type="Area3D"]
+[node name="Asteroid" type="Area3D" groups=["bullet_damaged"]]
 collision_layer = 81
 script = ExtResource("1_ue7e0")
 explosion = ExtResource("2_3h6nn")
