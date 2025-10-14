@@ -26,6 +26,8 @@ var gravitation_strength = 0.02
 func _ready():
 	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).albedo_color = player_color
 	$Pivot/Spaceship/Cube_003.get_surface_override_material(3).emission = player_color
+	
+	await get_tree().physics_frame
 	initiate_weapons()
 
 func _physics_process(delta):
@@ -36,6 +38,16 @@ func _physics_process(delta):
 	gravitate()
 	
 	move_and_slide()
+
+
+func check_for_weapon():
+	if $left_weapon.get_children().size() < 1:
+		var autolabel = get_tree().get_first_node_in_group("auto_label")
+		
+		autolabel.text_to_display = "Player " + str(player_id) + " awarded with secondary weapon!"
+		autolabel.start()
+		change_weapon_left("blaster")
+
 
 
 func initiate_weapons():
@@ -73,15 +85,15 @@ func handle_actions():
 	var right_weapon = $right_weapon.get_child(0) if $right_weapon.get_child_count() > 0 else null
 	
 	if left_weapon:
-		if Input.is_action_pressed("p%s_shoot1" % player_id):
+		if Input.is_action_pressed("p%s_shoot_left" % player_id):
 			left_weapon.shoot()
-		elif Input.is_action_just_released("p%s_shoot1" % player_id):
+		elif Input.is_action_just_released("p%s_shoot_left" % player_id):
 			left_weapon.release()
 			
 	if right_weapon:
-		if Input.is_action_pressed("p%s_shoot2" % player_id):
+		if Input.is_action_pressed("p%s_shoot_right" % player_id):
 			right_weapon.shoot()
-		elif Input.is_action_just_released("p%s_shoot2" % player_id):
+		elif Input.is_action_just_released("p%s_shoot_right" % player_id):
 			right_weapon.release()
 
 func get_hit(damage : int = 100):

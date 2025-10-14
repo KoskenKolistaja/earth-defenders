@@ -284,7 +284,7 @@ collision_layer = 33
 axis_lock_linear_z = true
 script = ExtResource("1_mv1ah")
 explosion = ExtResource("2_5c2io")
-stored_weapon_left = "blaster"
+stored_weapon_right = "blaster"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ix6vc")

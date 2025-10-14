@@ -1,5 +1,6 @@
 extends Label
 
+
 @export var text_to_display: String = "War declared by the Martians"
 @export var char_interval: float = 0.08	# time between characters
 @export var line_pause: float = 0.5		# extra wait time after line breaks
@@ -11,13 +12,14 @@ var audio_player := AudioStreamPlayer.new()
 var use_line_pause: bool = false	# flag to pause *after* showing a newline
 
 
+
+
 func _ready():
 	start()
-	await get_tree().create_timer(5,false).timeout
-	hide()
 
 
 func start():
+	show()
 	timer.wait_time = char_interval
 	timer.autostart = true
 	timer.one_shot = false
@@ -34,7 +36,8 @@ func start():
 	current_index = 0
 	
 	timer.start()
-
+	await get_tree().create_timer(5,false).timeout
+	hide()
 
 func _on_timer_timeout() -> void:
 	if current_index < text_to_display.length():

@@ -13,7 +13,7 @@ var bullet_damage = 2
 var penetration = false
 
 var xp = 0
-var xp_needed = 2
+var xp_needed = 10
 
 var fly_time = 1.2
 
@@ -66,7 +66,7 @@ func upgrade_weapon():
 
 
 func to_sniper():
-	$Timer.wait_time = 0.3
+	$Timer.wait_time = 0.5
 	bullet_velocity = 0.7
 	bullet_damage = 5
 	self.name = "sniper"
@@ -80,6 +80,7 @@ func to_super_sniper():
 	self.name = "super_sniper"
 	fly_time = 5
 	$AudioStreamPlayer.stream = rifle_sound
+	get_parent().get_parent().check_for_weapon()
 
 func release():
 	pass

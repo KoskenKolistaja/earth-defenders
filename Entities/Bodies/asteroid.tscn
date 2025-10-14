@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dbie15kbtglpv"]
+[gd_scene load_steps=19 format=4 uid="uid://dbie15kbtglpv"]
 
 [ext_resource type="Texture2D" uid="uid://cci22tqfns4kr" path="res://Assets/Models/Asteroids_Ucupaint Cube Color.png" id="1_4mbvo"]
 [ext_resource type="Script" uid="uid://m7r55w3vred7" path="res://Entities/Bodies/asteroid.gd" id="1_ue7e0"]
@@ -54,7 +54,59 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_i87gi")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3h6nn"]
-radius = 0.4
+radius = 0.60291165
+
+[sub_resource type="Gradient" id="Gradient_3h6nn"]
+offsets = PackedFloat32Array(0, 0.569106, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.230315, 0.230315, 0.230315, 0.691057, 0.111197, 0.111197, 0.111197, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cqalb"]
+gradient = SubResource("Gradient_3h6nn")
+
+[sub_resource type="Curve" id="Curve_uawpu"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1340782, 3.1460676), 0.0, 0.0, 0, 0, Vector2(1, 0.5617981), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nhhbk"]
+curve = SubResource("Curve_uawpu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nwum6"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_nhhbk")
+color_ramp = SubResource("GradientTexture1D_cqalb")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3h6nn"]
+load_path = "res://.godot/imported/Smoke30Frames_0.png-2b8e9f9b1e8e2e989d9a501267f32ea8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqalb"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+albedo_texture = SubResource("CompressedTexture2D_3h6nn")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+grow_amount = -0.752
+
+[sub_resource type="QuadMesh" id="QuadMesh_uawpu"]
+material = SubResource("StandardMaterial3D_cqalb")
+size = Vector2(0.5, 0.5)
 
 [node name="Asteroid" type="Area3D" groups=["bullet_damaged"]]
 collision_layer = 81
@@ -62,13 +114,16 @@ script = ExtResource("1_ue7e0")
 explosion = ExtResource("2_3h6nn")
 
 [node name="Asteroid" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = SubResource("ArrayMesh_o7u3e")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("SphereShape3D_3h6nn")
 
 [node name="nozzle" parent="." instance=ExtResource("6_3h6nn")]
+process_material = SubResource("ParticleProcessMaterial_nwum6")
+draw_pass_1 = SubResource("QuadMesh_uawpu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

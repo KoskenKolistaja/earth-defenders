@@ -37,6 +37,16 @@ func _ready():
 		target_player = players[randi_range(0,players.size()-1)]
 	
 	
+	change_weapon_randomly()
+
+
+
+func change_weapon_randomly():
+	if randf_range(0,1) < 0.3:
+		$weapon/Blaster.to_machine_gun()
+	elif randf_range(0,1) < 0.1:
+		$weapon/Blaster.to_sentinel()
+
 
 
 
@@ -50,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if shooting:
-		$Blaster.shoot()
+		$weapon.get_child(0).shoot()
 	
 	
 	if active:
@@ -174,7 +184,7 @@ func explode():
 	$ActivationTimer.call_deferred("queue_free")
 	$Area3D.call_deferred("queue_free")
 	$Area3D2.call_deferred("queue_free")
-	$Blaster.call_deferred("queue_free")
+	$weapon.call_deferred("queue_free")
 	
 	await get_tree().create_timer(50,false).timeout
 

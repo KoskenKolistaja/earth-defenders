@@ -50,7 +50,14 @@ func initiate_selection(weapon_name):
 			machine_gun()
 		"rifle":
 			rifle()
-
+		"sentinel":
+			pass
+		"vacuum_gun":
+			pass
+		"rocket_launcher":
+			pass
+		"sniper":
+			pass
 
 
 
@@ -153,5 +160,6 @@ func change_to_rifle():
 		player.change_weapon_left("rifle")
 	else:
 		player.change_weapon_right("rifle")
+	
 	
 	queue_free()

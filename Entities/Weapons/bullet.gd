@@ -13,7 +13,7 @@ var weapon_ref
 
 
 func  _ready():
-	await get_tree().create_timer(1.2,false).timeout
+	await get_tree().create_timer(1,false).timeout
 	queue_free()
 
 
