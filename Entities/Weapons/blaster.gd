@@ -9,17 +9,14 @@ var loaded = true
 var damage = 1
 
 var xp = 0
-var level = 1
 
-var xp_levels = [10,20,30,40]
-var xp_needed
+var xp_needed = 2
 
 var index = 0
 
+var player_id
 
 
-func _ready():
-	xp_needed = xp_levels[index]
 
 
 func shoot():
@@ -39,16 +36,6 @@ func shoot():
 		$AudioStreamPlayer.play()
 
 
-func award_xp(amount : int = 1):
-	xp += amount
-	
-	if xp >= xp_needed:
-		level += 1
-		index += 1
-		if not xp_levels.get(index):
-			return
-		xp_needed = xp_levels[index]
-		upgrade_weapon()
 
 func release():
 	pass
@@ -58,16 +45,44 @@ func _on_timer_timeout():
 
 
 
+func award_xp(amount : int = 1):
+	xp += amount
+	
+	
+	if self.name == "sentinel":
+		to_minigun()
+		return
+	if self.name == "minigun":
+		return
+	
+	if xp >= xp_needed:
+		upgrade_weapon()
 
 
 func upgrade_weapon():
 	
-	match level:
-		1:
-			pass
-		2:
-			$Timer.wait_time = 0.15
-		3:
-			$Timer.wait_time = 0.1
-		4:
-			$Timer.wait_time = 0.05
+	xp = 0
+	
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	
+	
+	var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
+	upgrade_manager.spawn_upgrade_panel((player_id+1),self,left)
+
+
+func to_machine_gun():
+	$Timer.wait_time = 0.15
+	self.name = "machine_gun"
+
+func to_sentinel():
+	$Timer.wait_time = 0.1
+	damage = 2
+	self.name = "sentinel"
+
+func to_minigun():
+	$Timer.wait_time = 0.04
+	damage = 1
+	self.name = "minigun"

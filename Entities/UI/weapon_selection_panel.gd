@@ -62,9 +62,9 @@ func assign_selections():
 	
 	
 	if assigned_weapon_r:
-		player_in_question.stored_weapon1 = assigned_weapon_r
+		player_in_question.stored_weapon_left = assigned_weapon_r
 	if assigned_weapon_l:
-		player_in_question.stored_weapon2 = assigned_weapon_l
+		player_in_question.stored_weapon_right = assigned_weapon_l
 	
 	player_in_question.initiate_weapons()
 

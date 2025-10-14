@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=10 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cdmq51s3tga5a" path="res://Entities/HUD/Utility/auto_label.tscn" id="3_s1q8p"]
 [ext_resource type="FontFile" uid="uid://crppnyfkhwx6t" path="res://Assets/Fonts/VT323-Regular.ttf" id="4_uuvqm"]
 [ext_resource type="PackedScene" uid="uid://bergkjhvvnw8o" path="res://Entities/UI/weapon_selection.tscn" id="6_uuvqm"]
+[ext_resource type="Script" uid="uid://dofm8suqgkb3m" path="res://Views/upgrade_manager.gd" id="7_66fu7"]
+[ext_resource type="PackedScene" uid="uid://bp60rljnnygaf" path="res://Entities/UI/weapon_upgrade.tscn" id="8_nv5st"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -59,6 +61,13 @@ theme_override_font_sizes/font_size = 44
 horizontal_alignment = 1
 char_interval = 0.03
 line_pause = 0.5
+
+[node name="UpgradeManager" type="Control" parent="HUD" groups=["upgrade_manager"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_66fu7")
+upgrade_panel = ExtResource("8_nv5st")
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312

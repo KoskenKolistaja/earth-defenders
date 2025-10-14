@@ -5,8 +5,8 @@ extends CharacterBody3D
 
 @export var explosion : PackedScene
 
-@export var stored_weapon1 : String
-@export var stored_weapon2 : String
+@export var stored_weapon_left : String
+@export var stored_weapon_right : String
 
 var hp = 100
 
@@ -39,49 +39,50 @@ func _physics_process(delta):
 
 
 func initiate_weapons():
-	change_weapon1(stored_weapon1)
-	change_weapon2(stored_weapon2)
+	change_weapon_left(stored_weapon_left)
+	change_weapon_right(stored_weapon_right)
 
-func change_weapon1(weapon_name : String):
+func change_weapon_left(weapon_name : String):
 	
 	if not ItemData.weapons.has(weapon_name):
 		return
 	
-	var weapons = $Weapon1.get_children()
+	var weapons = $left_weapon.get_children()
 	for item in weapons:
 		item.queue_free()
 	
 	var weapon_instance = ItemData[weapon_name].instantiate()
-	$Weapon1.add_child(weapon_instance)
+	weapon_instance.player_id = player_id
+	$left_weapon.add_child(weapon_instance)
 
-func change_weapon2(weapon_name : String):
+func change_weapon_right(weapon_name : String):
 	
 	if not ItemData.weapons.has(weapon_name):
 		return
 	
-	var weapons = $Weapon2.get_children()
+	var weapons = $right_weapon.get_children()
 	for item in weapons:
 		item.queue_free()
-	
 	var weapon_instance = ItemData[weapon_name].instantiate()
-	$Weapon2.add_child(weapon_instance)
+	weapon_instance.player_id = player_id
+	$right_weapon.add_child(weapon_instance)
 
 
 func handle_actions():
-	var weapon1 = $Weapon1.get_child(0) if $Weapon1.get_child_count() > 0 else null
-	var weapon2 = $Weapon2.get_child(0) if $Weapon2.get_child_count() > 0 else null
+	var left_weapon = $left_weapon.get_child(0) if $left_weapon.get_child_count() > 0 else null
+	var right_weapon = $right_weapon.get_child(0) if $right_weapon.get_child_count() > 0 else null
 	
-	if weapon1:
+	if left_weapon:
 		if Input.is_action_pressed("p%s_shoot1" % player_id):
-			weapon1.shoot()
+			left_weapon.shoot()
 		elif Input.is_action_just_released("p%s_shoot1" % player_id):
-			weapon1.release()
+			left_weapon.release()
 			
-	if weapon2:
+	if right_weapon:
 		if Input.is_action_pressed("p%s_shoot2" % player_id):
-			weapon2.shoot()
+			right_weapon.shoot()
 		elif Input.is_action_just_released("p%s_shoot2" % player_id):
-			weapon2.release()
+			right_weapon.release()
 
 func get_hit(damage : int = 100):
 	hp -= damage

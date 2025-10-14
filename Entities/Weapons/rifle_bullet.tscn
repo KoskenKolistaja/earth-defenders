@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://btwxbtko631hi"]
 
-[ext_resource type="Script" uid="uid://ks6ixob6ku0c" path="res://Entities/Weapons/sniper_bullet.gd" id="1_fynwj"]
+[ext_resource type="Script" uid="uid://ks6ixob6ku0c" path="res://Entities/Weapons/rifle_bullet.gd" id="1_fynwj"]
 [ext_resource type="Texture2D" uid="uid://cyl848tyhoueh" path="res://Assets/Textures/BlasterShot.png" id="2_6vcy1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5gubn"]

@@ -1568,7 +1568,7 @@ shape = SubResource("SphereShape3D_3jv0l")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pivot"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pivot" groups=["non_penetratable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
 collision_layer = 3
 

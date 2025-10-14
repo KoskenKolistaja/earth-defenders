@@ -72,7 +72,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h37ow")
 
-[node name="Blaster" type="Node3D"]
+[node name="blaster" type="Node3D"]
 script = ExtResource("1_4523r")
 bullet = ExtResource("2_q7cw6")
 

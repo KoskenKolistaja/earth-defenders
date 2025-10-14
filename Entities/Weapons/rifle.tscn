@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://c0ij8e78v0kct"]
+[gd_scene load_steps=11 format=4 uid="uid://c0ij8e78v0kct"]
 
-[ext_resource type="Script" uid="uid://b7u1w28jpxoy3" path="res://Entities/Weapons/sniper.gd" id="1_an2v4"]
-[ext_resource type="PackedScene" uid="uid://btwxbtko631hi" path="res://Entities/Weapons/sniper_bullet.tscn" id="2_6vn8n"]
-[ext_resource type="AudioStream" uid="uid://cruy7t57d4a0i" path="res://Assets/SFX/blaster2.ogg" id="2_an2v4"]
+[ext_resource type="Script" uid="uid://b7u1w28jpxoy3" path="res://Entities/Weapons/rifle.gd" id="1_scshn"]
+[ext_resource type="PackedScene" uid="uid://btwxbtko631hi" path="res://Entities/Weapons/rifle_bullet.tscn" id="2_r3h7t"]
+[ext_resource type="AudioStream" uid="uid://cruy7t57d4a0i" path="res://Assets/SFX/blaster2.ogg" id="3_efvb6"]
+[ext_resource type="AudioStream" uid="uid://cfy1and5sa0dq" path="res://Assets/SFX/blaster.mp3" id="3_scshn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mjyh"]
 
@@ -72,9 +73,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h37ow")
 
-[node name="Sniper" type="Node3D"]
-script = ExtResource("1_an2v4")
-sniper_bullet = ExtResource("2_6vn8n")
+[node name="rifle" type="Node3D"]
+script = ExtResource("1_scshn")
+rifle_bullet = ExtResource("2_r3h7t")
+rifle_sound = ExtResource("3_efvb6")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.811315)
@@ -90,14 +92,14 @@ mesh = SubResource("ArrayMesh_oa5d6")
 skeleton = NodePath("")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="Barrel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4086785)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_an2v4")
+stream = ExtResource("3_scshn")
 volume_db = -11.107
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

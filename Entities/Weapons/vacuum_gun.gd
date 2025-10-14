@@ -1,6 +1,13 @@
 extends Node3D
 
-var strength = 5
+var strength = 2
+
+var player_id
+
+var xp = 0
+
+var xp_needed = 10
+
 
 func shoot():
 	var bodies = $VacuumArea.get_overlapping_areas()
@@ -35,6 +42,27 @@ func _on_collect_area_body_entered(body):
 	body.queue_free()
 
 
+func award_xp(amount : int = 1):
+	xp += amount
+	
+	if xp >= xp_needed and not self.name == "hoover":
+		to_hoover()
+
+
+func upgrade_weapon():
+	
+	xp = 0
+	
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	
+	
+	var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
+	upgrade_manager.spawn_upgrade_panel((player_id+1),self,left)
+
+
 
 
 func reward_money():
@@ -43,6 +71,11 @@ func reward_money():
 
 func _on_collect_area_area_entered(area):
 	reward_money()
-	
+	award_xp(1)
 	
 	area.queue_free()
+
+
+func to_hoover():
+	strength = 5
+	self.name = "hoover"

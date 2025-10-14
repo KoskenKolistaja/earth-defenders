@@ -27,7 +27,7 @@ environment = ExtResource("2_pu55j")
 
 [node name="Objects" type="Node3D" parent="." groups=["objects"]]
 
-[node name="Earth" parent="Objects" instance=ExtResource("2_81phd")]
+[node name="Earth" parent="Objects" groups=["non_penetratable"] instance=ExtResource("2_81phd")]
 
 [node name="SpawnManager" type="Node3D" parent="Objects"]
 script = ExtResource("6_w5eul")
