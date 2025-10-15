@@ -9,6 +9,10 @@ var acceleration = 0.1
 
 @export var explosion : PackedScene
 
+var shooter
+var weapon_ref
+
+
 func _ready():
 	await get_tree().create_timer(5,false).timeout
 	explode()
@@ -41,12 +45,22 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if area.has_method("get_hit"):
 		area.get_hit(5)
+		if area.hp <= 0:
+			if weapon_ref:
+				weapon_ref.award_xp(1)
+				var hud = get_tree().get_first_node_in_group("hud")
+				hud.add_money(1)
 	explode()
 
 
 func _on_body_entered(body):
 	if body.has_method("get_hit"):
 		body.get_hit(5)
+		if body.hp <= 0:
+			if weapon_ref:
+				weapon_ref.award_xp(1)
+				var hud = get_tree().get_first_node_in_group("hud")
+				hud.add_money(1)
 	explode()
 
 

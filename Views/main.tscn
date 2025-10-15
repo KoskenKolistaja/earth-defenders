@@ -63,11 +63,40 @@ char_interval = 0.03
 line_pause = 0.5
 
 [node name="UpgradeManager" type="Control" parent="HUD" groups=["upgrade_manager"]]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -138.0
+offset_right = 20.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("7_66fu7")
 upgrade_panel = ExtResource("8_nv5st")
+
+[node name="FacilityManager" type="Control" parent="HUD" groups=["facility_manager"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Money" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 224.0
+offset_top = 10.0
+offset_right = 378.0003
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "MONEY : 0$"
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312

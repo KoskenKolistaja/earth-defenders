@@ -8,13 +8,13 @@ var loaded = true
 
 var damage = 1
 
-var xp = 0
 
-var xp_needed = 10
+var xp = 0
+var xp_needed = 1
+var player_id
 
 var index = 0
 
-var player_id
 
 var spread = 0
 
@@ -30,7 +30,6 @@ func shoot():
 		var bullet_instance = bullet.instantiate()
 		
 		var direction = (-$Barrel.global_transform.basis.z + Vector3(randf_range(-spread,spread),randf_range(-spread,spread),0)).normalized()
-		bullet_instance.shooter = self.get_parent() # the ship that fired
 		bullet_instance.weapon_ref = self           # reference to the weapon node
 		bullet_instance.damage = damage
 		bullet_instance.direction = direction
@@ -56,11 +55,6 @@ func award_xp(amount : int = 1):
 	xp += amount
 	
 	
-	if self.name == "sentinel":
-		to_minigun()
-		return
-	if self.name == "minigun":
-		return
 	
 	if xp >= xp_needed:
 		upgrade_weapon()
@@ -68,9 +62,12 @@ func award_xp(amount : int = 1):
 
 func upgrade_weapon():
 	
+	if self.name == "minigun":
+		return
+	
+	
 	xp = 0
 	
-	xp_needed *= 2
 	
 	var left = false
 	
@@ -79,8 +76,9 @@ func upgrade_weapon():
 	
 	print("Blasterissa player_id on: " +str(player_id))
 	
-	var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
-	upgrade_manager.spawn_upgrade_panel((player_id),self,left)
+	if player_id:
+		var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
+		upgrade_manager.spawn_upgrade_panel((player_id),self,left)
 
 
 func to_machine_gun():

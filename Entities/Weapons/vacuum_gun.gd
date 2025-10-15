@@ -67,7 +67,8 @@ func upgrade_weapon():
 
 func reward_money():
 	$AudioStreamPlayer.play()
-
+	var hud = get_tree().get_first_node_in_group("hud")
+	hud.add_money(1)
 
 func _on_collect_area_area_entered(area):
 	reward_money()
@@ -79,3 +80,5 @@ func _on_collect_area_area_entered(area):
 func to_hoover():
 	strength = 5
 	self.name = "hoover"
+	if player_id:
+		get_parent().get_parent().check_for_weapon()

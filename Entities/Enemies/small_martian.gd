@@ -52,7 +52,6 @@ func change_weapon_randomly():
 
 
 
-
 func _physics_process(delta: float) -> void:
 	
 	if dead:
@@ -154,10 +153,16 @@ func get_hit(damage: int = 5) -> void:
 	hp -= damage
 	if hp <= 0:
 		die()
+	elif hp < 4:
+		wreck()
 
 func die() -> void:
 	explode()
 
+
+func wreck():
+	$SmokeParticles.emitting = true
+	speed = 1.5
 
 
 

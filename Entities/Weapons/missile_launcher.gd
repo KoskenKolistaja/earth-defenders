@@ -9,6 +9,8 @@ var focusing = 0
 
 var loaded = true
 
+var player_id
+
 const FOCUS_TRESHOLD = 50
 
 

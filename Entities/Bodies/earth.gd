@@ -43,6 +43,13 @@ func get_hit(damage : int = 5):
 	if hp <= 0 and not dead:
 		die()
 
+func heal(amount : int = 1):
+	hp += amount
+	
+	if not hp == 100:
+		show_hp()
+	hp = clamp(hp,-100,100)
+
 
 func die():
 	$HpBar.active = false

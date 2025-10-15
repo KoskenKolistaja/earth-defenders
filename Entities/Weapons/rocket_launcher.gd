@@ -4,6 +4,12 @@ extends Node3D
 
 var loaded = true
 
+
+var xp = 0
+var xp_needed = 1
+var player_id
+
+
 func shoot():
 	if loaded:
 		shoot_missile()
@@ -18,10 +24,40 @@ func shoot_missile():
 	missile_instance.global_rotation = self.global_rotation
 	missile_instance.target = null
 	missile_instance.speed = 0.4
+	missile_instance.weapon_ref = self
 	objects.add_child(missile_instance)
 	missile_instance.global_position = self.global_position
 	loaded = false
 	$LoadTimer.start()
+
+
+
+func award_xp(amount : int = 1):
+	xp += amount
+	
+	
+	
+	if xp >= xp_needed:
+		upgrade_weapon()
+
+
+func upgrade_weapon():
+	
+	xp = 0
+	
+	xp_needed *= 2
+	
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	
+	
+	var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
+	upgrade_manager.spawn_upgrade_panel((player_id),self,left)
+
+
+
 
 func _on_load_timer_timeout():
 	loaded = true

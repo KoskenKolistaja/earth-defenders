@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx8vhle5xtywy"]
+
+[ext_resource type="Script" uid="uid://4sa0jkri5ypr" path="res://Entities/UI/facility_purchase.gd" id="1_hvmme"]
+
+[node name="FacilityPurchase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvmme")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(640, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

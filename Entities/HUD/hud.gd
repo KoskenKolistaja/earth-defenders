@@ -6,7 +6,11 @@ extends Control
 
 var time = 2025
 
+var money : int = 0
 
+
+func _ready():
+	update_money()
 
 
 func _physics_process(delta):
@@ -35,6 +39,13 @@ func unpause_space():
 
 
 
+
+func add_money(amount : int):
+	money += amount
+	update_money()
+
+func update_money():
+	$Money.text = "Money: " + str(money) + "$"
 
 
 func update_time():

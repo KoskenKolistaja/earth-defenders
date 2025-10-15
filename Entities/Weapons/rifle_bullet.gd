@@ -31,6 +31,8 @@ func _on_body_entered(body):
 		if body.hp <= 0:
 			if weapon_ref:
 				weapon_ref.award_xp(1)
+				var hud = get_tree().get_first_node_in_group("hud")
+				hud.add_money(1)
 	if not penetration:
 		queue_free()
 	
@@ -43,6 +45,8 @@ func _on_area_entered(area):
 		if area.hp <= 0:
 			if weapon_ref:
 				weapon_ref.award_xp(1)
+				var hud = get_tree().get_first_node_in_group("hud")
+				hud.add_money(1)
 	if not penetration:
 		queue_free()
 	if area.is_in_group("non_penetratable"):

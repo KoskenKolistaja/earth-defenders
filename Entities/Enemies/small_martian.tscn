@@ -1,10 +1,11 @@
-[gd_scene load_steps=43 format=4 uid="uid://n4bmvhrg6lyu"]
+[gd_scene load_steps=52 format=4 uid="uid://n4bmvhrg6lyu"]
 
 [ext_resource type="Script" uid="uid://yl0g7ahvyc50" path="res://Entities/Enemies/small_martian.gd" id="1_djnk5"]
 [ext_resource type="PackedScene" uid="uid://dg5ago5c5sw8p" path="res://Entities/Weapons/blaster.tscn" id="2_2swpy"]
 [ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="2_8ufau"]
 [ext_resource type="Script" uid="uid://bp4n0lpiw0qtp" path="res://Entities/Enemies/fractured_small_martian.gd" id="4_keeo7"]
 [ext_resource type="Script" uid="uid://dtrvhffajpg6w" path="res://Entities/Enemies/fracture.gd" id="5_igep0"]
+[ext_resource type="PackedScene" uid="uid://0kixacobjpl5" path="res://Entities/FX/nozzle.tscn" id="6_4veeu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp2tf"]
 resource_name = "Material"
@@ -600,6 +601,58 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fyl6d")
 
+[sub_resource type="Gradient" id="Gradient_4veeu"]
+offsets = PackedFloat32Array(0, 0.569106, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.230315, 0.230315, 0.230315, 0.691057, 0.111197, 0.111197, 0.111197, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gdxhq"]
+gradient = SubResource("Gradient_4veeu")
+
+[sub_resource type="Curve" id="Curve_5grfr"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1340782, 3.1460676), 0.0, 0.0, 0, 0, Vector2(1, 0.5617981), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_llb3o"]
+curve = SubResource("Curve_5grfr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ys40f"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_llb3o")
+color_ramp = SubResource("GradientTexture1D_gdxhq")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tmbdi"]
+load_path = "res://.godot/imported/Smoke30Frames_0.png-2b8e9f9b1e8e2e989d9a501267f32ea8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hnt2"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+albedo_texture = SubResource("CompressedTexture2D_tmbdi")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+grow_amount = -0.752
+
+[sub_resource type="QuadMesh" id="QuadMesh_ykaes"]
+material = SubResource("StandardMaterial3D_5hnt2")
+size = Vector2(0.5, 0.5)
+
 [node name="SmallMartian" type="CharacterBody3D" groups=["bullet_damaged"]]
 collision_layer = 17
 collision_mask = 0
@@ -800,6 +853,12 @@ disabled = true
 
 [node name="Blaster" parent="weapon" instance=ExtResource("2_2swpy")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.7142135, -0.03561601)
+
+[node name="SmokeParticles" parent="." instance=ExtResource("6_4veeu")]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_ys40f")
+draw_pass_1 = SubResource("QuadMesh_ykaes")
 
 [connection signal="timeout" from="ActivationTimer" to="." method="_on_activation_timer_timeout"]
 [connection signal="timeout" from="ShootCheckTimer" to="." method="_on_shoot_check_timer_timeout"]

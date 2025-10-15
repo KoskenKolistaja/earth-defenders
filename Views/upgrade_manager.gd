@@ -16,4 +16,4 @@ func spawn_upgrade_panel(player_id : int,weapon_ref,is_left):
 	panel_instance.player_id = player_id
 	panel_instance.weapon_ref = weapon_ref
 	
-	get_parent().add_child(panel_instance)
+	add_child(panel_instance)

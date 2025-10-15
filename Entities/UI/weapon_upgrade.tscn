@@ -1,12 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp60rljnnygaf"]
+[gd_scene load_steps=16 format=3 uid="uid://bp60rljnnygaf"]
 
 [ext_resource type="Script" uid="uid://dxreqkgmiykmq" path="res://Entities/UI/weapon_upgrade.gd" id="1_eoo41"]
 [ext_resource type="Texture2D" uid="uid://dp3ya8e37pfvj" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_22.png" id="2_pd33f"]
+[ext_resource type="Texture2D" uid="uid://cxehv4p5qcrir" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_30.png" id="3_07csr"]
 [ext_resource type="Texture2D" uid="uid://bx6mxqepk831a" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_26.png" id="3_hdiri"]
-[ext_resource type="Texture2D" uid="uid://b3dvmpgioboco" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_19.png" id="4_7kaa3"]
-[ext_resource type="Texture2D" uid="uid://4tcjh4le7x7h" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_20.png" id="5_fl4ku"]
-[ext_resource type="Texture2D" uid="uid://cbfr6kslampkw" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_25.png" id="6_wvggr"]
-[ext_resource type="Texture2D" uid="uid://ddofepjgia6xb" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_23.png" id="7_23dqc"]
+[ext_resource type="Texture2D" uid="uid://bru4x23ent6ri" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_02.png" id="4_06c7o"]
+[ext_resource type="Texture2D" uid="uid://4tcjh4le7x7h" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_20.png" id="5_vl1in"]
+[ext_resource type="Texture2D" uid="uid://cugacmby4bafa" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_07.png" id="6_idv2g"]
+[ext_resource type="Texture2D" uid="uid://ddofepjgia6xb" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_23.png" id="7_8pj3x"]
+[ext_resource type="Texture2D" uid="uid://b3dvmpgioboco" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_19.png" id="8_fjvdt"]
+[ext_resource type="Texture2D" uid="uid://4m2hrme5fu13" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_34.png" id="9_cfv3v"]
+[ext_resource type="Texture2D" uid="uid://b5npwb10jpx6l" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_37.png" id="10_u5rnl"]
+[ext_resource type="Texture2D" uid="uid://bk8pbkfe6e1jv" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_28.png" id="11_dl47e"]
+[ext_resource type="Texture2D" uid="uid://cbfr6kslampkw" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_25.png" id="12_3fany"]
+[ext_resource type="Texture2D" uid="uid://b6uum1erj4wpq" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_09.png" id="13_4qw63"]
+[ext_resource type="Texture2D" uid="uid://dwu2eijfao7hy" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_06.png" id="14_40c6b"]
 
 [node name="WeaponUpgrade" type="Control"]
 layout_mode = 3
@@ -17,11 +25,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eoo41")
 machine_gun_icon = ExtResource("2_pd33f")
-rifle_icon = ExtResource("3_hdiri")
-sentinel_icon = ExtResource("4_7kaa3")
-vacuum_gun_icon = ExtResource("5_fl4ku")
-rocket_launcher_icon = ExtResource("6_wvggr")
-sniper_icon = ExtResource("7_23dqc")
+rifle_icon = ExtResource("3_07csr")
+sentinel_icon = ExtResource("4_06c7o")
+vacuum_gun_icon = ExtResource("5_vl1in")
+rocket_launcher_icon = ExtResource("6_idv2g")
+sniper_icon = ExtResource("7_8pj3x")
+minigun_icon = ExtResource("8_fjvdt")
+laser_icon = ExtResource("9_cfv3v")
+planter_icon = ExtResource("10_u5rnl")
+hoover_icon = ExtResource("11_dl47e")
+missile_launcher_icon = ExtResource("12_3fany")
+xxx_icon = ExtResource("13_4qw63")
+super_sniper_icon = ExtResource("14_40c6b")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 200)
@@ -58,3 +73,15 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("3_hdiri")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.0
+offset_right = 36.0
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "PLAYER 1"

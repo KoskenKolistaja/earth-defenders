@@ -13,7 +13,7 @@ var bullet_damage = 2
 var penetration = false
 
 var xp = 0
-var xp_needed = 10
+var xp_needed = 1
 
 var fly_time = 1.2
 
@@ -38,14 +38,11 @@ func shoot():
 
 
 func award_xp(amount : int = 1):
+	if self.name == "super_sniper":
+		return
 	xp += amount
 	
 	
-	if self.name == "sniper":
-		to_super_sniper()
-		return
-	if self.name == "super_sniper":
-		return
 	
 	if xp >= xp_needed:
 		upgrade_weapon()

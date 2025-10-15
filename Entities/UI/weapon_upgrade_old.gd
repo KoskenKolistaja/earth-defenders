@@ -1,9 +1,13 @@
 extends Control
 
+
+
 var weapon_name
+
 var weapon_ref
 var player_id
 var left = true
+
 
 @export var machine_gun_icon : Texture
 @export var rifle_icon : Texture
@@ -19,15 +23,14 @@ var left = true
 @export var xxx_icon : Texture
 @export var super_sniper_icon : Texture
 
+
 func _physics_process(delta):
 	initiate_selection(weapon_ref.name)
 
+
+
 func _ready():
 	var weapon_name = weapon_ref.name
-	
-	$Panel/Label.text = "Player " + str(player_id)
-	
-	
 	
 	match weapon_name:
 		"blaster":
@@ -52,7 +55,13 @@ func _ready():
 			$Panel/HBoxContainer/TextureLeft.texture = xxx_icon
 			$Panel/HBoxContainer/TextureRight.texture = super_sniper_icon
 
+
+
 func initiate_selection(weapon_name):
+	
+	print("initate_selection")
+	print(weapon_name)
+	
 	match weapon_name:
 		"blaster":
 			blaster()
@@ -67,16 +76,26 @@ func initiate_selection(weapon_name):
 		"rocket_launcher":
 			rocket_launcher()
 		"sniper":
-			sniper()
+			pass
 
-# -----------------------
-# UPGRADE BRANCH FUNCTIONS
-# -----------------------
+
+
+
+
+
+
 
 func blaster():
+	
+	print("Blasterin sisällä")
+	
+	print(player_id)
+	
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		upgrade_to_machine_gun()
+		print("left_presed")
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
+		print("right_presed")
 		change_to_rifle()
 
 func machine_gun():
@@ -91,94 +110,100 @@ func rifle():
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
 		upgrade_to_sniper()
 
-func sentinel():
-	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
-		upgrade_to_minigun()
-	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		change_to_laser()
-
-func vacuum_gun():
-	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
-		change_to_planter()
-	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		upgrade_to_hoover()
 
 func rocket_launcher():
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		change_to_missile_launcher()
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		change_to_xxx()
+		pass
 
-func sniper():
-	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
-		change_to_xxx()
-	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		upgrade_to_super_sniper()
 
-# -----------------------
-# CHANGE FUNCTIONS (spawn new weapon)
-# -----------------------
 
 func change_to_missile_launcher():
-	_change_weapon("missile_launcher")
-
-func change_to_rocket_launcher():
-	_change_weapon("rocket_launcher")
-
-func change_to_rifle():
-	_change_weapon("rifle")
-
-func change_to_vacuum_gun():
-	_change_weapon("vacuum_gun")
-
-func change_to_laser():
-	_change_weapon("laser")
-
-func change_to_xxx():
-	pass
-
-func change_to_planter():
-	_change_weapon("planter")
-
-func _change_weapon(new_name: String):
 	var players = get_tree().get_nodes_in_group("player")
 	var player
+	
 	for p in players:
 		if p.player_id == player_id:
 			player = p
-			break
+	
 	if not player:
 		return
+	
 	if left:
-		player.change_weapon_left(new_name)
+		player.change_weapon_left("missile_launcher")
 	else:
-		player.change_weapon_right(new_name)
+		player.change_weapon_right("missile_launcher")
+	
 	queue_free()
 
-# -----------------------
-# UPGRADE FUNCTIONS (same weapon, internal upgrade)
-# -----------------------
 
-func upgrade_to_machine_gun():
-	weapon_ref.to_machine_gun()
-	queue_free()
 
-func upgrade_to_sentinel():
-	weapon_ref.to_sentinel()
-	queue_free()
-
-func upgrade_to_minigun():
-	weapon_ref.to_minigun()
+func change_to_rocket_launcher():
+	var players = get_tree().get_nodes_in_group("player")
+	var player
+	
+	for p in players:
+		if p.player_id == player_id:
+			player = p
+	
+	if not player:
+		return
+	
+	if left:
+		player.change_weapon_left("rocket_launcher")
+	else:
+		player.change_weapon_right("rocket_launcher")
+	
 	queue_free()
 
 func upgrade_to_sniper():
 	weapon_ref.to_sniper()
 	queue_free()
 
-func upgrade_to_super_sniper():
-	weapon_ref.to_super_sniper()
+
+func upgrade_to_sentinel():
+	weapon_ref.to_sentinel()
 	queue_free()
 
-func upgrade_to_hoover():
-	weapon_ref.to_hoover()
+func change_to_vacuum_gun():
+	var players = get_tree().get_nodes_in_group("player")
+	var player
+	
+	for p in players:
+		if p.player_id == player_id:
+			player = p
+	
+	if not player:
+		return
+	
+	if left:
+		player.change_weapon_left("vacuum_gun")
+	else:
+		player.change_weapon_right("vacuum_gun")
+	
+	queue_free()
+
+
+func upgrade_to_machine_gun():
+	weapon_ref.to_machine_gun()
+	queue_free()
+
+func change_to_rifle():
+	var players = get_tree().get_nodes_in_group("player")
+	var player
+	
+	for p in players:
+		if p.player_id == player_id:
+			player = p
+	
+	if not player:
+		return
+	
+	if left:
+		player.change_weapon_left("rifle")
+	else:
+		player.change_weapon_right("rifle")
+	
+	
 	queue_free()
