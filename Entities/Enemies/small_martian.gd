@@ -162,7 +162,7 @@ func die() -> void:
 
 func wreck():
 	$SmokeParticles.emitting = true
-	speed = 1.5
+	speed = 1.8
 
 
 
@@ -180,7 +180,7 @@ func explode():
 	random_position = false
 	$ShootCheckTimer.stop()
 	$CollisionShape3D.disabled = true
-
+	
 	fracture()  # <-- do the breakup first
 
 	# Then safely free other parts
