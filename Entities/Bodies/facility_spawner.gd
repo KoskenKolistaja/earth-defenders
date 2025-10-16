@@ -7,7 +7,14 @@ extends Node3D
 
 
 
-
+func get_xp_multiplier():
+	var multiplier = 1
+	
+	for item in get_children():
+		if item.get_child(0).name == "technology_institute":
+			multiplier += 1
+	
+	return multiplier
 
 
 

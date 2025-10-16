@@ -18,10 +18,13 @@ var weapons = {
 
 
 var repair_station = preload("res://Entities/Buildings/repair_station.tscn")
-
+var geo_repair_station = preload("res://Entities/Buildings/geo_repair_station.tscn")
+var technology_institute = preload("res://Entities/Buildings/technology_institute.tscn")
 
 var facilities = {
-	"repair_station" : repair_station
+	"repair_station" : repair_station,
+	"geo_repair_station" : geo_repair_station,
+	"technology_institute" : technology_institute
 }
 
 
