@@ -58,7 +58,8 @@ albedo_texture = ExtResource("1_3nwap")
 material = SubResource("StandardMaterial3D_012fs")
 
 [sub_resource type="Curve" id="Curve_gj64t"]
-_data = [Vector2(0, 0.73033714), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1.5168543), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_x26ay"]

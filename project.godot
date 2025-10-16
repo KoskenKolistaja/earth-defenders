@@ -28,6 +28,7 @@ player=""
 music=""
 bullet_damaged=""
 non_penetratable=""
+player_ship=""
 
 [input]
 

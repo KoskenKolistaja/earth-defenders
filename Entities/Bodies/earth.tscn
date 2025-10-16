@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=189 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bfmlaqt86ysvu" path="res://Entities/Bodies/hp_bar.gd" id="9_apjqm"]
 [ext_resource type="Script" uid="uid://cdw4fa7nnk5xf" path="res://Entities/Bodies/facility_spawner.gd" id="10_3am25"]
 [ext_resource type="PackedScene" uid="uid://dsrenu45eux01" path="res://Entities/Buildings/repair_station.tscn" id="10_8w3be"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="10_mgj31"]
 [ext_resource type="PackedScene" uid="uid://blxtrpkvgr8tx" path="res://Entities/Buildings/geo_repair_station.tscn" id="12_j4mr1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
@@ -1864,6 +1865,8 @@ offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("10_mgj31")
+theme_override_font_sizes/font_size = 20
 value = 20.0
 script = ExtResource("9_apjqm")
 

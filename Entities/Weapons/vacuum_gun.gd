@@ -12,6 +12,7 @@ var xp_needed = 10
 func shoot():
 	var bodies = $VacuumArea.get_overlapping_areas()
 	
+	$GPUParticles3D.emitting = true
 	
 	for item in bodies:
 		var vector :Vector3=$CollectArea.global_position - item.global_position
@@ -32,7 +33,7 @@ func shoot():
 
 
 func release():
-	pass
+	$GPUParticles3D.emitting = false
 
 
 func _on_collect_area_body_entered(body):
@@ -68,7 +69,7 @@ func upgrade_weapon():
 func reward_money():
 	$AudioStreamPlayer.play()
 	var hud = get_tree().get_first_node_in_group("hud")
-	hud.add_money(1)
+	hud.add_money(10)
 
 func _on_collect_area_area_entered(area):
 	reward_money()

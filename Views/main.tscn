@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=11 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bergkjhvvnw8o" path="res://Entities/UI/weapon_selection.tscn" id="6_uuvqm"]
 [ext_resource type="Script" uid="uid://dofm8suqgkb3m" path="res://Views/upgrade_manager.gd" id="7_66fu7"]
 [ext_resource type="PackedScene" uid="uid://bp60rljnnygaf" path="res://Entities/UI/weapon_upgrade.tscn" id="8_nv5st"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="9_qwu6d"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -96,6 +97,7 @@ offset_top = 10.0
 offset_right = 378.0003
 offset_bottom = 33.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
 text = "MONEY : 0$"
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]

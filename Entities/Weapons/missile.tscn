@@ -150,6 +150,7 @@ skeleton = NodePath("")
 
 [node name="ThrustParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(-2.571258e-07, 5.882353, 0, -5.882353, -2.571258e-07, 0, 0, 0, 5.882353, 0, 0, 0)
+emitting = false
 amount = 10
 lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_ij43x")
@@ -157,9 +158,10 @@ draw_pass_1 = SubResource("QuadMesh_63bah")
 
 [node name="ThrustLight" type="OmniLight3D" parent="ThrustParticles"]
 transform = Transform3D(1, 3.0475318e-15, 0, -5.051819e-16, 1, 0, 0, 0, 1, 0.6999591, 3.0596176e-08, -1.05691015e-07)
+visible = false
 
 [node name="HomingTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true
 autostart = true
 

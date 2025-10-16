@@ -16,6 +16,9 @@ func _ready():
 
 func _physics_process(delta):
 	
+	rotate_fire()
+	set_fire_intensity(velocity.length())
+	
 	if dead:
 		return
 	
@@ -24,6 +27,18 @@ func _physics_process(delta):
 	gravitate()
 	
 	global_position += velocity * delta * 0.5
+
+func set_fire_intensity(exported_float):
+	var mesh = $Fireball/Sphere
+	var mat = mesh.get_active_material(0)
+	if mat is ShaderMaterial:
+		mat.set_shader_parameter("fire_intensity", exported_float * exported_float)
+
+
+func rotate_fire():
+	var target_angle = atan2(velocity.x, velocity.y)
+	$Fireball.rotation_degrees.x = rad_to_deg(target_angle) - 90
+
 
 func get_hit(damage : int = 1):
 	hp -= damage
@@ -50,10 +65,11 @@ func die():
 
 func fracture():
 	explode()
+	$Fireball.hide()
 	$FracturedAsteroid.fracture(velocity * 0.5)
 	
 	if not dead:
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(50).timeout
 		queue_free()
 
 func gravitate():
@@ -78,4 +94,4 @@ func explode():
 func _on_body_entered(body):
 	if body.has_method("get_hit"):
 		body.get_hit(5)
-	explode()
+	die()
