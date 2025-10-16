@@ -162,7 +162,7 @@ func die() -> void:
 
 func wreck():
 	$SmokeParticles.emitting = true
-	speed = 1.8
+	speed *= 0.75
 
 
 

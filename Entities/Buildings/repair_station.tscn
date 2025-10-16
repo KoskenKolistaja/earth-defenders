@@ -6,7 +6,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_j25o5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j25o5"]
-radius = 5.346299
+radius = 11.377139
 
 [sub_resource type="Curve" id="Curve_0d02d"]
 _data = [Vector2(0, 0.3146068), 0.0, 0.0, 0, 0, Vector2(0.3407821, 0.8089888), 0.0, 0.0, 0, 0, Vector2(1, 0.57303375), 0.0, 0.0, 0, 0]
@@ -73,7 +73,8 @@ cull_mask = 4294966274
 radius = 10.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
+autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_0d02d")

@@ -16,4 +16,12 @@ func spawn_upgrade_panel(player_id : int,weapon_ref,is_left):
 	panel_instance.player_id = player_id
 	panel_instance.weapon_ref = weapon_ref
 	
-	add_child(panel_instance)
+	var ship_huds = get_tree().get_nodes_in_group("ship_hud")
+	var ship_hud = null
+	
+	for s in ship_huds:
+		if s.player_id == player_id:
+			ship_hud = s
+	
+	
+	ship_hud.add_child(panel_instance)

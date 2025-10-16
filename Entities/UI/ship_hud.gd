@@ -77,3 +77,7 @@ func spawn_ship():
 	get_tree().call_group("ship_hud" , "update_selection")
 	
 	spawned = true
+
+
+func update_hp(exported_value):
+	$Panel/Base/HPBar.value = exported_value

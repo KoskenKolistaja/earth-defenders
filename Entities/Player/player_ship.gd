@@ -3,16 +3,19 @@ extends CharacterBody3D
 @export var player_id : int
 @export var player_color : Color
 var player_node
+var ship_hud
 
 @export var explosion : PackedScene
 
 @export var stored_weapon_left : String
 @export var stored_weapon_right : String
 
-@export var hp : int = 100
+@export var max_hp : int = 10
 @export var speed : float = 1.0
 @export var type : String
+@export var color_slot : int
 
+var hp = 100
 
 var turn_speed = 0.05
 
@@ -28,11 +31,23 @@ var gravitation_strength = 0.02
 
 
 func _ready():
-	$Pivot/Spaceship/ShipMesh.get_surface_override_material(3).albedo_color = player_color
-	$Pivot/Spaceship/ShipMesh.get_surface_override_material(3).emission = player_color
+	hp = max_hp
+	$Pivot/Spaceship/ShipMesh.get_surface_override_material(color_slot).albedo_color = player_color
+	$Pivot/Spaceship/ShipMesh.get_surface_override_material(color_slot).emission = player_color
+	
+	var huds = get_tree().get_nodes_in_group("ship_hud")
+	
+	for h in huds:
+		if h.player_id == player_id:
+			ship_hud = h
+			break
+	
+	ship_hud.update_hp(hp)
 	
 	await get_tree().physics_frame
 	initiate_weapons()
+	
+	
 
 func _physics_process(delta):
 	handle_movement()
@@ -102,16 +117,23 @@ func handle_actions():
 
 func get_hit(damage : int = 100):
 	hp -= damage
+	
+	ship_hud.update_hp(hp)
+	
 	if hp <= 0:
 		die()
 
 func heal(amount):
 	hp += amount
-	hp = clamp(hp,-100,100)
-
+	hp = clamp(hp,-100,max_hp)
+	ship_hud.update_hp(hp)
 
 
 func die():
+	var hud = get_tree().get_first_node_in_group("hud")
+	hud.erase_ship_hud(player_id)
+	
+	
 	explode()
 
 

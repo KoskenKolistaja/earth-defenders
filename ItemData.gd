@@ -26,8 +26,10 @@ var facilities = {
 
 
 var combat_ship = preload("res://Entities/Player/combat_ship.tscn")
+var speeder = preload("res://Entities/Player/speeder.tscn")
 
 
 var ships = {
-	"combat_ship" : combat_ship
+	"combat_ship" : combat_ship,
+	"speeder" : speeder
 }

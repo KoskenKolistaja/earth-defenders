@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhh7shqfkqpf3"]
+[gd_scene load_steps=9 format=3 uid="uid://dhh7shqfkqpf3"]
 
 [ext_resource type="Script" uid="uid://bahpebxfxbwdi" path="res://Entities/UI/weapon_selection_panel.gd" id="1_wciot"]
 [ext_resource type="Texture2D" uid="uid://dp3ya8e37pfvj" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_22.png" id="2_dclpn"]
-[ext_resource type="Texture2D" uid="uid://ddofepjgia6xb" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_23.png" id="3_kl0a2"]
 [ext_resource type="Texture2D" uid="uid://cbfr6kslampkw" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_25.png" id="3_wciot"]
 [ext_resource type="Texture2D" uid="uid://4tcjh4le7x7h" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_20.png" id="4_c8olx"]
+[ext_resource type="Texture2D" uid="uid://bd4s1sqjw7oh2" path="res://Assets/Textures/ShipIcons/speeder.png" id="5_kl0a2"]
 [ext_resource type="Texture2D" uid="uid://c3veslpvk13dn" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/2 Frames/Frame_14.png" id="5_oiojl"]
+[ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="6_c8olx"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="6_i4m0w"]
 
 [node name="WeaponSelectionPanel" type="Panel"]
 clip_contents = true
-custom_minimum_size = Vector2(512, 128)
+custom_minimum_size = Vector2(640, 128)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -52,7 +53,13 @@ stretch_mode = 4
 
 [node name="sniper" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_kl0a2")
+texture = ExtResource("5_kl0a2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="combat_ship" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_c8olx")
 expand_mode = 2
 stretch_mode = 4
 

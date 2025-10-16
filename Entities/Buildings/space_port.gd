@@ -3,7 +3,7 @@ extends Area3D
 
 var reserved_ships = {
 	"combat_ship" : 3,
-	"combat_ship2" : 0,
+	"speeder" : 1,
 }
 
 

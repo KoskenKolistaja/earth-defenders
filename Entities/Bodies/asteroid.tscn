@@ -509,7 +509,7 @@ render_priority = 0
 shader = ExtResource("12_hsfuu")
 shader_parameter/fire_color = Color(3.3529627, 2.9375482, 1.5657165, 1)
 shader_parameter/FireSpeed = 2.0
-shader_parameter/fire_intensity = 11.67
+shader_parameter/fire_intensity = 13.46
 
 [node name="Asteroid" type="Area3D" groups=["bullet_damaged"]]
 collision_layer = 17

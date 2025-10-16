@@ -285,8 +285,8 @@ axis_lock_linear_z = true
 script = ExtResource("1_cuvxq")
 explosion = ExtResource("2_fg4yb")
 stored_weapon_right = "blaster"
-hp = 20
 type = "combat_ship"
+color_slot = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ix6vc")

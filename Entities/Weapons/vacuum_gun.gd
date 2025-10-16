@@ -47,7 +47,7 @@ func award_xp(amount : int = 1):
 	xp += amount
 	
 	if xp >= xp_needed and not self.name == "hoover":
-		to_hoover()
+		upgrade_weapon()
 
 
 func upgrade_weapon():
@@ -61,7 +61,7 @@ func upgrade_weapon():
 	
 	
 	var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")
-	upgrade_manager.spawn_upgrade_panel((player_id+1),self,left)
+	upgrade_manager.spawn_upgrade_panel((player_id),self,left)
 
 
 
