@@ -141,7 +141,7 @@ func change_to_planter():
 	_change_weapon("planter")
 
 func _change_weapon(new_name: String):
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	var player
 	for p in players:
 		if p.player_id == player_id:

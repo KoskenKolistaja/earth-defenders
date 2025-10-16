@@ -23,3 +23,11 @@ var repair_station = preload("res://Entities/Buildings/repair_station.tscn")
 var facilities = {
 	"repair_station" : repair_station
 }
+
+
+var combat_ship = preload("res://Entities/Player/combat_ship.tscn")
+
+
+var ships = {
+	"combat_ship" : combat_ship
+}

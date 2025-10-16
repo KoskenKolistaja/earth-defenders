@@ -279,12 +279,14 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_5c2io"]
 material = SubResource("StandardMaterial3D_4wf4l")
 
-[node name="CombatShip" type="CharacterBody3D" groups=["bullet_damaged", "player_ship"]]
+[node name="combat_ship" type="CharacterBody3D" groups=["bullet_damaged", "player_ship"]]
 collision_layer = 33
 axis_lock_linear_z = true
 script = ExtResource("1_cuvxq")
 explosion = ExtResource("2_fg4yb")
 stored_weapon_right = "blaster"
+hp = 20
+type = "combat_ship"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ix6vc")

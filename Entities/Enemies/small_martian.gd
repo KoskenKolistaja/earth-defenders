@@ -31,7 +31,7 @@ func _ready():
 	rotation.z = target_angle
 	velocity = basis.y * speed
 	
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	
 	if players:
 		target_player = players[randi_range(0,players.size()-1)]
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func get_new_player_target():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	
 	if not players:
 		active = false
@@ -215,7 +215,7 @@ func _on_activation_timer_timeout() -> void:
 func _on_shoot_check_timer_timeout():
 	var bodies = $Area3D.get_overlapping_bodies()
 	for item in bodies:
-		if item.is_in_group("player"):
+		if item.is_in_group("player_ship"):
 			shooting = true
 			$ShootCheckTimer.stop()
 			await get_tree().create_timer(0.5,false).timeout

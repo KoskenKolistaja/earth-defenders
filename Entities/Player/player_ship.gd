@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var player_id : int
 @export var player_color : Color
+var player_node
 
 @export var explosion : PackedScene
 
@@ -10,6 +11,8 @@ extends CharacterBody3D
 
 @export var hp : int = 100
 @export var speed : float = 1.0
+@export var type : String
+
 
 var turn_speed = 0.05
 

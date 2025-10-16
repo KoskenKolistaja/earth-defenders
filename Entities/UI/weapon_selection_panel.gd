@@ -44,7 +44,7 @@ func _physics_process(delta):
 		queue_free()
 
 func assign_selections():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	
 	print(players)
 	

@@ -2,7 +2,7 @@ extends Control
 
 
 @export var weapon_selection : PackedScene
-
+@export var ship_hud : PackedScene
 
 var time = 2025
 
@@ -13,21 +13,34 @@ func _ready():
 	update_money()
 
 
-func _physics_process(delta):
+#func _physics_process(delta):
+	#
+	#for id in PlayerData.players:
+		#var temporary = id + 1
+		#if Input.is_action_just_pressed("p%s_ready" % temporary):
+			#trigger_weapon_selection()
+		#
+#
+#
+#func trigger_weapon_selection():
+	#if not get_node_or_null("WeaponSelection"):
+		#var selection_instance = weapon_selection.instantiate()
+		#add_child(selection_instance)
+		#pause_space()
+
+
+func spawn_ship_hud(exported_id):
+	var hud_instance = ship_hud.instantiate()
+	hud_instance.player_id = exported_id
+	$PlayerHUDS.add_child(hud_instance)
+
+func erase_ship_hud(exported_id):
+	var huds = $PlayerHUDS.get_children()
 	
-	for id in PlayerData.players:
-		var temporary = id + 1
-		if Input.is_action_just_pressed("p%s_ready" % temporary):
-			trigger_weapon_selection()
-		
-
-
-func trigger_weapon_selection():
-	if not get_node_or_null("WeaponSelection"):
-		var selection_instance = weapon_selection.instantiate()
-		add_child(selection_instance)
-		pause_space()
-
+	for h in huds:
+		if h.player_id == exported_id:
+			h.queue_free()
+			break
 
 
 func pause_space():

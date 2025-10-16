@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=12 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dofm8suqgkb3m" path="res://Views/upgrade_manager.gd" id="7_66fu7"]
 [ext_resource type="PackedScene" uid="uid://bp60rljnnygaf" path="res://Entities/UI/weapon_upgrade.tscn" id="8_nv5st"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="9_qwu6d"]
+[ext_resource type="PackedScene" uid="uid://bi8si437hlwxp" path="res://Entities/UI/ship_hud.tscn" id="10_mo4yp"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -32,6 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_y1b1f")
 weapon_selection = ExtResource("6_uuvqm")
+ship_hud = ExtResource("10_mo4yp")
 
 [node name="Time" type="Label" parent="HUD"]
 layout_mode = 1
@@ -99,6 +101,18 @@ offset_bottom = 33.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("9_qwu6d")
 text = "MONEY : 0$"
+
+[node name="PlayerHUDS" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 329
+alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312

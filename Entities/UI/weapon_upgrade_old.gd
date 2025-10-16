@@ -120,7 +120,7 @@ func rocket_launcher():
 
 
 func change_to_missile_launcher():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	var player
 	
 	for p in players:
@@ -140,7 +140,7 @@ func change_to_missile_launcher():
 
 
 func change_to_rocket_launcher():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	var player
 	
 	for p in players:
@@ -167,7 +167,7 @@ func upgrade_to_sentinel():
 	queue_free()
 
 func change_to_vacuum_gun():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	var player
 	
 	for p in players:
@@ -190,7 +190,7 @@ func upgrade_to_machine_gun():
 	queue_free()
 
 func change_to_rifle():
-	var players = get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player_ship")
 	var player
 	
 	for p in players:
