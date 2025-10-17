@@ -13,7 +13,11 @@ func _ready():
 	update_money()
 
 
-
+func _physics_process(delta):
+	for id in PlayerData.players:
+		var temporary = id + 1
+		if Input.is_action_just_pressed("p%s_ready" % temporary):
+			trigger_purchase_selection()
 
 func trigger_purchase_selection():
 	if not get_node_or_null("PurchaseSelectionPanel"):
@@ -61,7 +65,3 @@ func update_time():
 
 func _on_timer_timeout():
 	update_time()
-
-
-func _on_timer_2_timeout():
-	trigger_purchase_selection()

@@ -117,14 +117,9 @@ grow_vertical = 0
 theme_override_constants/separation = 329
 alignment = 1
 
-[node name="Timer2" type="Timer" parent="HUD"]
-wait_time = 100.0
-autostart = true
-
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 volume_db = -14.312
 script = ExtResource("3_3njbj")
 
 [connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
-[connection signal="timeout" from="HUD/Timer2" to="HUD" method="_on_timer_2_timeout"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
