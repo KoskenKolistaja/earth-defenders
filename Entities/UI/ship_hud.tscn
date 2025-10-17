@@ -118,6 +118,35 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="LeftWeaponXP" type="ProgressBar" parent="Panel/Base"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -13.5
+offset_right = 110.0
+offset_bottom = 13.5
+grow_vertical = 2
+
+[node name="RightWeaponXP" type="ProgressBar" parent="Panel/Base"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -13.5
+offset_right = -9.999817
+offset_bottom = 13.5
+grow_horizontal = 0
+grow_vertical = 2
+
 [node name="Cursor" type="TextureRect" parent="Panel"]
 modulate = Color(1, 1, 1, 0.18200001)
 custom_minimum_size = Vector2(96, 96)

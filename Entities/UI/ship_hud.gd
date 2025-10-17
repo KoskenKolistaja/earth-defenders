@@ -81,3 +81,11 @@ func spawn_ship():
 
 func update_hp(exported_value):
 	$Panel/Base/HPBar.value = exported_value
+
+func update_xp(amount,left : bool = false):
+	if left:
+		$Panel/Base/LeftWeaponXP.value = amount
+		$Panel/Base/LeftWeaponXP.show()
+	else:
+		$Panel/Base/RightWeaponXP.value = amount
+		$Panel/Base/RightWeaponXP.show()

@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dtrvhffajpg6w" path="res://Entities/Enemies/fracture.gd" id="7_nwum6"]
 [ext_resource type="Texture2D" uid="uid://dyuyf7k4nltdv" path="res://Assets/Models/FracturedAsteroid2_Ucupaint Cube Metallic-Ucupaint Cube Roughness.png" id="8_nwum6"]
 [ext_resource type="Texture2D" uid="uid://cmdqhr2wh1w1u" path="res://Assets/Models/FracturedAsteroid2_Ucupaint Cube Normal.png" id="9_mw3mj"]
-[ext_resource type="Shader" uid="uid://3mgujfcfvdvy" path="res://fireball_shader.tres" id="12_hsfuu"]
+[ext_resource type="Shader" uid="uid://3mgujfcfvdvy" path="res://Assets/Shaders/fireball_shader.tres" id="12_hsfuu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejrn4"]
 resource_name = "Cube"

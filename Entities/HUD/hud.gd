@@ -65,3 +65,4 @@ func update_time():
 
 func _on_timer_timeout():
 	update_time()
+	MetaData.game_time_elapsed += 2

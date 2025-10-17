@@ -2,6 +2,12 @@ extends Node3D
 
 
 
+func add_facility(exported_name):
+	var facility_instance = ItemData.facilities[exported_name].instantiate()
+	var free_position = get_free_position()
+	
+	free_position.add_child(facility_instance)
+
 
 
 func set_xp_multiplier_for_weapons():

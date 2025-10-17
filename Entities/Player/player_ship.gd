@@ -59,6 +59,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+
+
+
 func check_for_weapon():
 	if $left_weapon.get_children().size() < 1:
 		var autolabel = get_tree().get_first_node_in_group("auto_label")

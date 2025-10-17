@@ -42,11 +42,12 @@ func _ready():
 
 
 func change_weapon_randomly():
-	if randf_range(0,1) < 0.3:
+	if randf_range(0,1) < 0.7:
 		$weapon/Blaster.to_machine_gun()
 	elif randf_range(0,1) < 0.1:
 		$weapon/Blaster.to_sentinel()
-
+	elif randf_range(0,1) < 0.1:
+		$weapon/Blaster.to_minigun()
 
 
 
@@ -162,7 +163,7 @@ func die() -> void:
 
 func wreck():
 	$SmokeParticles.emitting = true
-	speed *= 0.75
+	speed *= 0.9
 
 
 

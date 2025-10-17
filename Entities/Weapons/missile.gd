@@ -51,7 +51,7 @@ func _on_area_entered(area):
 			if weapon_ref:
 				weapon_ref.award_xp(1)
 				var hud = get_tree().get_first_node_in_group("hud")
-				hud.add_money(10)
+				hud.add_money(50)
 	explode()
 
 
@@ -62,7 +62,7 @@ func _on_body_entered(body):
 			if weapon_ref:
 				weapon_ref.award_xp(1)
 				var hud = get_tree().get_first_node_in_group("hud")
-				hud.add_money(10)
+				hud.add_money(50)
 	explode()
 
 

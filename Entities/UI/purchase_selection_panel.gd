@@ -76,7 +76,10 @@ func assign_vote(player_id,index):
 	item_votes[index] += 1
 	
 	$HBoxContainer.get_child(index).get_child(0).text = str(item_votes[index])
-
+	
+	
+	if player_votes.size() >= PlayerData.players.size():
+		ready()
 
 
 
@@ -117,15 +120,20 @@ func action(item_name):
 		"bank":
 			add_facility(item_name)
 		"none":
-			add_facility(item_name)
-
+			pass
+	
+	var hud = get_tree().get_first_node_in_group("hud")
+	var price = ItemData.item_prices[item_name]
+	
+	hud.add_money(-price)
 
 func add_ship_to_reserve(ship_name):
 	var spaceport = get_tree().get_first_node_in_group("spaceport")
 	spaceport.add_ship(ship_name)
 
 func add_facility(facility_name):
-	pass
+	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
+	facility_spawner.add_facility(facility_name)
 
 
 
