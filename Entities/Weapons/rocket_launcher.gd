@@ -7,6 +7,7 @@ var loaded = true
 
 var xp = 0
 var xp_needed = 1
+var xp_multiplier = 1
 var player_id
 
 
@@ -25,6 +26,7 @@ func shoot_missile():
 	missile_instance.target = null
 	missile_instance.speed = 0.4
 	missile_instance.weapon_ref = self
+	missile_instance.xp_multiplier = xp_multiplier
 	objects.add_child(missile_instance)
 	missile_instance.global_position = self.global_position
 	loaded = false

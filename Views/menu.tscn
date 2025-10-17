@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d11ksglatxht2"]
+[gd_scene load_steps=5 format=3 uid="uid://d11ksglatxht2"]
 
 [ext_resource type="Script" uid="uid://dssu0472fe5to" path="res://Views/menu.gd" id="1_6k64v"]
+[ext_resource type="Texture2D" uid="uid://cyngrcuvoiuvv" path="res://Assets/Textures/8k_stars_milky_way.jpg" id="2_mkqbp"]
+[ext_resource type="AudioStream" uid="uid://2qcj1wumajbg" path="res://Assets/Music/On A Mission.ogg" id="2_upog6"]
+[ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="3_nfadp"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +13,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6k64v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mkqbp")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Start" type="Button" parent="."]
 visible = false
@@ -29,14 +43,42 @@ text = "START"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -23.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAYERDATA"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_upog6")
+volume_db = -6.303
+autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -50.0
-offset_top = 27.0
-offset_right = 50.0
-offset_bottom = 50.000004
+offset_left = -361.0
+offset_top = 35.0
+offset_right = 377.0
+offset_bottom = 102.0
 grow_horizontal = 2
-text = "PLAYERDATA"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.16600001)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -14
+theme_override_constants/shadow_offset_y = 11
+theme_override_constants/outline_size = 35
+theme_override_constants/shadow_outline_size = 61
+theme_override_fonts/font = ExtResource("3_nfadp")
+theme_override_font_sizes/font_size = 66
+text = "Earth Defenders 2.0"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

@@ -13,6 +13,8 @@ var weapon_ref
 
 var fly_time = 1.2
 
+var xp_multiplier = 1
+
 func  _ready():
 	await get_tree().create_timer(fly_time,false).timeout
 	queue_free()

@@ -10,7 +10,7 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.2
 
-[node name="rocket_launcher" type="Node3D"]
+[node name="rocket_launcher" type="Node3D" groups=["weapon"]]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_vxgim")
 missile = ExtResource("2_nq4hs")
@@ -27,7 +27,6 @@ volume_db = -11.524
 stream = ExtResource("5_t1fs0")
 
 [node name="LoadTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="LoadTimer" to="." method="_on_load_timer_timeout"]

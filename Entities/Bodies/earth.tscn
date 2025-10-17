@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=188 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
@@ -11,9 +11,7 @@
 [ext_resource type="Script" uid="uid://cpwgb856erwvs" path="res://Entities/Bodies/death_area.gd" id="8_p5bix"]
 [ext_resource type="Script" uid="uid://bfmlaqt86ysvu" path="res://Entities/Bodies/hp_bar.gd" id="9_apjqm"]
 [ext_resource type="Script" uid="uid://cdw4fa7nnk5xf" path="res://Entities/Bodies/facility_spawner.gd" id="10_3am25"]
-[ext_resource type="PackedScene" uid="uid://dsrenu45eux01" path="res://Entities/Buildings/repair_station.tscn" id="10_8w3be"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="10_mgj31"]
-[ext_resource type="PackedScene" uid="uid://blxtrpkvgr8tx" path="res://Entities/Buildings/geo_repair_station.tscn" id="12_j4mr1"]
 [ext_resource type="PackedScene" uid="uid://b1nu8cj4kl6ft" path="res://Entities/Buildings/space_port.tscn" id="14_rrla0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcr5l"]
@@ -1880,8 +1878,6 @@ script = ExtResource("10_3am25")
 [node name="1" type="Node3D" parent="FacilitySpawner"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -5, 0, 0)
 
-[node name="RepairStation" parent="FacilitySpawner/1" instance=ExtResource("10_8w3be")]
-
 [node name="2" type="Node3D" parent="FacilitySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
@@ -1889,8 +1885,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="3" type="Node3D" parent="FacilitySpawner"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5, 0, 0)
-
-[node name="GeoRepairStation" parent="FacilitySpawner/3" instance=ExtResource("12_j4mr1")]
 
 [node name="4" type="Node3D" parent="FacilitySpawner"]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -5, 0)

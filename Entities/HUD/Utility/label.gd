@@ -1,67 +1,71 @@
 extends Label
 
+@export var char_interval: float = 0.08       # time between characters
+@export var line_pause: float = 0.5           # extra wait time after line breaks
+@export var typing_sound: AudioStream = null  # optional sound per character
+@export var post_text_pause: float = 2.0      # how long text stays before clearing
 
-@export var text_to_display: String = "War declared by the Martians"
-@export var char_interval: float = 0.08	# time between characters
-@export var line_pause: float = 0.5		# extra wait time after line breaks
-@export var typing_sound: AudioStream = null	# assign in Inspector
+var _texts: Array[String] = []                # queue of texts to display
+var _current_text: String = ""
+var _current_index: int = 0
+var _is_displaying: bool = false
+var _use_line_pause: bool = false
 
-var current_index: int = 0
-var timer := Timer.new()
-var audio_player := AudioStreamPlayer.new()
-var use_line_pause: bool = false	# flag to pause *after* showing a newline
+var _timer := Timer.new()
+var _audio := AudioStreamPlayer.new()
 
+func _ready() -> void:
+	add_child(_timer)
+	add_child(_audio)
 
+	_timer.one_shot = true
+	_timer.timeout.connect(_on_timer_timeout)
 
-
-func _ready():
-	start()
-
-
-func start():
-	show()
-	timer.wait_time = char_interval
-	timer.autostart = true
-	timer.one_shot = false
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
-
-	# Setup audio player
 	if typing_sound:
-		audio_player.stream = typing_sound
-		add_child(audio_player)
+		_audio.stream = typing_sound
 
-	# Clear text at start
-	text = ""
-	current_index = 0
-	
-	timer.start()
-	await get_tree().create_timer(5,false).timeout
 	hide()
 
+func add_text(new_text: String) -> void:
+	
+	_texts.append(new_text)
+	if not _is_displaying:
+		_process_next_text()
+
+func _process_next_text() -> void:
+	if _texts.is_empty():
+		hide()
+		_is_displaying = false
+		return
+
+	_is_displaying = true
+	show()
+
+	_current_text = _texts.pop_front()
+	_current_index = 0
+	text = ""
+	_timer.start(char_interval)
+
 func _on_timer_timeout() -> void:
-	if current_index < text_to_display.length():
-		var c := text_to_display[current_index]
+	if _current_index < _current_text.length():
+		var c := _current_text[_current_index]
 		text += c
-		current_index += 1
+		_current_index += 1
 
-		# Only play sound if not space or newline
 		if typing_sound and c != " " and c != "\n":
-			audio_player.stop()
-			audio_player.play()
+			_audio.stop()
+			_audio.play()
 
-		# If newline, set flag to pause after it
 		if c == "\n":
-			use_line_pause = true
+			_use_line_pause = true
 
-		# Adjust next wait time
-		if use_line_pause:
-			timer.stop()
-			timer.start(line_pause)
-			use_line_pause = false
+		if _use_line_pause:
+			_timer.start(line_pause)
+			_use_line_pause = false
 		else:
-			timer.stop()
-			timer.start(char_interval)
+			_timer.start(char_interval)
 	else:
-		# Done typing
-		timer.stop()
+		# Finished showing one text
+		await get_tree().create_timer(post_text_pause).timeout
+		text = ""
+		_process_next_text()

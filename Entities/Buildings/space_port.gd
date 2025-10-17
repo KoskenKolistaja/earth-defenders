@@ -29,6 +29,10 @@ func _physics_process(delta):
 	
 
 
+func add_ship(ship_name):
+	reserved_ships[ship_name] += 1
+
+
 func reserve_ship(ship_ref):
 	var type = ship_ref.type
 	var dictionary_value = reserved_ships[type]

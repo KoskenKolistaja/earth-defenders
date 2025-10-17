@@ -16,7 +16,7 @@ height = 0.2
 radius = 4.6796875
 height = 57.24456
 
-[node name="MissileLauncher" type="Node3D"]
+[node name="MissileLauncher" type="Node3D" groups=["weapon"]]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_y2k8k")
 missile = ExtResource("2_xrj0b")

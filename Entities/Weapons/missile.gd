@@ -9,6 +9,8 @@ var acceleration = 0.1
 
 @export var explosion : PackedScene
 
+var xp_multiplier = 1
+
 var shooter
 var weapon_ref
 

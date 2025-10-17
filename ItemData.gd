@@ -36,3 +36,15 @@ var ships = {
 	"combat_ship" : combat_ship,
 	"speeder" : speeder
 }
+
+
+
+var item_prices = {
+	"speeder" : 500,
+	"combat_ship" : 500,
+	"repair_station" : 2000,
+	"geo_repair_station" : 5000,
+	"technology_institute" : 2000,
+	"bank" : 2000,
+	"none" : 0,
+}

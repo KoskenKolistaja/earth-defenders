@@ -9,6 +9,7 @@ var damage : int = 1
 
 var weapon_ref
 
+var xp_multiplier = 1
 
 
 func  _ready():
@@ -31,7 +32,7 @@ func _on_body_entered(body):
 		body.get_hit(damage)
 		if body.hp <= 0:
 			if weapon_ref:
-				weapon_ref.award_xp(1)
+				weapon_ref.award_xp(1 * xp_multiplier)
 				var hud = get_tree().get_first_node_in_group("hud")
 				hud.add_money(10)
 	queue_free()
@@ -42,7 +43,7 @@ func _on_area_entered(area):
 		area.get_hit(damage)
 		if area.hp <= 0:
 			if weapon_ref:
-				weapon_ref.award_xp(1)
+				weapon_ref.award_xp(1 * xp_multiplier)
 				var hud = get_tree().get_first_node_in_group("hud")
 				hud.add_money(10)
 	queue_free()

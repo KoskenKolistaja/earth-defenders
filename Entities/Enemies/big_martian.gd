@@ -54,17 +54,14 @@ func get_hit(damage : int = 5):
 
 
 func die():
-	print("Queued free from die")
 	queue_free()
 
 
 func _on_target_reached():
 	
-	print(ships)
 	
 	
 	if ships < 1:
-		print("Queued free")
 		queue_free()
 	
 	spawning = true

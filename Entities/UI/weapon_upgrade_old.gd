@@ -59,8 +59,6 @@ func _ready():
 
 func initiate_selection(weapon_name):
 	
-	print("initate_selection")
-	print(weapon_name)
 	
 	match weapon_name:
 		"blaster":
@@ -87,15 +85,11 @@ func initiate_selection(weapon_name):
 
 func blaster():
 	
-	print("Blasterin sisällä")
 	
-	print(player_id)
 	
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		upgrade_to_machine_gun()
-		print("left_presed")
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		print("right_presed")
 		change_to_rifle()
 
 func machine_gun():

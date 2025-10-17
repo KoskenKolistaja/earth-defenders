@@ -35,6 +35,8 @@ func _ready():
 	
 	
 	await get_tree().create_timer(212,false).timeout
+	var autolabel = get_tree().get_first_node_in_group("auto_label")
+	autolabel.add_text("Martian war fleet has arrived!")
 	spawn_war_fleet()
 
 
@@ -67,7 +69,6 @@ func spawn_big_martian():
 	var ship_instance = big_martian.instantiate()
 	ship_instance.global_position = get_big_ship_position()
 	get_parent().add_child(ship_instance)
-	print(ship_instance)
 
 func spawn_small_martian():
 	var ship_instance = small_martian.instantiate()

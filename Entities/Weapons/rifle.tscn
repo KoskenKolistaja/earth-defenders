@@ -73,7 +73,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h37ow")
 
-[node name="rifle" type="Node3D"]
+[node name="rifle" type="Node3D" groups=["weapon"]]
 script = ExtResource("1_scshn")
 rifle_bullet = ExtResource("2_r3h7t")
 rifle_sound = ExtResource("3_efvb6")

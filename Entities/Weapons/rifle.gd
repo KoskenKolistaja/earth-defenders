@@ -14,6 +14,7 @@ var penetration = false
 
 var xp = 0
 var xp_needed = 1
+var xp_multiplier = 1
 
 var fly_time = 1.2
 
@@ -28,6 +29,7 @@ func shoot():
 		bullet_instance.weapon_ref = self
 		bullet_instance.penetration = penetration
 		bullet_instance.fly_time = fly_time
+		bullet_instance.xp_multiplier = xp_multiplier
 		world.add_child(bullet_instance)
 		bullet_instance.speed = bullet_velocity
 		bullet_instance.damage = bullet_damage

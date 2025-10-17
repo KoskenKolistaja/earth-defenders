@@ -4,7 +4,11 @@ extends Node3D
 
 
 
-
+func set_xp_multiplier_for_weapons():
+	var weapons = get_tree().get_nodes_in_group("weapons")
+	
+	for weapon in weapons:
+		weapon.xp_multiplier = get_xp_multiplier()
 
 
 func get_xp_multiplier():
@@ -15,10 +19,6 @@ func get_xp_multiplier():
 			multiplier += 1
 	
 	return multiplier
-
-
-
-
 
 
 func get_free_position():

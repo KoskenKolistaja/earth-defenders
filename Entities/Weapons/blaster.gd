@@ -8,7 +8,7 @@ var loaded = true
 
 var damage = 1
 
-
+var xp_multiplier = 1
 var xp = 0
 var xp_needed = 1
 var player_id
@@ -34,6 +34,7 @@ func shoot():
 		bullet_instance.damage = damage
 		bullet_instance.direction = direction
 		bullet_instance.speed = bullet_velocity
+		bullet_instance.xp_multiplier = xp_multiplier
 		var world = get_tree().get_first_node_in_group("objects")
 		world.add_child(bullet_instance)
 		bullet_instance.global_position = $Barrel.global_position
@@ -74,7 +75,6 @@ func upgrade_weapon():
 	if get_parent().name == "left_weapon":
 		left = true
 	
-	print("Blasterissa player_id on: " +str(player_id))
 	
 	if player_id:
 		var upgrade_manager = get_tree().get_first_node_in_group("upgrade_manager")

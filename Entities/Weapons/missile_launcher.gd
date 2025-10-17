@@ -2,6 +2,8 @@ extends Node3D
 
 @export var missile : PackedScene
 
+var xp_multiplier = 1
+
 var target = null
 var target_acquired = false
 
@@ -12,6 +14,10 @@ var loaded = true
 var player_id
 
 const FOCUS_TRESHOLD = 50
+
+
+func _ready():
+	get_parent().get_parent().check_for_weapon()
 
 
 func shoot():
@@ -87,6 +93,7 @@ func shoot_missile():
 	var missile_instance = missile.instantiate()
 	missile_instance.global_rotation = self.global_rotation
 	missile_instance.target = target
+	missile_instance.xp_multiplier = xp_multiplier
 	objects.add_child(missile_instance)
 	missile_instance.global_position = self.global_position
 

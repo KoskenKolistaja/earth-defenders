@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bergkjhvvnw8o"]
 
 [ext_resource type="Script" uid="uid://lta8vdyje8v" path="res://Entities/UI/weapon_selection.gd" id="1_v8pcp"]
-[ext_resource type="PackedScene" uid="uid://dhh7shqfkqpf3" path="res://Entities/UI/weapon_selection_panel.tscn" id="2_agcdk"]
+[ext_resource type="PackedScene" uid="uid://dhh7shqfkqpf3" path="res://Entities/UI/purchase_selection_panel.tscn" id="2_agcdk"]
 
 [node name="WeaponSelection" type="Control"]
 layout_mode = 3

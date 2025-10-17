@@ -5,7 +5,7 @@ var strength = 2
 var player_id
 
 var xp = 0
-
+var xp_multiplier = 1
 var xp_needed = 10
 
 
@@ -73,7 +73,7 @@ func reward_money():
 
 func _on_collect_area_area_entered(area):
 	reward_money()
-	award_xp(1)
+	award_xp(1 * xp_multiplier)
 	
 	area.queue_free()
 
