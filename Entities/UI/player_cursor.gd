@@ -12,6 +12,11 @@ func _ready():
 	$Label.position.x = (player_id - 1) * 26
 	$Label.text = str(player_id)
 	max_items = get_parent().get_max_items()
+	
+	modulate = PlayerData.player_colors[player_id]
+	
+	await get_tree().physics_frame
+	update_cursor_position()
 
 func _process(delta):
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
@@ -35,5 +40,7 @@ func _process(delta):
 
 func update_cursor_position():
 	global_position = get_parent().get_cursor_position(selected_item)
+	global_position.x -= size.x / 2
+	global_position.y -= size.y / 2
 	if player_id == 1:
 		get_parent().change_info(selected_item)

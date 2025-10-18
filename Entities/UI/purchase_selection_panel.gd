@@ -50,7 +50,7 @@ func disable_unavailable():
 func spawn_cursors():
 	for id in PlayerData.players:
 		var cursor_instance = player_cursor.instantiate()
-		cursor_instance.player_id = id + 1
+		cursor_instance.player_id = id
 		add_child(cursor_instance)
 
 
@@ -61,8 +61,11 @@ func change_info(index):
 
 
 func get_cursor_position(exported_index):
-	var associated_position = $HBoxContainer.get_child(exported_index).global_position
-	return associated_position
+	var node : Control = $HBoxContainer.get_child(exported_index)
+	var global_center = node.global_position + node.size / 2.0
+	return global_center
+
+
 
 func get_max_items() -> int:
 	var item_count = $HBoxContainer.get_child_count()

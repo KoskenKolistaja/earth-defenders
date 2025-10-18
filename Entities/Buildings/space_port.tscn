@@ -19,6 +19,7 @@ mesh = SubResource("BoxMesh_ud1xn")
 shape = SubResource("SphereShape3D_ruadn")
 
 [node name="Label" type="Label" parent="."]
+z_index = -1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -4,6 +4,7 @@ extends Node
 
 var players = []
 
+var player_names = {}
 var player_colors = {}
 var player_icons = {}
 

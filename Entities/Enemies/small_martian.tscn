@@ -653,7 +653,7 @@ grow_amount = -0.752
 material = SubResource("StandardMaterial3D_5hnt2")
 size = Vector2(0.5, 0.5)
 
-[node name="SmallMartian" type="CharacterBody3D" groups=["bullet_damaged"]]
+[node name="SmallMartian" type="CharacterBody3D" groups=["bullet_damaged", "xp"]]
 collision_layer = 17
 collision_mask = 0
 script = ExtResource("1_djnk5")

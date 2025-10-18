@@ -10,6 +10,10 @@ var hp = 2
 
 var dead = false
 
+var hit_xp = 1
+var kill_xp = 5
+
+
 func _ready():
 	velocity = Vector3(randf_range(-1,1),randf_range(-1,1),0)
 

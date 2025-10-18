@@ -22,6 +22,10 @@ var target_player
 
 var random_position
 
+var hit_xp = 1
+var kill_xp = 20
+
+
 func _ready():
 	# normalize initial direction and set initial rotation (z axis) so basis.y points toward it
 	if typeof(initial_direction) == TYPE_VECTOR3:

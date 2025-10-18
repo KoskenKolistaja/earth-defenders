@@ -52,7 +52,7 @@ grow_vertical = 2
 script = ExtResource("1_fot4q")
 
 [node name="Panel" type="NinePatchRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.5019608)
+self_modulate = Color(1, 1, 1, 0.50200003)
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 8

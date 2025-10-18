@@ -15,8 +15,7 @@ func _ready():
 
 func _physics_process(delta):
 	for id in PlayerData.players:
-		var temporary = id + 1
-		if Input.is_action_just_pressed("p%s_ready" % temporary):
+		if Input.is_action_just_pressed("p%s_ready" % id):
 			trigger_purchase_selection()
 
 func trigger_purchase_selection():

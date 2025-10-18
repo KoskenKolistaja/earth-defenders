@@ -10,7 +10,7 @@ var damage = 1
 
 var xp_multiplier = 1
 var xp = 0
-var xp_needed = 5
+var xp_needed = 50
 var player_id
 
 var index = 0

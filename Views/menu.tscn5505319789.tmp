@@ -27,6 +27,36 @@ texture = ExtResource("2_mkqbp")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="Start" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -23.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAYERDATA"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_upog6")
 volume_db = -6.303
@@ -69,3 +99,17 @@ grow_vertical = 2
 theme_override_constants/separation = 274
 script = ExtResource("5_f2th2")
 player_menu = ExtResource("5_mij3b")
+
+[node name="PlayerMenu" parent="PlayerMenus" instance=ExtResource("5_mij3b")]
+layout_mode = 2
+
+[node name="PlayerMenu2" parent="PlayerMenus" instance=ExtResource("5_mij3b")]
+layout_mode = 2
+
+[node name="PlayerMenu3" parent="PlayerMenus" instance=ExtResource("5_mij3b")]
+layout_mode = 2
+
+[node name="PlayerMenu4" parent="PlayerMenus" instance=ExtResource("5_mij3b")]
+layout_mode = 2
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

@@ -31,6 +31,8 @@ var gravitation_strength = 0.02
 
 
 func _ready():
+	player_color = PlayerData.player_colors[player_id]
+	
 	hp = max_hp
 	$Pivot/Spaceship/ShipMesh.get_surface_override_material(color_slot).albedo_color = player_color
 	$Pivot/Spaceship/ShipMesh.get_surface_override_material(color_slot).emission = player_color

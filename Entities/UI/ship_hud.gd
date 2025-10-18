@@ -12,7 +12,14 @@ var spawned = false
 func _ready():
 	update_selection()
 	update_cursor_position()
-	$Panel/PlayerName.text = "Player " + str(player_id)
+	$Panel/PlayerName.text = PlayerData.player_names[player_id]
+	$Panel/Base/PlayerIcon.texture = PlayerData.player_icons[player_id]
+	
+	var player_color : Color = PlayerData.player_colors[player_id]
+	
+	player_color.a = 0.5
+	$Panel.self_modulate = player_color
+
 
 func update_selection():
 	var spaceport = get_tree().get_first_node_in_group("spaceport")

@@ -13,7 +13,7 @@ var bullet_damage = 2
 var penetration = false
 
 var xp = 0
-var xp_needed = 10
+var xp_needed = 100
 var xp_multiplier = 1
 
 var fly_time = 1.2

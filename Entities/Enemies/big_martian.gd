@@ -15,6 +15,10 @@ var hp = 20
 
 var ships = 3
 
+var hit_xp = 1
+var kill_xp = 50
+
+
 func _ready():
 	initial_position = self.global_position
 	var vector = Vector3(0,0,0) - self.global_position

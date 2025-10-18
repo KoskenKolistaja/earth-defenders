@@ -14,6 +14,7 @@ var xp_multiplier = 1
 var shooter
 var weapon_ref
 
+var damage = 5
 
 func _ready():
 	await get_tree().create_timer(5,false).timeout
@@ -46,24 +47,35 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if area.has_method("get_hit"):
-		area.get_hit(5)
-		if area.hp <= 0:
-			if weapon_ref:
-				weapon_ref.award_xp(1)
-				var hud = get_tree().get_first_node_in_group("hud")
-				hud.add_money(50)
+		area.get_hit(damage)
+		if area.is_in_group("xp"):
+			if area.hp <= 0:
+				if weapon_ref:
+					weapon_ref.award_xp(area.kill_xp * xp_multiplier)
+					var hud = get_tree().get_first_node_in_group("hud")
+					hud.add_money(50)
+			else:
+				if weapon_ref:
+					weapon_ref.award_xp(area.hit_xp * damage * xp_multiplier)
 	explode()
 
 
 func _on_body_entered(body):
 	if body.has_method("get_hit"):
-		body.get_hit(5)
-		if body.hp <= 0:
-			if weapon_ref:
-				weapon_ref.award_xp(1)
-				var hud = get_tree().get_first_node_in_group("hud")
-				hud.add_money(50)
+		body.get_hit(damage)
+		if body.is_in_group("xp"):
+			if body.hp <= 0:
+				if weapon_ref:
+					weapon_ref.award_xp(body.kill_xp * xp_multiplier)
+					var hud = get_tree().get_first_node_in_group("hud")
+					hud.add_money(50)
+			else:
+				if weapon_ref:
+					weapon_ref.award_xp(body.hit_xp * damage * xp_multiplier)
 	explode()
+
+
+
 
 
 

@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://buvj3aanpqr8h"]
+[gd_scene load_steps=13 format=3 uid="uid://buvj3aanpqr8h"]
 
 [ext_resource type="Texture2D" uid="uid://cs4n604fm2chl" path="res://Assets/Textures/PlayerIcons/Prince.png" id="1_a8dpt"]
 [ext_resource type="Script" uid="uid://goc3s7y8r2um" path="res://Entities/UI/player_menu.gd" id="1_gh4gb"]
 [ext_resource type="Texture2D" uid="uid://bbqmvaroyvhhd" path="res://Assets/Textures/UI/WenrexaUI/Button02.png" id="1_p8y04"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="2_0qf18"]
 [ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="5_s1ds4"]
+[ext_resource type="AudioStream" uid="uid://c3nshtaedbdul" path="res://Assets/Sci-fi SFX/Ting_Pitched_Down.wav" id="6_dgone"]
 [ext_resource type="AudioStream" uid="uid://bg66y3jcwom06" path="res://Assets/Sci-fi SFX/Ting_Pitched_Up.wav" id="6_ebff6"]
 [ext_resource type="AudioStream" uid="uid://bsxhv8b3lpo7u" path="res://Assets/Sci-fi SFX/Click_Scoop_Up.wav" id="7_fdodg"]
+[ext_resource type="Texture2D" uid="uid://lbqufwxy4yxo" path="res://Assets/Textures/UI/WenrexaUI/Slider02.png" id="8_fdodg"]
+[ext_resource type="AudioStream" uid="uid://dryhj747t16e8" path="res://Assets/Sci-fi SFX/Click_2.wav" id="8_rb7ka"]
+[ext_resource type="FontFile" uid="uid://bnqrfpff5at86" path="res://Assets/Fonts/DIGITALDREAMFATNARROW.ttf" id="11_hbqao"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8y04"]
 texture = ExtResource("1_p8y04")
@@ -42,6 +46,7 @@ theme_override_constants/separation = 9
 [node name="Panel2" type="NinePatchRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_p8y04")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -50,6 +55,7 @@ patch_margin_bottom = 20
 
 [node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Panel2"]
 texture_filter = 1
+custom_minimum_size = Vector2(109, 113)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +67,7 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a8dpt")
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Panel" type="NinePatchRect" parent="VBoxContainer"]
@@ -80,7 +87,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0qf18")
-text = "Diplomat"
+text = "Prince"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -113,8 +120,80 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_p8y04")
 text = "READY"
 
 [node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dgone")
+
+[node name="Accept2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ebff6")
 
 [node name="Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fdodg")
 volume_db = -18.0
+
+[node name="Move2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rb7ka")
+volume_db = -12.0
+
+[node name="Cursor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Cursor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = -20.0
+offset_right = 120.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_fdodg")
+
+[node name="TextureRect2" type="TextureRect" parent="Cursor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
+texture = ExtResource("8_fdodg")
+
+[node name="Ready" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_hbqao")
+theme_override_font_sizes/font_size = 36
+text = "READY"
