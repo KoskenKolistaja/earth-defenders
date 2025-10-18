@@ -15,7 +15,8 @@ var ship_hud
 
 func _ready():
 	initiate_ship_hud()
-
+	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
+	xp_multiplier = facility_spawner.get_xp_multiplier()
 
 func initiate_ship_hud():
 	var huds = get_tree().get_nodes_in_group("ship_hud")

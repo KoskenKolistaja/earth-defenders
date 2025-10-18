@@ -106,6 +106,8 @@ func ready():
 
 func action(item_name):
 	
+	print(item_name)
+	
 	match item_name:
 		"speeder":
 			add_ship_to_reserve(item_name)
@@ -115,8 +117,9 @@ func action(item_name):
 			add_facility(item_name)
 		"geo_repair_station":
 			add_facility(item_name)
-		"technology_insitute":
+		"technology_institute":
 			add_facility(item_name)
+			print("tänne mentiin")
 		"bank":
 			add_facility(item_name)
 		"none":

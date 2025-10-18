@@ -79,7 +79,7 @@ func get_spawn_interval(base: float) -> float:
 
 func get_difficulty(t: float) -> float:
 	var normalized_time = clamp(t / 900.0, 0.0, 1.0)  # 5 min full scale
-	return difficulty_curve.sample(normalized_time)
+	return difficulty_curve.sample(normalized_time) * 5
 
 
 func _on_asteroid_timer_timeout():
