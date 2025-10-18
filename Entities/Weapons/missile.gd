@@ -45,6 +45,11 @@ func _physics_process(delta):
 			rotation_degrees.z += 1
 
 
+func set_speed(amount,amount2):
+	speed = amount
+	initial_speed = amount2
+
+
 func _on_area_entered(area):
 	if area.has_method("get_hit"):
 		area.get_hit(damage)

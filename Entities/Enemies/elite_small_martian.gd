@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var rotation_speed_deg: float = 90.0     # degrees per second
 @export var speed: float = 2.0
 
-var full_speed = 6.0
+var full_speed = 10.0
 
 var dead = false
 
@@ -25,7 +25,7 @@ var target_player
 var random_position
 
 var hit_xp = 1
-var kill_xp = 20
+var kill_xp = 30
 
 
 func _ready():
@@ -48,7 +48,7 @@ func _ready():
 
 
 func change_weapon():
-	$weapon/Blaster.to_machine_gun()
+	$weapon/Blaster.to_martian_sentinel()
 
 
 
@@ -230,11 +230,19 @@ func _on_shoot_check_timer_timeout():
 
 
 func get_random_position():
-	var origin = Vector3(0, 0, 0)
-	var distance = randi_range(40,70)
-	var random_angle = randf() * TAU
-	var direction = Vector3(cos(random_angle), sin(random_angle), 0)
-	var target_position = origin + direction * distance
+	var target_position
+	if is_instance_valid(target_player):
+		var origin = target_player.global_position
+		var distance = randi_range(1,10)
+		var random_angle = randf() * TAU
+		var direction = Vector3(cos(random_angle), sin(random_angle), 0)
+		target_position = origin + direction * distance
+	else:
+		var origin = Vector3(0, 0, 0)
+		var distance = randi_range(40,70)
+		var random_angle = randf() * TAU
+		var direction = Vector3(cos(random_angle), sin(random_angle), 0)
+		target_position = origin + direction * distance
 	return target_position
 
 

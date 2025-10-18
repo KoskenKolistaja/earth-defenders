@@ -4,12 +4,16 @@ extends Node3D
 @export var asteroid : PackedScene
 @export var big_martian : PackedScene
 @export var small_martian : PackedScene
+@export var elite_small_martian : PackedScene
+@export var missile_small_martian : PackedScene
 
 @export var difficulty_curve: Curve
 
 var base_asteroid_interval = 10.0
 var base_big_martian_interval = 120.0
 var base_small_martian_interval = 20.0
+var base_elite_small_martian_interval = 40.0
+var base_missile_small_martian_interval = 50.0
 
 
 func get_random_position():
@@ -70,7 +74,19 @@ func spawn_small_martian():
 	ship_instance.global_position = get_random_position()
 	objects.add_child(ship_instance)
 
+func spawn_elite_small_martian():
+	var ship_instance = elite_small_martian.instantiate()
+	ship_instance.initial_direction = -basis.x
+	var objects = get_tree().get_first_node_in_group("objects")
+	ship_instance.global_position = get_random_position()
+	objects.add_child(ship_instance)
 
+func spawn_missile_small_martian():
+	var ship_instance = missile_small_martian.instantiate()
+	ship_instance.initial_direction = -basis.x
+	var objects = get_tree().get_first_node_in_group("objects")
+	ship_instance.global_position = get_random_position()
+	objects.add_child(ship_instance)
 
 func get_spawn_interval(base: float) -> float:
 	var difficulty = get_difficulty(MetaData.game_time_elapsed)
@@ -97,3 +113,15 @@ func _on_big_martian_timer_timeout():
 	$BigMartianTimer.wait_time = get_spawn_interval(base_big_martian_interval)
 	spawn_big_martian()
 	$BigMartianTimer.start()
+
+
+func _on_missile_small_martian_timer_timeout():
+	$MissileSmallMartianTimer.wait_time = get_spawn_interval(base_missile_small_martian_interval)
+	spawn_missile_small_martian()
+	$MissileSmallMartianTimer.start()
+
+
+func _on_elite_small_martian_timer_timeout():
+	$EliteSmallMartianTimer.wait_time = get_spawn_interval(base_elite_small_martian_interval)
+	spawn_elite_small_martian()
+	$EliteSmallMartianTimer.start()

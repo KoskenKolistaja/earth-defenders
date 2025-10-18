@@ -77,6 +77,7 @@ func shoot():
 
 
 
+
 func release():
 	pass
 
@@ -143,6 +144,15 @@ func to_sentinel():
 	if player_id:
 		update_xp()
 		update_weapon_name()
+
+func to_martian_sentinel():
+	$Timer.wait_time = 0.1
+	damage = 1
+	self.name = "sentinel"
+	spread = 0.05
+	bullet_velocity = 0.4
+
+
 
 func to_minigun():
 	$Timer.wait_time = 0.04

@@ -7,11 +7,13 @@ extends CharacterBody3D
 @export var rotation_speed_deg: float = 90.0     # degrees per second
 @export var speed: float = 2.0
 
-var full_speed = 6.0
+var full_speed = 3.0
 
 var dead = false
 
 @export var explosion : PackedScene
+
+@export var missile : PackedScene
 
 var hp: int = 5
 var active: bool = false
@@ -43,12 +45,6 @@ func _ready():
 		target_player = players[randi_range(0,players.size()-1)]
 	
 	
-	change_weapon()
-
-
-
-func change_weapon():
-	$weapon/Blaster.to_machine_gun()
 
 
 
@@ -62,7 +58,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if shooting:
-		$weapon.get_child(0).shoot()
+		shoot_missile()
+		shooting = false
 	
 	
 	if active:
@@ -161,6 +158,22 @@ func get_hit(damage: int = 5) -> void:
 
 func die() -> void:
 	explode()
+
+
+func shoot_missile():
+	
+	print(target_player)
+	print(is_instance_valid(target_player))
+	
+	if is_instance_valid(target_player):
+		var objects = get_tree().get_first_node_in_group("objects")
+		var missile_instance = missile.instantiate()
+		missile_instance.target = target_player
+		missile_instance.global_rotation = self.global_rotation
+		
+		missile_instance.set_speed(0.2,0.2)
+		objects.add_child(missile_instance)
+		missile_instance.global_position = $weapon.global_position
 
 
 func wreck():

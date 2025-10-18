@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxfda5ay2mfgn"]
+[gd_scene load_steps=13 format=3 uid="uid://dxfda5ay2mfgn"]
 
 [ext_resource type="Script" uid="uid://cjw87n2iwyru4" path="res://Views/sun.gd" id="1_aujwv"]
 [ext_resource type="PackedScene" uid="uid://14p3afxbioib" path="res://Entities/Player/player.tscn" id="1_d5lh8"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" uid="uid://bfyw00ea7y2dl" path="res://Entities/Utility/spawn_manager.gd" id="6_w5eul"]
 [ext_resource type="PackedScene" uid="uid://cc62jnr1trjns" path="res://Entities/Enemies/big_martian.tscn" id="7_aujwv"]
 [ext_resource type="PackedScene" uid="uid://n4bmvhrg6lyu" path="res://Entities/Enemies/small_martian.tscn" id="8_pu55j"]
+[ext_resource type="PackedScene" uid="uid://btipjhw30yl7r" path="res://Entities/Enemies/elite_small_martian.tscn" id="9_rl073"]
+[ext_resource type="PackedScene" uid="uid://0xm7sgbcqsrk" path="res://Entities/Enemies/missile_small_martian.tscn" id="10_pu75q"]
 
 [sub_resource type="Curve" id="Curve_rl073"]
-_data = [Vector2(0, 0), 0.0, 0.40212092, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.40212092, 0, 0, Vector2(0.46753246, 0.078651786), 0.37078708, 0.37078708, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
+point_count = 3
 
 [node name="Space" type="Node3D"]
 script = ExtResource("1_pu55j")
@@ -38,6 +40,8 @@ script = ExtResource("6_w5eul")
 asteroid = ExtResource("5_ulv8f")
 big_martian = ExtResource("7_aujwv")
 small_martian = ExtResource("8_pu55j")
+elite_small_martian = ExtResource("9_rl073")
+missile_small_martian = ExtResource("10_pu75q")
 difficulty_curve = SubResource("Curve_rl073")
 
 [node name="AsteroidTimer" type="Timer" parent="Objects/SpawnManager"]
@@ -55,6 +59,18 @@ wait_time = 120.0
 one_shot = true
 autostart = true
 
+[node name="EliteSmallMartianTimer" type="Timer" parent="Objects/SpawnManager"]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="MissileSmallMartianTimer" type="Timer" parent="Objects/SpawnManager"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Objects/SpawnManager/AsteroidTimer" to="Objects/SpawnManager" method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="Objects/SpawnManager/SmallMartianTimer" to="Objects/SpawnManager" method="_on_small_martian_timer_timeout"]
 [connection signal="timeout" from="Objects/SpawnManager/BigMartianTimer" to="Objects/SpawnManager" method="_on_big_martian_timer_timeout"]
+[connection signal="timeout" from="Objects/SpawnManager/EliteSmallMartianTimer" to="Objects/SpawnManager" method="_on_elite_small_martian_timer_timeout"]
+[connection signal="timeout" from="Objects/SpawnManager/MissileSmallMartianTimer" to="Objects/SpawnManager" method="_on_missile_small_martian_timer_timeout"]
