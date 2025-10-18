@@ -4,7 +4,8 @@ extends Node
 
 var players = []
 
-
+var player_colors = {}
+var player_icons = {}
 
 
 func add_player(exported_id):

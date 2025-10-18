@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bg66y3jcwom06"
+path="res://.godot/imported/Ting_Pitched_Up.wav-958b46941f9ac55b45489f0da4f7c8f1.sample"
+
+[deps]
+
+source_file="res://Assets/Sci-fi SFX/Ting_Pitched_Up.wav"
+dest_files=["res://.godot/imported/Ting_Pitched_Up.wav-958b46941f9ac55b45489f0da4f7c8f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

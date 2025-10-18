@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddf6qbxo3mx0t"
+path="res://.godot/imported/Glitch_6.wav-adfed9cec30acf0f441e46a3274a9ada.sample"
+
+[deps]
+
+source_file="res://Assets/Sci-fi SFX/Glitch_6.wav"
+dest_files=["res://.godot/imported/Glitch_6.wav-adfed9cec30acf0f441e46a3274a9ada.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

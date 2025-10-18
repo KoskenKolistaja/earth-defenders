@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://g8uw1q1nr7q2"
+path="res://.godot/imported/High_Click_1.wav-35857c7f0e30c7c094d028da5358fe1b.sample"
+
+[deps]
+
+source_file="res://Assets/Sci-fi SFX/High_Click_1.wav"
+dest_files=["res://.godot/imported/High_Click_1.wav-35857c7f0e30c7c094d028da5358fe1b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

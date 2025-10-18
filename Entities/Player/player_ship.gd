@@ -42,7 +42,7 @@ func _ready():
 			ship_hud = h
 			break
 	
-	ship_hud.update_hp(hp)
+	ship_hud.update_hp(hp,max_hp)
 	
 	await get_tree().physics_frame
 	initiate_weapons()
@@ -120,7 +120,7 @@ func handle_actions():
 func get_hit(damage : int = 100):
 	hp -= damage
 	
-	ship_hud.update_hp(hp)
+	ship_hud.update_hp(hp,max_hp)
 	
 	if hp <= 0:
 		die()
@@ -128,7 +128,7 @@ func get_hit(damage : int = 100):
 func heal(amount):
 	hp += amount
 	hp = clamp(hp,-100,max_hp)
-	ship_hud.update_hp(hp)
+	ship_hud.update_hp(hp,max_hp)
 
 
 func die():

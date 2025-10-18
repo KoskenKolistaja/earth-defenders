@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgq5x5jw0sjex"]
+[gd_scene load_steps=6 format=3 uid="uid://dgq5x5jw0sjex"]
 
 [ext_resource type="Texture2D" uid="uid://c3veslpvk13dn" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/2 Frames/Frame_14.png" id="1_f52qu"]
 [ext_resource type="Script" uid="uid://d011fx41rwxlf" path="res://Entities/UI/player_cursor.gd" id="2_2mlqe"]
+[ext_resource type="FontFile" uid="uid://f1e3ca6sl7x7" path="res://Assets/Fonts/Linebeam.ttf" id="3_1nnx8"]
+[ext_resource type="AudioStream" uid="uid://bsxhv8b3lpo7u" path="res://Assets/Sci-fi SFX/Click_Scoop_Up.wav" id="4_6jkpe"]
+[ext_resource type="AudioStream" uid="uid://bg66y3jcwom06" path="res://Assets/Sci-fi SFX/Ting_Pitched_Up.wav" id="4_qcqry"]
 
 [node name="PlayerCursor" type="TextureRect"]
 self_modulate = Color(1, 1, 1, 0.30400002)
@@ -25,5 +28,15 @@ layout_mode = 0
 offset_top = -37.0
 offset_right = 40.0
 offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("3_1nnx8")
 theme_override_font_sizes/font_size = 30
 text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qcqry")
+
+[node name="Move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6jkpe")
+volume_db = -18.0

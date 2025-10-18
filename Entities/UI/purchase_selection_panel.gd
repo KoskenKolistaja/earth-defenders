@@ -1,4 +1,4 @@
-extends Panel
+extends NinePatchRect
 
 @export var player_cursor : PackedScene
 
@@ -21,10 +21,22 @@ func _ready():
 	get_parent().pause_space()
 	spawn_cursors()
 	disable_unavailable()
+	update_item_prices()
 
+
+func update_item_prices():
+	var items = $ItemPricesContainer.get_children()
+	
+	
+	for i in items:
+		
+		if not ItemData.item_prices.has(i.name):
+			continue
+		
+		i.text = str(ItemData.item_prices[i.name]) + "$"
 
 func _physics_process(delta):
-	$Label.text = str(snappedi($Timer.time_left,1))
+	$Time.text = str(snappedi($Timer.time_left,1))
 
 func disable_unavailable():
 	var hud = get_tree().get_first_node_in_group("hud")
@@ -42,7 +54,10 @@ func spawn_cursors():
 		add_child(cursor_instance)
 
 
-
+func change_info(index):
+	var item_name = $HBoxContainer.get_child(index).name
+	var info = ItemData.item_info[item_name]
+	$NinePatchRect/ItemInfo.text = info
 
 
 func get_cursor_position(exported_index):
@@ -57,6 +72,10 @@ func get_max_items() -> int:
 
 
 func assign_vote(player_id,index):
+	
+	if $Timer.is_stopped():
+		$Timer.start()
+		$Time.show()
 	
 	var hud = get_tree().get_first_node_in_group("hud")
 	var money = hud.money

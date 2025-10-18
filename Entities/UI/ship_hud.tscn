@@ -1,10 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi8si437hlwxp"]
+[gd_scene load_steps=13 format=3 uid="uid://bi8si437hlwxp"]
 
 [ext_resource type="Script" uid="uid://bby8y05b3boks" path="res://Entities/UI/ship_hud.gd" id="1_fot4q"]
 [ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="1_ursxy"]
+[ext_resource type="Texture2D" uid="uid://bbqmvaroyvhhd" path="res://Assets/Textures/UI/WenrexaUI/Button02.png" id="2_7v30e"]
 [ext_resource type="Texture2D" uid="uid://c3veslpvk13dn" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/2 Frames/Frame_14.png" id="3_elj2m"]
 [ext_resource type="Texture2D" uid="uid://bd4s1sqjw7oh2" path="res://Assets/Textures/ShipIcons/speeder.png" id="3_nj7l3"]
-[ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="4_835do"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="5_v85bf"]
+[ext_resource type="FontFile" uid="uid://cwuj6ijo7w23b" path="res://Assets/Fonts/Minecart LCD.ttf" id="6_7v30e"]
+[ext_resource type="Texture2D" uid="uid://cs4n604fm2chl" path="res://Assets/Textures/PlayerIcons/Prince.png" id="7_u1j3t"]
+[ext_resource type="AudioStream" uid="uid://bg66y3jcwom06" path="res://Assets/Sci-fi SFX/Ting_Pitched_Up.wav" id="7_v85bf"]
+[ext_resource type="AudioStream" uid="uid://bsxhv8b3lpo7u" path="res://Assets/Sci-fi SFX/Click_Scoop_Up.wav" id="8_7v30e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj7l3"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.48178947, 0.48178947, 0.48178947, 0.3019608)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loajh"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 6
 
 [node name="ShipHUD" type="Control" groups=["ship_hud"]]
 layout_mode = 3
@@ -17,20 +51,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fot4q")
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(300, 200)
+[node name="Panel" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.5019608)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -100.0
-offset_right = 150.0
-offset_bottom = 100.0
+offset_left = -155.0
+offset_top = -48.3775
+offset_right = 155.0
+offset_bottom = 47.6225
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_7v30e")
+region_rect = Rect2(0, 0, 56, 56)
+patch_margin_left = 20
+patch_margin_top = 31
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="Selection" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -38,11 +79,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_top = -31.622498
+offset_bottom = 48.377502
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="combat_ship" type="TextureRect" parent="Panel/Selection"]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 texture = ExtResource("1_ursxy")
 expand_mode = 1
@@ -53,21 +96,20 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -66.0
-offset_right = 56.0
-offset_bottom = -16.0
+offset_top = -50.0
+offset_right = 40.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_v85bf")
 theme_override_font_sizes/font_size = 36
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="speeder" type="TextureRect" parent="Panel/Selection"]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 texture = ExtResource("3_nj7l3")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="Panel/Selection/speeder"]
@@ -75,11 +117,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -66.0
-offset_right = 56.0
-offset_bottom = -16.0
+offset_top = -50.0
+offset_right = 40.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_v85bf")
 theme_override_font_sizes/font_size = 36
 text = "5"
 horizontal_alignment = 1
@@ -100,14 +141,36 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 98.0
 offset_top = -32.0
 offset_right = -15.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_v85bf")
+theme_override_styles/background = SubResource("StyleBoxFlat_nj7l3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_loajh")
 step = 1.0
 value = 24.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel/Base/HPBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_v85bf")
+text = "5/5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Base"]
 layout_mode = 1
@@ -125,14 +188,43 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -13.5
-offset_right = 110.0
-offset_bottom = 13.5
+offset_left = 92.685
+offset_top = -20.0
+offset_right = 192.685
+offset_bottom = -5.9999733
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_v85bf")
+theme_override_styles/background = SubResource("StyleBoxFlat_nj7l3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_loajh")
+value = 50.0
+show_percentage = false
+
+[node name="XPAmount" type="Label" parent="Panel/Base/LeftWeaponXP"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 15.43
+offset_right = 26.0
+offset_bottom = 38.43
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_v85bf")
+text = "xp: 10/200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponName" type="Label" parent="Panel/Base/LeftWeaponXP"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 55.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("6_7v30e")
+theme_override_font_sizes/font_size = 10
+text = "Super Sniper"
+vertical_alignment = 1
 
 [node name="RightWeaponXP" type="ProgressBar" parent="Panel/Base"]
-visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = 6
@@ -141,32 +233,83 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = -13.5
-offset_right = -9.999817
-offset_bottom = 13.5
+offset_top = -20.0
+offset_right = -10.0
+offset_bottom = -5.9999733
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_v85bf")
+theme_override_styles/background = SubResource("StyleBoxFlat_nj7l3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_loajh")
+value = 20.0
+show_percentage = false
+
+[node name="XPAmount" type="Label" parent="Panel/Base/RightWeaponXP"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 15.43
+offset_right = 26.0
+offset_bottom = 38.43
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_v85bf")
+text = "10/200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponName" type="Label" parent="Panel/Base/RightWeaponXP"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 55.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("6_7v30e")
+theme_override_font_sizes/font_size = 10
+text = "Super Sniper"
+vertical_alignment = 1
+
+[node name="PlayerIcon" type="TextureRect" parent="Panel/Base"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -75.755
+offset_right = 76.0
+offset_bottom = -11.754997
+grow_vertical = 0
+texture = ExtResource("7_u1j3t")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Cursor" type="TextureRect" parent="Panel"]
 modulate = Color(1, 1, 1, 0.18200001)
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
-offset_left = 217.0
-offset_top = 35.0
-offset_right = 345.0
-offset_bottom = 163.0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 74.0
+offset_bottom = 86.0
 texture = ExtResource("3_elj2m")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="PlayerName" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -38.0
-offset_right = 38.0
+offset_left = 8.13
+offset_right = 84.13
 offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_835do")
-text = "Player 1"
+theme_override_fonts/font = ExtResource("5_v85bf")
+text = "Prince"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v85bf")
+
+[node name="Move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7v30e")
+volume_db = -18.0

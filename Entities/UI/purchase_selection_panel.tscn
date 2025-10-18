@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhh7shqfkqpf3"]
+[gd_scene load_steps=14 format=3 uid="uid://dhh7shqfkqpf3"]
 
 [ext_resource type="Script" uid="uid://c0ftg2e34ygnw" path="res://Entities/UI/purchase_selection_panel.gd" id="1_8ae43"]
+[ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="1_d18px"]
 [ext_resource type="Texture2D" uid="uid://bd4s1sqjw7oh2" path="res://Assets/Textures/ShipIcons/speeder.png" id="1_hlcg7"]
 [ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="2_8ae43"]
 [ext_resource type="Texture2D" uid="uid://chp7dmvm2orce" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_11.png" id="3_k2uhh"]
@@ -9,33 +10,29 @@
 [ext_resource type="Texture2D" uid="uid://b51r13lskf28b" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_38.png" id="6_d18px"]
 [ext_resource type="Texture2D" uid="uid://dd0feheyfeadt" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/10/Skillicon10_06.png" id="7_hlcg7"]
 [ext_resource type="PackedScene" uid="uid://dgq5x5jw0sjex" path="res://Entities/UI/player_cursor.tscn" id="9_k2uhh"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="11_d18px"]
+[ext_resource type="Texture2D" uid="uid://wu1mobdgphnp" path="res://Assets/Textures/UI/WenrexaUI/MainPanel03.png" id="12_o0dgc"]
+[ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="13_e5w42"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlcg7"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 5
-
-[node name="PurchaseSelectionPanel" type="Panel"]
-custom_minimum_size = Vector2(960, 128)
+[node name="PurchaseSelectionPanel" type="NinePatchRect"]
+custom_minimum_size = Vector2(960, 256)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
-offset_top = -64.0
+offset_top = -196.0
 offset_right = 480.0
-offset_bottom = 64.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hlcg7")
+texture = ExtResource("1_d18px")
+region_rect = Rect2(0, 0, 302.02423, 403.00754)
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
 script = ExtResource("1_8ae43")
 player_cursor = ExtResource("9_k2uhh")
 
@@ -44,14 +41,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="speeder" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("1_hlcg7")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/speeder"]
 layout_mode = 1
@@ -63,14 +62,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="combat_ship" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("2_8ae43")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/combat_ship"]
 layout_mode = 1
@@ -82,14 +85,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="repair_station" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("3_k2uhh")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/repair_station"]
 layout_mode = 1
@@ -101,14 +108,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="geo_repair_station" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("4_fsi7h")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/geo_repair_station"]
 layout_mode = 1
@@ -120,14 +131,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="technology_institute" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("5_7qont")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/technology_institute"]
 layout_mode = 1
@@ -139,14 +154,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="bank" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("6_d18px")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/bank"]
 layout_mode = 1
@@ -158,14 +177,18 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="none" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("7_hlcg7")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/none"]
 layout_mode = 1
@@ -177,10 +200,14 @@ offset_top = -56.0
 offset_right = 49.0
 offset_bottom = -1.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 40
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Time" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -190,13 +217,191 @@ offset_top = -92.0
 offset_right = 28.5
 offset_bottom = -23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_d18px")
 theme_override_font_sizes/font_size = 50
-text = "20"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("12_o0dgc")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("13_e5w42")
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemInfo" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 40.0
+offset_right = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "Geo repair station doesn't have anything to do with ships or the ongoing war with Martians. It is vast set of infrastructure needed to patch up possible damage caused to a planet. It is expensive but is much needed to protect the most valuable asset: Earth."
+autowrap_mode = 2
+
+[node name="ItemPricesContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="speeder" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="combat_ship" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="repair_station" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="geo_repair_station" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="technology_institute" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bank" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="none" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemNamesContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "Speeder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "Combat ship"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "repair station"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "Geo repair
+station"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label5" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "technology
+institute"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "bank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -24,7 +24,7 @@ func _physics_process(delta):
 
 func _ready():
 	var weapon_name = weapon_ref.name
-	
+	$AudioStreamPlayer.play()
 	$Panel/Label.text = "Player " + str(player_id)
 	
 	

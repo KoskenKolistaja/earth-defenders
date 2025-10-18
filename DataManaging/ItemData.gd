@@ -50,3 +50,15 @@ var item_prices = {
 	"bank" : 200,
 	"none" : 0,
 }
+
+
+
+var item_info = {
+	"speeder" : "Speeder is an agile ship equipped with the most advanced propulsion technology making it the fastest ship type in the galaxy.  Just keep in mind its stripped-down armor makes it vulnerable for blast damage.",
+	"combat_ship" : "Combat ship is an solid all-arounder that can take you moderately fast from point a to b. It has pretty strong armor making it capable of surviving some damage.",
+	"repair_station" : "Repair station is an earth installation that uses ion ray technology to carry required supplies and energy to maintain any ship in the earths lower orbit. No landings needed!",
+	"geo_repair_station" : "Geo repair station doesn't have anything to do with ships or the ongoing war with Martians. It is a vast set of infrastructure needed to patch up possible damage caused to a planet. It is expensive but it is much needed to protect the most valuable asset: Earth.",
+	"technology_institute" : "Technology is essential when trying to defend against extraterrestial threats. The right advancements in weapon technology might be the key to change the tide of a battle or even a war. Technology institute grants you xp multipliers.",
+	"bank" : "Investments might seem irrelevant during war but right economical decisions will help you outlast the enemy. Banks provide you with a steady flow of money.",
+	"none" : "",
+}

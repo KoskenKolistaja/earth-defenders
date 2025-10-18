@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp60rljnnygaf"]
+[gd_scene load_steps=19 format=3 uid="uid://bp60rljnnygaf"]
 
 [ext_resource type="Script" uid="uid://dxreqkgmiykmq" path="res://Entities/UI/weapon_upgrade.gd" id="1_eoo41"]
 [ext_resource type="Texture2D" uid="uid://dp3ya8e37pfvj" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_22.png" id="2_pd33f"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cbfr6kslampkw" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_25.png" id="12_3fany"]
 [ext_resource type="Texture2D" uid="uid://b6uum1erj4wpq" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_09.png" id="13_4qw63"]
 [ext_resource type="Texture2D" uid="uid://dwu2eijfao7hy" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_06.png" id="14_40c6b"]
+[ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="15_06c7o"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="17_vl1in"]
+[ext_resource type="AudioStream" uid="uid://bg7dr3hjcrt25" path="res://Assets/Sci-fi SFX/Tone2A_FifthOctaveUp.wav" id="18_idv2g"]
 
 [node name="WeaponUpgrade" type="Control"]
 layout_mode = 3
@@ -38,20 +41,25 @@ missile_launcher_icon = ExtResource("12_3fany")
 xxx_icon = ExtResource("13_4qw63")
 super_sniper_icon = ExtResource("14_40c6b")
 
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(300, 200)
+[node name="Panel" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(300, 96)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -155.0
+offset_top = -48.0
+offset_right = 155.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("15_06c7o")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -60,16 +68,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 54
 alignment = 1
 
 [node name="TextureLeft" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("2_pd33f")
 stretch_mode = 5
 
 [node name="TextureRight" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("3_hdiri")
 stretch_mode = 5
@@ -84,4 +93,11 @@ offset_top = 11.0
 offset_right = 36.0
 offset_bottom = 34.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("17_vl1in")
 text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_idv2g")
+volume_db = -12.0

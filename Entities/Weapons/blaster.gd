@@ -32,6 +32,19 @@ func _ready():
 		
 		var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
 		xp_multiplier = facility_spawner.get_xp_multiplier()
+		
+		
+		
+		update_weapon_name()
+
+
+func update_weapon_name():
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	ship_hud.update_weapon_name(self.name,left)
+
 
 func initiate_ship_hud():
 	var huds = get_tree().get_nodes_in_group("ship_hud")
@@ -87,12 +100,10 @@ func update_xp():
 	if get_parent().name == "left_weapon":
 		left = true
 	
-	var amount = snappedi(float(xp) / float(xp_needed) * 100, 1)
 	
-	print(amount)
 	
 	if is_instance_valid(ship_hud):
-		ship_hud.update_xp(amount,left)
+		ship_hud.update_xp(xp,xp_needed,left)
 
 func upgrade_weapon():
 	
@@ -118,6 +129,10 @@ func to_machine_gun():
 	$Timer.wait_time = 0.2
 	self.name = "machine_gun"
 	spread = 0.01
+	
+	if player_id:
+		update_xp()
+		update_weapon_name()
 
 func to_sentinel():
 	$Timer.wait_time = 0.1
@@ -125,6 +140,9 @@ func to_sentinel():
 	self.name = "sentinel"
 	spread = 0.05
 	bullet_velocity = 0.4
+	if player_id:
+		update_xp()
+		update_weapon_name()
 
 func to_minigun():
 	$Timer.wait_time = 0.04
@@ -135,3 +153,6 @@ func to_minigun():
 	
 	if player_id:
 		get_parent().get_parent().check_for_weapon()
+	if player_id:
+		update_xp()
+		update_weapon_name()

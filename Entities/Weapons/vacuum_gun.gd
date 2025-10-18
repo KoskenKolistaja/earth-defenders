@@ -14,6 +14,7 @@ func _ready():
 	initiate_ship_hud()
 	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
 	xp_multiplier = facility_spawner.get_xp_multiplier()
+	update_weapon_name()
 
 func initiate_ship_hud():
 	var huds = get_tree().get_nodes_in_group("ship_hud")
@@ -31,9 +32,8 @@ func update_xp():
 	if get_parent().name == "left_weapon":
 		left = true
 	
-	var amount = snappedi((xp/xp_needed) * 100,1)
 	
-	ship_hud.update_xp(amount,left)
+	ship_hud.update_xp(xp,xp_needed,left)
 
 
 
@@ -79,6 +79,12 @@ func award_xp(amount : int = 1):
 	if xp >= xp_needed and not self.name == "hoover":
 		upgrade_weapon()
 
+func update_weapon_name():
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	ship_hud.update_weapon_name(self.name,left)
 
 func upgrade_weapon():
 	
@@ -113,3 +119,4 @@ func to_hoover():
 	self.name = "hoover"
 	if player_id:
 		get_parent().get_parent().check_for_weapon()
+	update_weapon_name()

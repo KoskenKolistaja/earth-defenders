@@ -26,6 +26,8 @@ func _ready():
 	initiate_ship_hud()
 	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
 	xp_multiplier = facility_spawner.get_xp_multiplier()
+	
+	update_weapon_name()
 
 func initiate_ship_hud():
 	var huds = get_tree().get_nodes_in_group("ship_hud")
@@ -37,16 +39,22 @@ func initiate_ship_hud():
 	
 	update_xp()
 
+func update_weapon_name():
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	ship_hud.update_weapon_name(self.name,left)
 
 func update_xp():
 	var left = false
 	if get_parent().name == "left_weapon":
 		left = true
 	
-	var amount = snappedi(float(xp) / float(xp_needed) * 100, 1)
+	
 	
 	if is_instance_valid(ship_hud):
-		ship_hud.update_xp(amount,left)
+		ship_hud.update_xp(xp,xp_needed,left)
 
 func shoot():
 	if loaded:
@@ -98,6 +106,8 @@ func to_sniper():
 	bullet_damage = 5
 	self.name = "sniper"
 	$AudioStreamPlayer.stream = rifle_sound
+	update_xp()
+	update_weapon_name()
 
 func to_super_sniper():
 	$Timer.wait_time = 0.4
@@ -108,6 +118,8 @@ func to_super_sniper():
 	fly_time = 5
 	$AudioStreamPlayer.stream = rifle_sound
 	get_parent().get_parent().check_for_weapon()
+	update_xp()
+	update_weapon_name()
 
 func release():
 	pass
