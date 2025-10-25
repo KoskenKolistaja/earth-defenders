@@ -37,8 +37,8 @@ func _register_player(device_id: int):
 		PlayerData.add_player(player_id)
 		players_in_menu.append(player_id)
 		spawn_menu(player_id)
-		print(players_in_menu)
-		print(players_ready)
+		$Register.play()
+
 
 func erase_player(player_id: int):
 	PlayerData.players.erase(player_id)
@@ -46,6 +46,7 @@ func erase_player(player_id: int):
 	players_ready.erase(player_id)
 	print(players_in_menu)
 	print(players_ready)
+	$Erase.play()
 
 func _on_joy_connection_changed(device_id: int, connected: bool):
 	var player_id := device_id + 1
@@ -67,10 +68,6 @@ func set_ready(player_id: int, is_ready: bool) -> void:
 	else:
 		players_ready.erase(player_id)
 	
-	print(players_in_menu)
-	print(players_ready)
-	print(is_ready_to_start())
-
 	if is_ready_to_start():
 		signal_start_game()
 
@@ -85,5 +82,4 @@ func is_ready_to_start() -> bool:
 	return true
 
 func signal_start_game():
-	print("All players ready! Starting game...")
 	get_parent().start_game()

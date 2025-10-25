@@ -9,11 +9,11 @@ extends Node3D
 
 @export var difficulty_curve: Curve
 
-var base_asteroid_interval = 10.0
-var base_big_martian_interval = 120.0
-var base_small_martian_interval = 20.0
-var base_elite_small_martian_interval = 40.0
-var base_missile_small_martian_interval = 50.0
+var base_asteroid_interval = 30.0
+var base_big_martian_interval = 240.0
+var base_small_martian_interval = 50.0
+var base_elite_small_martian_interval = 80.0
+var base_missile_small_martian_interval = 100.0
 
 
 func get_random_position():
@@ -93,7 +93,7 @@ func get_spawn_interval(base: float) -> float:
 	return base / (1.0 + difficulty * 0.5)
 
 
-func get_difficulty(t: float) -> float:
+func get_difficulty(t: float) -> float: # Time in seconds
 	var normalized_time = clamp(t / 900.0, 0.0, 1.0)  # 5 min full scale
 	return difficulty_curve.sample(normalized_time) * 50
 
@@ -116,12 +116,22 @@ func _on_big_martian_timer_timeout():
 
 
 func _on_missile_small_martian_timer_timeout():
+	
+	$MissileSmallMartianTimer.start()
+	if not get_difficulty(Time.get_ticks_msec() * 0.001) > 2:
+		print("returned")
+		return
+	
 	$MissileSmallMartianTimer.wait_time = get_spawn_interval(base_missile_small_martian_interval)
 	spawn_missile_small_martian()
-	$MissileSmallMartianTimer.start()
 
 
 func _on_elite_small_martian_timer_timeout():
+	
+	$EliteSmallMartianTimer.start()
+	if not get_difficulty(Time.get_ticks_msec() * 0.001) > 2:
+		print("returned")
+		return
+	
 	$EliteSmallMartianTimer.wait_time = get_spawn_interval(base_elite_small_martian_interval)
 	spawn_elite_small_martian()
-	$EliteSmallMartianTimer.start()

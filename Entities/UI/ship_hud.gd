@@ -85,6 +85,8 @@ func spawn_ship():
 	$Panel/Selection.hide()
 	$Panel/Base.show()
 	
+	print("hud ID: " + str(player_id))
+	
 	spaceport.spawn_ship(ship_name,player_id)
 	
 	get_tree().call_group("ship_hud" , "update_selection")

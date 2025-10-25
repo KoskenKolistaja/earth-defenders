@@ -82,7 +82,7 @@ func award_xp(amount : int = 1):
 	update_xp()
 	
 	if xp >= xp_needed:
-		xp_needed *= 2
+		xp_needed *= 3
 		upgrade_weapon()
 
 
@@ -101,7 +101,7 @@ func upgrade_weapon():
 
 
 func to_sniper():
-	$Timer.wait_time = 0.5
+	$Timer.wait_time = 0.8
 	bullet_velocity = 0.7
 	bullet_damage = 5
 	self.name = "sniper"
@@ -110,7 +110,7 @@ func to_sniper():
 	update_weapon_name()
 
 func to_super_sniper():
-	$Timer.wait_time = 0.4
+	$Timer.wait_time = 0.6
 	bullet_velocity = 1
 	bullet_damage = 5
 	penetration = true

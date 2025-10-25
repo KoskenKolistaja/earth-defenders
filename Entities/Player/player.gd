@@ -8,6 +8,7 @@ var ship = null
 
 
 
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("p%s_ui_accept" % player_id):
 		if not ship:

@@ -92,7 +92,7 @@ func award_xp(amount : int = 1):
 	update_xp()
 	
 	if xp >= xp_needed:
-		xp_needed *= 2
+		xp_needed *= 3
 		upgrade_weapon()
 
 

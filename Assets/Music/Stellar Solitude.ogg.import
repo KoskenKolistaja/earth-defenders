@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c3qkx242qj7yn"
+path="res://.godot/imported/Stellar Solitude.ogg-227b6a93ebc83b9a4df6f258d04ab3b1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Stellar Solitude.ogg"
+dest_files=["res://.godot/imported/Stellar Solitude.ogg-227b6a93ebc83b9a4df6f258d04ab3b1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

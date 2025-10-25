@@ -62,7 +62,22 @@ func _physics_process(delta):
 
 
 
+func get_left_weapon_name():
+	var l_name = null
+	
+	if $left_weapon.get_child_count() > 0:
+		l_name = $left_weapon.get_child(0).name
+	
+	return l_name
 
+
+func get_right_weapon_name():
+	var r_name = null
+	
+	if $right_weapon.get_child_count() > 0:
+		r_name = $right_weapon.get_child(0).name
+	
+	return r_name
 
 func check_for_weapon():
 	if $left_weapon.get_children().size() < 1:

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://byd2jywn4a1go"]
+
+[ext_resource type="Script" uid="uid://dvhwluxqvqj46" path="res://Entities/UI/floating_label.gd" id="1_ntr24"]
+
+[node name="FloatingLabel" type="Label"]
+modulate = Color(0, 1, 0, 0.48600003)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 10
+text = "+5xp"
+script = ExtResource("1_ntr24")

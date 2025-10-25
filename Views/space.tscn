@@ -35,7 +35,7 @@ environment = ExtResource("2_pu55j")
 
 [node name="Earth" parent="Objects" instance=ExtResource("2_81phd")]
 
-[node name="SpawnManager" type="Node3D" parent="Objects"]
+[node name="SpawnManager" type="Node3D" parent="Objects" groups=["spawn_manager"]]
 script = ExtResource("6_w5eul")
 asteroid = ExtResource("5_ulv8f")
 big_martian = ExtResource("7_aujwv")

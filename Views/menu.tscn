@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d11ksglatxht2"]
+[gd_scene load_steps=9 format=3 uid="uid://d11ksglatxht2"]
 
 [ext_resource type="Script" uid="uid://dssu0472fe5to" path="res://Views/menu.gd" id="1_6k64v"]
 [ext_resource type="Texture2D" uid="uid://cyngrcuvoiuvv" path="res://Assets/Textures/8k_stars_milky_way.jpg" id="2_mkqbp"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="3_nfadp"]
 [ext_resource type="Script" uid="uid://b0hep8kjhysca" path="res://Views/player_menus.gd" id="5_f2th2"]
 [ext_resource type="PackedScene" uid="uid://buvj3aanpqr8h" path="res://Entities/UI/player_menu.tscn" id="5_mij3b"]
+[ext_resource type="AudioStream" uid="uid://bg7dr3hjcrt25" path="res://Assets/Sci-fi SFX/Tone2A_FifthOctaveUp.wav" id="7_as7vt"]
+[ext_resource type="AudioStream" uid="uid://cnln60stqfn50" path="res://Assets/Sci-fi SFX/Click_Pitched_Down.wav" id="8_ygjwk"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -69,3 +71,11 @@ grow_vertical = 2
 theme_override_constants/separation = 274
 script = ExtResource("5_f2th2")
 player_menu = ExtResource("5_mij3b")
+
+[node name="Register" type="AudioStreamPlayer" parent="PlayerMenus"]
+stream = ExtResource("7_as7vt")
+volume_db = -18.0
+
+[node name="Erase" type="AudioStreamPlayer" parent="PlayerMenus"]
+stream = ExtResource("8_ygjwk")
+volume_db = -18.0

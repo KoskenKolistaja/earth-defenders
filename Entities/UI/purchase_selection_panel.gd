@@ -128,7 +128,6 @@ func ready():
 
 func action(item_name):
 	
-	print(item_name)
 	
 	match item_name:
 		"speeder":
@@ -141,7 +140,6 @@ func action(item_name):
 			add_facility(item_name)
 		"technology_institute":
 			add_facility(item_name)
-			print("tänne mentiin")
 		"bank":
 			add_facility(item_name)
 		"none":

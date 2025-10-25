@@ -43,35 +43,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="Panel2" type="NinePatchRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_p8y04")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Panel2"]
-texture_filter = 1
-custom_minimum_size = Vector2(109, 113)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -10.0
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_a8dpt")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="Panel" type="NinePatchRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 texture = ExtResource("1_p8y04")
 patch_margin_left = 20
@@ -90,6 +63,36 @@ theme_override_fonts/font = ExtResource("2_0qf18")
 text = "Prince"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel2" type="NinePatchRect" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_top = -137.0
+offset_right = 128.0
+offset_bottom = -9.0
+size_flags_horizontal = 4
+texture = ExtResource("1_p8y04")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Panel/Panel2"]
+texture_filter = 1
+custom_minimum_size = Vector2(109, 113)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a8dpt")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="TextureRect2" type="NinePatchRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
@@ -131,7 +134,7 @@ volume_db = -18.0
 
 [node name="Move2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rb7ka")
-volume_db = -12.0
+volume_db = -18.0
 
 [node name="Cursor" type="Control" parent="."]
 layout_mode = 1

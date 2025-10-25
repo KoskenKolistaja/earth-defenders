@@ -54,8 +54,8 @@ var item_prices = {
 
 
 var item_info = {
-	"speeder" : "Speeder is an agile ship equipped with the most advanced propulsion technology making it the fastest ship type in the galaxy.  Just keep in mind its stripped-down armor makes it vulnerable for blast damage.",
-	"combat_ship" : "Combat ship is an solid all-arounder that can take you moderately fast from point a to b. It has pretty strong armor making it capable of surviving some damage.",
+	"speeder" : "A lightweight, inexpensive ship built for speed and agility. It’s not designed for combat, but in desperate situations, it can be converted for defense or light skirmishes. Quick to build, quick to fly — the Speeder is perfect for anyone who values mobility over firepower.",
+	"combat_ship" : "Once the pride of the fleet, this warship was never meant to return to service. Years of defense cuts left it outdated and worn, but with no new ships available, it’s been pressed back into duty—and it can still get the job done.",
 	"repair_station" : "Repair station is an earth installation that uses ion ray technology to carry required supplies and energy to maintain any ship in the earths lower orbit. No landings needed!",
 	"geo_repair_station" : "Geo repair station doesn't have anything to do with ships or the ongoing war with Martians. It is a vast set of infrastructure needed to patch up possible damage caused to a planet. It is expensive but it is much needed to protect the most valuable asset: Earth.",
 	"technology_institute" : "Technology is essential when trying to defend against extraterrestial threats. The right advancements in weapon technology might be the key to change the tide of a battle or even a war. Technology institute grants you xp multipliers.",

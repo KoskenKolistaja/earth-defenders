@@ -13,7 +13,7 @@ config_version=5
 config/name="EarthDefenders"
 run/main_scene="uid://d11ksglatxht2"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Assets/Textures/icon.svg"
+config/icon="uid://dffabuixqhk08"
 
 [audio]
 
@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Assets/Audio/default_bus_layout.tres"
 ItemData="*res://DataManaging/ItemData.gd"
 PlayerData="*res://DataManaging/PlayerData.gd"
 MetaData="*res://DataManaging/MetaData.gd"
+LabelSpawner="*res://Entities/UI/label_spawner.gd"
 
 [global_group]
 

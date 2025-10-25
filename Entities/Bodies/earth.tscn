@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=4 uid="uid://ckxwhsa8ysdud"]
+[gd_scene load_steps=190 format=4 uid="uid://ckxwhsa8ysdud"]
 
 [ext_resource type="Script" uid="uid://7mktl3aj1m8o" path="res://Entities/Bodies/earth.gd" id="1_pcr5l"]
 [ext_resource type="Texture2D" uid="uid://bq1qyxtlc04h2" path="res://Assets/Textures/2k_earth_daymap.jpg" id="1_uyjwy"]
@@ -1555,6 +1555,35 @@ material = SubResource("StandardMaterial3D_8rlno")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_apjqm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oml1e"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgj31"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 6
+
 [node name="Earth" type="StaticBody3D" groups=["bullet_damaged", "earth", "non_penetratable"]]
 collision_layer = 3
 script = ExtResource("1_pcr5l")
@@ -1867,7 +1896,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_mgj31")
 theme_override_font_sizes/font_size = 20
-value = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oml1e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mgj31")
+value = 50.0
 script = ExtResource("9_apjqm")
 
 [node name="Timer" type="Timer" parent="HpBar"]
@@ -1889,5 +1920,41 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5, 0
 
 [node name="4" type="Node3D" parent="FacilitySpawner"]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="5" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -3.535534, 3.535534, 0)
+
+[node name="6" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.7071066, 0.7071066, 0, -0.7071066, 0.7071066, 0, 0, 0, 1, 3.5355332, 3.5355332, 0)
+
+[node name="7" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.70710653, 0.70710653, 0, -0.70710653, -0.70710653, 0, 0, 0, 1, 3.5355332, -3.5355332, 0)
+
+[node name="8" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.7071064, -0.7071064, 0, 0.7071064, -0.7071064, 0, 0, 0, 1, -3.535533, -3.535533, 0)
+
+[node name="9" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.3826835, -0.9238795, 0, 0.9238795, -0.3826835, 0, 0, 0, 1, -4.6193976, -1.9134173, 0)
+
+[node name="10" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.9238795, -0.38268346, 0, 0.38268346, 0.9238795, 0, 0, 0, 1, -1.9134173, 4.6193976, 0)
+
+[node name="11" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.38268343, 0.9238795, 0, -0.9238795, 0.38268343, 0, 0, 0, 1, 4.6193976, 1.9134173, 0)
+
+[node name="12" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.92387956, 0.38268337, 0, -0.38268337, -0.92387956, 0, 0, 0, 1, 1.9134173, -4.6193976, 0)
+
+[node name="13" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.3826834, -0.9238795, 0, 0.9238795, 0.3826834, 0, 0, 0, 1, -4.6193976, 1.9134169, 0)
+
+[node name="14" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.92387927, 0.38268328, 0, -0.38268328, 0.92387927, 0, 0, 0, 1, 1.9134165, 4.6193967, 0)
+
+[node name="15" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.38268325, 0.92387915, 0, -0.92387915, -0.38268325, 0, 0, 0, 1, 4.6193967, -1.9134165, 0)
+
+[node name="16" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(-0.923879, -0.38268316, 0, 0.38268316, -0.923879, 0, 0, 0, 1, -1.9134166, -4.619396, 0)
 
 [connection signal="timeout" from="HpBar/Timer" to="HpBar" method="_on_timer_timeout"]

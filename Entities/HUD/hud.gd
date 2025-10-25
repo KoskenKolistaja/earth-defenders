@@ -17,6 +17,8 @@ func _physics_process(delta):
 	for id in PlayerData.players:
 		if Input.is_action_just_pressed("p%s_ready" % id):
 			trigger_purchase_selection()
+	
+	update_difficulty()
 
 func trigger_purchase_selection():
 	if not get_node_or_null("PurchaseSelectionPanel"):
@@ -54,12 +56,19 @@ func add_money(amount : int):
 	update_money()
 
 func update_money():
-	$Money.text = "Money: " + str(money) + "$"
+	$PanelL/Money.text = "Money: " + str(money) + "$"
 
 
 func update_time():
 	time += 1
-	$Time.text = str(time)
+	$PanelC/Time.text = str(time)
+
+
+func update_difficulty():
+	var difficulty = get_tree().get_first_node_in_group("spawn_manager").get_difficulty(Time.get_ticks_msec()*0.001)
+	
+	difficulty = snappedf(difficulty,0.01)
+	$PanelR/Difficulty.text = "Difficulty: " + str(difficulty)
 
 
 func _on_timer_timeout():

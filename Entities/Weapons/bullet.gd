@@ -34,12 +34,16 @@ func _on_body_entered(body):
 		if body.is_in_group("xp"):
 			if body.hp <= 0:
 				if weapon_ref:
-					weapon_ref.award_xp(body.kill_xp * xp_multiplier)
+					var award_xp = body.kill_xp * xp_multiplier
+					weapon_ref.award_xp(award_xp)
+					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
 					var hud = get_tree().get_first_node_in_group("hud")
 					hud.add_money(50)
 			else:
 				if weapon_ref:
-					weapon_ref.award_xp(body.hit_xp * damage * xp_multiplier)
+					var award_xp = body.hit_xp * damage * xp_multiplier
+					weapon_ref.award_xp(award_xp)
+					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
 	queue_free()
 
 
@@ -50,10 +54,14 @@ func _on_area_entered(area):
 		if area.is_in_group("xp"):
 			if area.hp <= 0:
 				if weapon_ref:
-					weapon_ref.award_xp(area.kill_xp * xp_multiplier)
+					var award_xp = area.kill_xp * xp_multiplier
+					weapon_ref.award_xp(award_xp)
+					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
 					var hud = get_tree().get_first_node_in_group("hud")
 					hud.add_money(50)
 			else:
 				if weapon_ref:
-					weapon_ref.award_xp(area.hit_xp * damage * xp_multiplier)
+					var award_xp = area.hit_xp * damage * xp_multiplier
+					weapon_ref.award_xp(award_xp)
+					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
 	queue_free()

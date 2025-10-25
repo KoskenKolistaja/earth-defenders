@@ -6,7 +6,7 @@ var player_id = 1
 var prince_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Prince.png")
 var diplomat_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Diplomat.png")
 var pilot_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Pilot.png")
-
+var artist_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Artist.png")
 
 var vertical_index = 0
 
@@ -15,8 +15,8 @@ var name_index = 0
 var color_index = 0
 
 
-var names = ["Prince","Diplomat","Pilot"]
-@onready var icons = [prince_icon,diplomat_icon,pilot_icon]
+var names = ["Prince","Diplomat","Pilot","Artist"]
+@onready var icons = [prince_icon,diplomat_icon,pilot_icon,artist_icon]
 var colors = [Color(0.7,0.7,1),Color(0,0.7,0),Color(1,0,1),Color(0,1,1)]
 
 var submitted = false
@@ -53,17 +53,19 @@ func _process(delta):
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		$Move.play()
 		match vertical_index:
+			#0:
+				#icon_index -= 1
+				#if icon_index < 0:
+					#icon_index = icons.size() -1
+				#do_action(icon_index)
 			0:
-				icon_index -= 1
-				if icon_index < 0:
-					icon_index = icons.size() -1
-				do_action(icon_index)
-			1:
 				name_index -= 1
+				icon_index -= 1
 				if name_index < 0:
-					name_index = names.size() -1
+					name_index = names.size() - 1
+					icon_index = names.size() - 1
 				do_action(name_index)
-			2:
+			1:
 				color_index -= 1
 				if color_index < 0:
 					color_index = colors.size() -1
@@ -71,17 +73,19 @@ func _process(delta):
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
 		$Move.play()
 		match vertical_index:
+			#0:
+				#icon_index += 1
+				#if icon_index > icons.size() - 1:
+					#icon_index = 0
+				#do_action(icon_index)
 			0:
-				icon_index += 1
-				if icon_index > icons.size() - 1:
-					icon_index = 0
-				do_action(icon_index)
-			1:
 				name_index += 1
+				icon_index += 1
 				if name_index > names.size() - 1:
 					name_index = 0
+					icon_index = 0
 				do_action(name_index)
-			2:
+			1:
 				color_index += 1
 				if color_index > colors.size() - 1:
 					color_index = 0
@@ -101,7 +105,7 @@ func _process(delta):
 		move_cursor()
 		$Move2.play()
 	
-	if Input.is_action_just_pressed("p%s_ui_accept" % player_id) and vertical_index == 3:
+	if Input.is_action_just_pressed("p%s_ui_accept" % player_id) and vertical_index == 2:
 		submit()
 		$Accept.play()
 	
@@ -109,11 +113,12 @@ func _process(delta):
 
 func do_action(exported_index):
 		match vertical_index:
+			#0:
+				#$VBoxContainer/Panel2/PlayerIcon.texture = icons[exported_index]
 			0:
-				$VBoxContainer/Panel2/PlayerIcon.texture = icons[exported_index]
-			1:
 				$VBoxContainer/Panel/Name.text = names[exported_index]
-			2:
+				$VBoxContainer/Panel/Panel2/PlayerIcon.texture = icons[exported_index]
+			1:
 				$VBoxContainer/TextureRect2/PlayerColor.color = colors[exported_index]
 
 
@@ -131,7 +136,7 @@ func set_color():
 	$VBoxContainer/TextureRect2/PlayerColor.color = colors[color_index]
 
 func set_icon():
-	$VBoxContainer/Panel2/PlayerIcon.texture = icons[icon_index]
+	$VBoxContainer/Panel/Panel2/PlayerIcon.texture = icons[icon_index]
 
 
 
@@ -143,9 +148,6 @@ func submit():
 	
 	submitted = true
 	
-	print(PlayerData.player_icons)
-	print(PlayerData.player_names)
-	print(PlayerData.player_colors)
 	
 	$VBoxContainer.hide()
 	$Cursor.hide()

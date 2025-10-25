@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://culbe2mfyox4o"
+path="res://.godot/imported/It's over.ogg-56344fc0a1afe9bf8370fc5d94c42c34.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/It's over.ogg"
+dest_files=["res://.godot/imported/It's over.ogg-56344fc0a1afe9bf8370fc5d94c42c34.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

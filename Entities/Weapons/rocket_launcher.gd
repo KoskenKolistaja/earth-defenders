@@ -82,7 +82,7 @@ func upgrade_weapon():
 	
 	xp = 0
 	
-	xp_needed *= 2
+	xp_needed *= 3
 	
 	var left = false
 	

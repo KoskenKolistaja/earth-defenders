@@ -52,6 +52,7 @@ func heal(amount : int = 1):
 
 
 func die():
+	var death_song = preload("res://Assets/Music/It's over.ogg")
 	$HpBar.active = false
 	$HpBar.hide()
 	$DeathArea.active = true
@@ -63,6 +64,7 @@ func die():
 	$AudioStreamPlayer.play()
 	var music : AudioStreamPlayer = get_tree().get_first_node_in_group("music")
 	await get_tree().create_timer(0.5,false).timeout
-	music.stop()
+	music.stream = death_song
+	music.play()
 	await get_tree().create_timer(13.0,false).timeout
 	get_parent().get_parent().get_parent().pause_space()
