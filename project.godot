@@ -26,10 +26,6 @@ PlayerData="*res://DataManaging/PlayerData.gd"
 MetaData="*res://DataManaging/MetaData.gd"
 LabelSpawner="*res://Entities/UI/label_spawner.gd"
 
-[display]
-
-window/size/mode=3
-
 [global_group]
 
 hud=""

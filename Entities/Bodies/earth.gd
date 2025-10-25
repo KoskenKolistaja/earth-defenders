@@ -2,12 +2,13 @@ extends StaticBody3D
 
 
 var hp = 100
-
+var shield = 20
 
 var dead = false
 
 @export var nozzle : PackedScene
 
+@onready var shield_mat: ShaderMaterial = $ShieldMesh.get_active_material(0)
 
 func _physics_process(delta):
 	
@@ -18,9 +19,21 @@ func _physics_process(delta):
 
 func _ready():
 	show_hp()
+	show_shield()
+	
+
+
+
+
+
+
 
 func show_hp():
 	$HpBar.show_hp(hp)
+
+func show_shield():
+	$ShieldBar.show_shield(hp + shield)
+
 
 func move_fractures():
 	var fractures = $FracturedEarth.get_children()
@@ -37,11 +50,42 @@ func setup_fractures():
 		fracture.add_child(nozzle_instance)
 
 
+
+func disable_shield(duration: float = 1.0):
+	if shield_mat:
+		create_tween().tween_property(
+			shield_mat, "shader_parameter/overall_opacity", 0.0, duration
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+# Animate opacity to 0.6 (activate)
+func activate_shield(duration: float = 1.0):
+	if shield_mat:
+		create_tween().tween_property(
+			shield_mat, "shader_parameter/overall_opacity", 0.6, duration
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
 func get_hit(damage : int = 5):
-	hp -= damage
-	show_hp()
+	
+	if shield > 0:
+		shield -= damage
+		
+		if shield < 0:
+			hp += shield
+			shield = 0
+			disable_shield()
+	else:
+		hp -= damage
+	
+	
 	if hp <= 0 and not dead:
 		die()
+	
+	show_hp()
+	show_shield()
+
+
+
 
 func heal(amount : int = 1):
 	hp += amount

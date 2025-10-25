@@ -1,11 +1,13 @@
 extends TextureProgressBar
 
+
+
 var active = true
 
 
-func show_hp(hp):
+func show_shield(shield):
 	if active:
-		value = hp
+		value = shield
 		show()
 	else:
 		hide()

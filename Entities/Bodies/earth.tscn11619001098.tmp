@@ -1576,8 +1576,8 @@ shader_parameter/edge_falloff = 1.8
 
 [sub_resource type="SphereMesh" id="SphereMesh_j05ej"]
 material = SubResource("ShaderMaterial_ixmym")
-radius = 5.5
-height = 11.0
+radius = 5.2
+height = 10.4
 
 [node name="Earth" type="StaticBody3D" groups=["bullet_damaged", "earth", "non_penetratable"]]
 collision_layer = 3

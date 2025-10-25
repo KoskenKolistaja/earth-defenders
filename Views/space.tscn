@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0xm7sgbcqsrk" path="res://Entities/Enemies/missile_small_martian.tscn" id="10_pu75q"]
 
 [sub_resource type="Curve" id="Curve_rl073"]
-_data = [Vector2(0, 0), 0.0, 0.40212092, 0, 0, Vector2(0.46320343, 0.17977536), 0.37078708, 0.37078708, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.08651684, 0, 0, Vector2(0.8484848, 0.34831464), 1.0814606, 1.0814606, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
 point_count = 3
 
 [node name="Space" type="Node3D"]
@@ -65,7 +65,7 @@ one_shot = true
 autostart = true
 
 [node name="MissileSmallMartianTimer" type="Timer" parent="Objects/SpawnManager"]
-wait_time = 5.0
+wait_time = 25.0
 one_shot = true
 autostart = true
 
