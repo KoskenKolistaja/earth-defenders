@@ -44,10 +44,10 @@ var ships = {
 var item_prices = {
 	"speeder" : 500,
 	"combat_ship" : 500,
-	"repair_station" : 200,
-	"geo_repair_station" : 500,
-	"technology_institute" : 200,
-	"bank" : 200,
+	"repair_station" : 1000,
+	"geo_repair_station" : 1500,
+	"technology_institute" : 1000,
+	"bank" : 500,
 	"none" : 0,
 }
 

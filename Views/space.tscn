@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0xm7sgbcqsrk" path="res://Entities/Enemies/missile_small_martian.tscn" id="10_pu75q"]
 
 [sub_resource type="Curve" id="Curve_rl073"]
-_data = [Vector2(0, 0), 0.0, 0.40212092, 0, 0, Vector2(0.46753246, 0.078651786), 0.37078708, 0.37078708, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.40212092, 0, 0, Vector2(0.46320343, 0.17977536), 0.37078708, 0.37078708, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
 point_count = 3
 
 [node name="Space" type="Node3D"]
