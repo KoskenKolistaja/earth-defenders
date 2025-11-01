@@ -8,6 +8,8 @@ extends Node3D
 @export var missile_small_martian : PackedScene
 
 @export var difficulty_curve: Curve
+@export var medium_curve: Curve
+@export var easy_curve: Curve
 
 var base_asteroid_interval = 30.0
 var base_big_martian_interval = 240.0
@@ -41,12 +43,12 @@ func get_big_ship_position():
 
 
 
-func _ready():
-	await get_tree().create_timer(212,false).timeout
-	var autolabel = get_tree().get_first_node_in_group("auto_label")
-	autolabel.add_text("Martian war fleet has arrived!")
-	spawn_war_fleet()
-	Time.get_ticks_msec()
+#func _ready():
+	#await get_tree().create_timer(212,false).timeout
+	#var autolabel = get_tree().get_first_node_in_group("auto_label")
+	#autolabel.add_text("Martian war fleet has arrived!")
+	#spawn_war_fleet()
+	#Time.get_ticks_msec()
 
 
 
@@ -94,8 +96,12 @@ func get_spawn_interval(base: float) -> float:
 
 
 func get_difficulty(t: float) -> float: # Time in seconds
+	
+	if t > 900:
+		return t * 0.05
+	
 	var normalized_time = clamp(t / 900.0, 0.0, 1.0)  # 5 min full scale
-	return difficulty_curve.sample(normalized_time) * 50
+	return difficulty_curve.sample(normalized_time * ((cos(normalized_time*30)) + 1) * 0.5) * 50
 
 
 func _on_asteroid_timer_timeout():
@@ -105,8 +111,14 @@ func _on_asteroid_timer_timeout():
 
 
 func _on_small_martian_timer_timeout():
+	
+	if get_difficulty(Time.get_ticks_msec()*0.001) > 30 and randf_range(0,100) > 50:
+		spawn_elite_small_martian()
+	else:
+		spawn_small_martian()
+	
+	
 	$SmallMartianTimer.wait_time = get_spawn_interval(base_small_martian_interval)
-	spawn_small_martian()
 	$SmallMartianTimer.start()
 
 func _on_big_martian_timer_timeout():

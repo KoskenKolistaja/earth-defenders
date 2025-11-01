@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxfda5ay2mfgn"]
+[gd_scene load_steps=15 format=3 uid="uid://dxfda5ay2mfgn"]
 
 [ext_resource type="Script" uid="uid://cjw87n2iwyru4" path="res://Views/sun.gd" id="1_aujwv"]
 [ext_resource type="PackedScene" uid="uid://14p3afxbioib" path="res://Entities/Player/player.tscn" id="1_d5lh8"]
@@ -13,8 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://0xm7sgbcqsrk" path="res://Entities/Enemies/missile_small_martian.tscn" id="10_pu75q"]
 
 [sub_resource type="Curve" id="Curve_rl073"]
-_data = [Vector2(0, 0), 0.0, 0.08651684, 0, 0, Vector2(0.8484848, 0.34831464), 1.0814606, 1.0814606, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.08651684, 0, 0, Vector2(0.7012987, 0.37078655), 1.0814606, 1.0814606, 0, 0, Vector2(1, 1), 2.9069657, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Curve" id="Curve_nlufa"]
+_data = [Vector2(0, 0), 0.0, 0.08509853, 0, 0, Vector2(0.88311684, 0.32584274), 0.9733137, 0.9733137, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_wgg4r"]
 
 [node name="Space" type="Node3D"]
 script = ExtResource("1_pu55j")
@@ -43,6 +49,8 @@ small_martian = ExtResource("8_pu55j")
 elite_small_martian = ExtResource("9_rl073")
 missile_small_martian = ExtResource("10_pu75q")
 difficulty_curve = SubResource("Curve_rl073")
+medium_curve = SubResource("Curve_nlufa")
+easy_curve = SubResource("Curve_wgg4r")
 
 [node name="AsteroidTimer" type="Timer" parent="Objects/SpawnManager"]
 wait_time = 10.0

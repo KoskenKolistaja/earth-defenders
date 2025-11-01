@@ -12,7 +12,7 @@ var song4 = preload("res://Assets/Music/Uncharted.ogg")
 
 
 
-var songs = [song1,song2,song3,song4]
+var songs = [song1,song3,song4]
 
 
 func _ready():

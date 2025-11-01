@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://0xm7sgbcqsrk"]
+[gd_scene load_steps=54 format=4 uid="uid://0xm7sgbcqsrk"]
 
 [ext_resource type="Script" uid="uid://dt5nviq2mrq6h" path="res://Entities/Enemies/missile_small_martian.gd" id="1_ih840"]
 [ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="2_l8los"]
@@ -190,6 +190,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g4xoo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qkch"]
+albedo_color = Color(0.12941177, 0.17254902, 0.12941177, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_igep0"]
 
@@ -710,7 +713,6 @@ shape = SubResource("CapsuleShape3D_djnk5")
 
 [node name="FracturedSmallMartian" type="Node3D" parent="."]
 transform = Transform3D(-0.29999998, -2.6226832e-08, -1.1464111e-15, 0, -1.3113415e-08, 0.29999998, -2.6226832e-08, 0.29999998, 1.3113415e-08, 0, 0, 0)
-visible = false
 script = ExtResource("3_6qkch")
 
 [node name="Fracture1" type="Area3D" parent="FracturedSmallMartian"]
@@ -721,6 +723,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.0028526187, 0.4496096, -1.7762487)
 mesh = SubResource("ArrayMesh_b6xet")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture1"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -5.1148316e-08, 0.5850685, -1.7237493)
@@ -735,6 +738,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.27675796, -0.41625783, 0.15177085)
 mesh = SubResource("ArrayMesh_tjxco")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture2"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.25226653, -0.16416067, 0.19970281)
@@ -749,6 +753,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.5628307, 0.20411658, 0.24912532)
 mesh = SubResource("ArrayMesh_ovlb7")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture3"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.44982803, 0.11867169, 0.623934)
@@ -763,6 +768,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.2989016, 0.5145416, 1.2609454)
 mesh = SubResource("ArrayMesh_huqaf")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture4"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.21963544, 0.3470081, 1.207735)
@@ -777,6 +783,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.31437066, -0.37696913, 1.4595902)
 mesh = SubResource("ArrayMesh_2pdxq")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture5"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.38063627, -0.30466372, 1.3977848)
@@ -791,6 +798,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.43518543, 0.2791321, 1.6080706)
 mesh = SubResource("ArrayMesh_k7kcx")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture6"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.40994906, 0.20967981, 1.3977848)
@@ -805,6 +813,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.73008996, 0.20889658, -0.72209084)
 mesh = SubResource("ArrayMesh_ryx4o")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture7"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.69572634, 0.0060940785, -0.87960666)
@@ -819,6 +828,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.36844462, -0.33724397, -1.3801515)
 mesh = SubResource("ArrayMesh_cdof4")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture8"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.39189342, -0.22357571, -0.88410836)
@@ -833,6 +843,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.07880633, -0.16169345, 2.0321336)
 mesh = SubResource("ArrayMesh_aqsxo")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture9"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, -0.07783234, -0.17008607, 2.2124674)
@@ -847,6 +858,7 @@ script = ExtResource("4_xuioe")
 transform = Transform3D(1, -7.1054274e-15, 0, 7.1054274e-15, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 1.0243025, -0.0787935, -1.5110613)
 mesh = SubResource("ArrayMesh_7k1fw")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FracturedSmallMartian/Fracture10"]
 transform = Transform3D(1, -1.4210855e-14, -4.2351647e-22, 1.4210855e-14, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0.97363377, -0.12544219, -1.411721)

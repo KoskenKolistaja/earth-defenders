@@ -157,6 +157,7 @@ func get_hit(damage: int = 5) -> void:
 		wreck()
 
 func die() -> void:
+	$SmokeParticles.emitting = false
 	explode()
 
 

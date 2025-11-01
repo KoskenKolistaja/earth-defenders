@@ -83,7 +83,7 @@ func check_for_weapon():
 	if $left_weapon.get_children().size() < 1:
 		var autolabel = get_tree().get_first_node_in_group("auto_label")
 		
-		autolabel.add_text("Player " + str(player_id) + " awarded with secondary weapon!")
+		autolabel.add_text(PlayerData.player_names[player_id] + " awarded with secondary weapon!")
 		change_weapon_left("blaster")
 
 

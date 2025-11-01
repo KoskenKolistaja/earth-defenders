@@ -73,7 +73,7 @@ cull_mask = 4294966274
 radius = 10.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://odw8cxswu8c7"]
+[gd_scene load_steps=21 format=4 uid="uid://odw8cxswu8c7"]
 
 [ext_resource type="Script" uid="uid://ddvywvn25kdju" path="res://Entities/Player/player_ship.gd" id="1_a6cgs"]
 [ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="2_yv001"]
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="3_fqacd"]
+[ext_resource type="Script" uid="uid://d0hfx0anm57jt" path="res://Entities/Player/indicator.gd" id="4_fqacd"]
+[ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="5_6xqq0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ix6vc"]
 
@@ -189,7 +191,7 @@ axis_lock_linear_z = true
 script = ExtResource("1_a6cgs")
 explosion = ExtResource("2_yv001")
 stored_weapon_right = "blaster"
-max_hp = 3
+max_hp = 6
 speed = 1.5
 type = "speeder"
 color_slot = 3
@@ -223,3 +225,49 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.1
 
 [node name="right_weapon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.15, 0.721, -0.072)
+
+[node name="Indicator" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fqacd")
+
+[node name="TextureRect" type="TextureRect" parent="Indicator"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6xqq0")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="Indicator"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2

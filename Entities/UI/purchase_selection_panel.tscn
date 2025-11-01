@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhh7shqfkqpf3"]
+[gd_scene load_steps=15 format=3 uid="uid://dhh7shqfkqpf3"]
 
 [ext_resource type="Script" uid="uid://c0ftg2e34ygnw" path="res://Entities/UI/purchase_selection_panel.gd" id="1_8ae43"]
 [ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="1_d18px"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://v42h8gphx7ke" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_32.png" id="5_7qont"]
 [ext_resource type="Texture2D" uid="uid://b51r13lskf28b" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_38.png" id="6_d18px"]
 [ext_resource type="Texture2D" uid="uid://dd0feheyfeadt" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/10/Skillicon10_06.png" id="7_hlcg7"]
+[ext_resource type="Texture2D" uid="uid://dq35uh80ngeoe" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_18.png" id="8_d18px"]
 [ext_resource type="PackedScene" uid="uid://dgq5x5jw0sjex" path="res://Entities/UI/player_cursor.tscn" id="9_k2uhh"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="11_d18px"]
 [ext_resource type="Texture2D" uid="uid://wu1mobdgphnp" path="res://Assets/Textures/UI/WenrexaUI/MainPanel03.png" id="12_o0dgc"]
 [ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="13_e5w42"]
 
 [node name="PurchaseSelectionPanel" type="NinePatchRect"]
-custom_minimum_size = Vector2(960, 256)
+custom_minimum_size = Vector2(1056, 256)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -99,6 +100,29 @@ expand_mode = 4
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/repair_station"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -56.0
+offset_right = 49.0
+offset_bottom = -1.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shield_generator" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("8_d18px")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/shield_generator"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -309,6 +333,14 @@ text = "500$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="shield_generator" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "500$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="geo_repair_station" type="Label" parent="ItemPricesContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
@@ -375,7 +407,15 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_d18px")
-text = "Geo repair
+text = "shield generator"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label8" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "geo repair
 station"
 horizontal_alignment = 1
 vertical_alignment = 2

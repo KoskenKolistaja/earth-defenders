@@ -21,16 +21,23 @@ func get_hit(damage : int = 1):
 
 
 
+#func _on_timer_timeout():
+	#if target:
+		#target.heal(1)
+
+
 func _on_timer_timeout():
-	if target:
-		target.heal(1)
+	var ships = get_tree().get_nodes_in_group("player_ship")
+	
+	for item in ships:
+		item.heal(1)
 
 
-func _on_area_3d_body_entered(body):
-	target = body
-
-
-
-func _on_area_3d_body_exited(body):
-	if body == target:
-		target = null
+#func _on_area_3d_body_entered(body):
+	#target = body
+#
+#
+#
+#func _on_area_3d_body_exited(body):
+	#if body == target:
+		#target = null

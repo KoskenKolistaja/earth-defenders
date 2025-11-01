@@ -7,6 +7,8 @@ var prince_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Prince.pn
 var diplomat_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Diplomat.png")
 var pilot_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Pilot.png")
 var artist_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Artist.png")
+var statistician_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Statistician.png")
+var tourist_icon : Texture = preload("res://Assets/Textures/PlayerIcons/Tourist.png")
 
 var vertical_index = 0
 
@@ -15,8 +17,8 @@ var name_index = 0
 var color_index = 0
 
 
-var names = ["Prince","Diplomat","Pilot","Artist"]
-@onready var icons = [prince_icon,diplomat_icon,pilot_icon,artist_icon]
+var names = ["Prince","Diplomat","Pilot","Artist","Statistician","Tourist"]
+@onready var icons = [prince_icon,diplomat_icon,pilot_icon,artist_icon,statistician_icon,tourist_icon]
 var colors = [Color(0.7,0.7,1),Color(0,0.7,0),Color(1,0,1),Color(0,1,1)]
 
 var submitted = false

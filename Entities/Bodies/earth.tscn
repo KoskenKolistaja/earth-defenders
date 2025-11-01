@@ -1569,7 +1569,7 @@ shader_parameter/thickness = 1.0
 shader_parameter/noise_scale = 2.5
 shader_parameter/noise_speed = 0.2
 shader_parameter/scan_speed = 0.2000001994999998
-shader_parameter/scan_width = 0.09100000432250001
+shader_parameter/scan_width = 0.0910000043225
 shader_parameter/scan_color = Color(0.26999998, 0.416, 1, 0.9019608)
 shader_parameter/overall_opacity = 0.6000000285
 shader_parameter/edge_falloff = 1.8
@@ -1879,56 +1879,69 @@ shape = SubResource("SphereShape3D_apjqm")
 script = ExtResource("10_3am25")
 
 [node name="1" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -5, 0, 0)
+transform = Transform3D(0.99617106, -0.078459, 0.038567405, 0, 0.44114473, 0.89743596, -0.08742574, -0.89399976, 0.43945563, 0.19283706, 4.4871798, 2.1972787)
 
 [node name="2" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-
-[node name="SpacePort" parent="FacilitySpawner/2" instance=ExtResource("14_rrla0")]
+transform = Transform3D(0.174182, 0.782721, -0.5975019, 0, 0.60677737, 0.7948718, 0.9847135, -0.13845237, 0.1056897, -2.9875093, 3.974359, 0.52844834)
 
 [node name="3" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5, 0, 0)
+transform = Transform3D(0.5367281, -0.6274077, 0.5641652, 0, 0.6686361, 0.74358976, -0.84375525, -0.39910552, 0.35887575, 2.8208265, 3.717949, 1.7943789)
 
 [node name="4" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(0.88744843, 0.29545325, -0.35375512, 0, 0.7675194, 0.64102566, 0.46090704, -0.5688772, 0.6811339, -1.7687756, 3.2051282, 3.4056697)
 
 [node name="5" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -3.535534, 3.535534, 0)
+transform = Transform3D(0.9057343, -0.20648907, 0.3701455, 0, 0.87330186, 0.48717946, -0.423846, -0.44125515, 0.79097944, 1.8507276, 2.4358974, 3.9548972)
 
 [node name="6" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.7071066, 0.7071066, 0, -0.7071066, 0.7071066, 0, 0, 0, 1, 3.5355332, 3.5355332, 0)
+transform = Transform3D(0.50140756, 0.33277354, -0.79865646, 0, 0.9230769, 0.3846154, 0.8652112, -0.19284907, 0.46283776, -3.9932826, 1.923077, 2.3141887)
 
 [node name="7" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.70710653, 0.70710653, 0, -0.70710653, -0.70710653, 0, 0, 0, 1, 3.5355332, -3.5355332, 0)
+transform = Transform3D(0.2147194, -0.32555863, 0.9208188, 0, 0.94280905, 0.33333337, -0.9766758, -0.07157314, 0.2024394, 4.6040936, 1.6666667, 1.012197)
 
 [node name="8" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.7071064, -0.7071064, 0, 0.7071064, -0.7071064, 0, 0, 0, 1, -3.535533, -3.535533, 0)
+transform = Transform3D(0.9917081, 0.029656317, -0.125042, 0, 0.9730085, 0.23076925, 0.1285107, -0.22885573, 0.9649404, -0.6252099, 1.1538461, 4.8247023)
 
 [node name="9" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.3826835, -0.9238795, 0, 0.9238795, -0.3826835, 0, 0, 0, 1, -4.6193976, -1.9134173, 0)
+transform = Transform3D(0.7053799, -0.05452534, 0.7067292, 0, 0.99703705, 0.07692308, -0.7088294, -0.054259993, 0.7032899, 3.5336459, 0.3846154, 3.5164497)
 
 [node name="10" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.9238795, -0.38268346, 0, 0.38268346, 0.9238795, 0, 0, 0, 1, -1.9134173, 4.6193976, 0)
+transform = Transform3D(0.7677837, -0.016428439, -0.64049846, 0, 0.9996712, -0.025641026, 0.6407091, 0.019686762, 0.7675313, -3.2024927, -0.12820514, 3.8376565)
 
 [node name="11" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.38268343, 0.9238795, 0, -0.9238795, 0.38268343, 0, 0, 0, 1, 4.6193976, 1.9134173, 0)
+transform = Transform3D(0.9756167, 0.0393941, 0.21591707, 0, 0.9837603, -0.1794872, -0.21948138, 0.17511071, 0.95977294, 1.0795853, -0.8974359, 4.798865)
 
 [node name="12" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.92387956, 0.38268337, 0, -0.38268337, -0.92387956, 0, 0, 0, 1, 1.9134173, -4.6193976, 0)
+transform = Transform3D(0.303935, -0.26870826, -0.91401285, 0, 0.95939934, -0.28205132, 0.9526928, 0.08572527, 0.29159504, -4.570064, -1.4102565, 1.457975)
 
 [node name="13" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.3826834, -0.9238795, 0, 0.9238795, 0.3826834, 0, 0, 0, 1, -4.6193976, 1.9134169, 0)
+transform = Transform3D(0.4194225, 0.30259705, 0.8558737, 0, 0.94280905, -0.33333334, -0.90779114, 0.1398075, 0.39543533, 4.2793684, -1.6666667, 1.9771768)
 
 [node name="14" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(0.92387927, 0.38268328, 0, -0.38268328, 0.92387927, 0, 0, 0, 1, 1.9134165, 4.6193967, 0)
+transform = Transform3D(0.94098353, -0.1475305, -0.3046058, 0, 0.89999634, -0.43589747, 0.33845228, 0.41017234, 0.84688175, -1.5230291, -2.1794872, 4.234409)
 
 [node name="15" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.38268325, 0.92387915, 0, -0.92387915, -0.38268325, 0, 0, 0, 1, 4.6193967, -1.9134165, 0)
+transform = Transform3D(0.8411269, 0.31895563, 0.43677548, 0, 0.80759054, -0.5897436, -0.54083776, 0.49604923, 0.6792861, 2.1838772, -2.948718, 3.396431)
 
 [node name="16" type="Node3D" parent="FacilitySpawner"]
-transform = Transform3D(-0.923879, -0.38268316, 0, 0.38268316, -0.923879, 0, 0, 0, 1, -1.9134166, -4.619396, 0)
+transform = Transform3D(0.61230296, -0.5473546, -0.5705155, 0, 0.7216023, -0.6923078, 0.7906232, 0.4239021, 0.44183925, -2.852578, -3.4615386, 2.2091966)
+
+[node name="17" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.08256511, 0.7410509, 0.66635317, 0, 0.6686361, -0.74358976, -0.99658567, 0.06139457, 0.05520601, 3.3317661, -3.717949, 0.27603)
+
+[node name="18" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.9999881, 0.0041277735, 0.0025998226, 0, 0.53293866, -0.84615386, -0.0048782774, 0.8461438, 0.5329323, 0.012999114, -4.230769, 2.6646616)
+
+[node name="19" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(0.09228427, -0.9446695, -0.31477478, 0, 0.31612375, -0.94871795, 0.9957327, 0.08755174, 0.02917325, -1.573874, -4.74359, 0.14586629)
+
+[node name="20" type="Node3D" parent="FacilitySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="SpacePort" parent="FacilitySpawner/20" instance=ExtResource("14_rrla0")]
 
 [node name="ShieldBar" type="TextureProgressBar" parent="."]
+z_index = -1
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1942,7 +1955,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 120.0
-value = 33.0
+value = 84.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("12_mgj31")
@@ -1954,6 +1967,7 @@ tint_progress = Color(0.14699998, 0.59126663, 0.98, 0.77254903)
 script = ExtResource("14_6j7in")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
+z_index = -1
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1980,3 +1994,5 @@ script = ExtResource("9_apjqm")
 
 [node name="ShieldMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_j05ej")
+
+[node name="Positions" type="Node3D" parent="."]

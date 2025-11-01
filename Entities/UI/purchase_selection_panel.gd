@@ -14,6 +14,7 @@ var item_votes = {
 	4:0,
 	5:0,
 	6:0,
+	7:0
 }
 
 
@@ -135,6 +136,8 @@ func action(item_name):
 		"combat_ship":
 			add_ship_to_reserve(item_name)
 		"repair_station":
+			add_facility(item_name)
+		"shield_generator":
 			add_facility(item_name)
 		"geo_repair_station":
 			add_facility(item_name)
