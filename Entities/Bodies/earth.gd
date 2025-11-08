@@ -127,9 +127,11 @@ func die():
 	$FracturedEarth.show()
 	$GPUParticles3D.emitting = true
 	$AudioStreamPlayer.play()
+	MetaData.game_over = true
 	var music : AudioStreamPlayer = get_tree().get_first_node_in_group("music")
 	await get_tree().create_timer(0.5,false).timeout
 	music.stream = death_song
 	music.play()
 	await get_tree().create_timer(13.0,false).timeout
-	get_parent().get_parent().get_parent().pause_space()
+	var hud = get_tree().get_first_node_in_group("hud")
+	hud.game_over()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=19 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -13,9 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://cin7veh707xse" path="res://Assets/Textures/UI/WenrexaUI/Button03.png" id="11_33ooc"]
 [ext_resource type="Texture2D" uid="uid://cimwwm2iau306" path="res://Assets/Textures/UI/WenrexaUI/TitlePanel02.png" id="11_diku4"]
 [ext_resource type="PackedScene" uid="uid://dhh7shqfkqpf3" path="res://Entities/UI/purchase_selection_panel.tscn" id="12_20lq4"]
+[ext_resource type="Texture2D" uid="uid://bt7tpao557fyy" path="res://Assets/Textures/UI/WenrexaUI/MainPanel01.png" id="14_33ooc"]
+[ext_resource type="Texture2D" uid="uid://icin6tpgsm8h" path="res://Assets/Textures/UI/WenrexaUI/Button15.png" id="15_kxu5t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxu5t"]
 texture = ExtResource("11_diku4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbe30"]
+texture = ExtResource("14_33ooc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sakj3"]
+texture = ExtResource("15_kxu5t")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -188,10 +200,55 @@ theme_override_fonts/font = ExtResource("9_qwu6d")
 text = "Difficulty: 1.5"
 vertical_alignment = 1
 
+[node name="GameOverPanel" type="Panel" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dbe30")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -68.0
+offset_right = 20.0
+offset_bottom = -27.999939
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 44
+
+[node name="Restart" type="Button" parent="HUD/GameOverPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sakj3")
+text = "Restart"
+
+[node name="ToMenu" type="Button" parent="HUD/GameOverPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sakj3")
+text = "to menu"
+
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 process_mode = 3
 volume_db = -14.312
 script = ExtResource("3_3njbj")
 
 [connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
+[connection signal="pressed" from="HUD/GameOverPanel/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/GameOverPanel/HBoxContainer/ToMenu" to="." method="_on_to_menu_pressed"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]

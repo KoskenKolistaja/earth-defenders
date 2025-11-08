@@ -22,3 +22,13 @@ func pause_space():
 
 func unpause_space():
 	get_tree().paused = false
+
+
+func _on_restart_pressed():
+	MetaData.reset_settings()
+	unpause_space()
+	get_tree().reload_current_scene()
+
+
+func _on_to_menu_pressed():
+	get_tree().change_scene_to_file("res://Views/menu.tscn")

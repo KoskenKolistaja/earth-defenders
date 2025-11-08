@@ -18,6 +18,13 @@ var base_elite_small_martian_interval = 80.0
 var base_missile_small_martian_interval = 100.0
 
 
+var scene_start_time: int = 0
+
+
+func _ready():
+	scene_start_time = Time.get_ticks_msec()
+
+
 func get_random_position():
 	var origin = Vector3(0, 0, 0)
 	var distance = 75
@@ -97,11 +104,11 @@ func get_spawn_interval(base: float) -> float:
 
 func get_difficulty(t: float) -> float: # Time in seconds
 	
-	if t > 900:
+	if t > 3600:
 		return t * 0.05
 	
-	var normalized_time = clamp(t / 900.0, 0.0, 1.0)  # 5 min full scale
-	return difficulty_curve.sample(normalized_time * ((cos(normalized_time*30)) + 1) * 0.5) * 50
+	var normalized_time = clamp(t / 3600.0, 0.0, 1.0)  # 5 min full scale
+	return difficulty_curve.sample(normalized_time * ((cos(normalized_time * 120)) + 1) * 0.5) * 50
 
 
 func _on_asteroid_timer_timeout():
@@ -112,7 +119,9 @@ func _on_asteroid_timer_timeout():
 
 func _on_small_martian_timer_timeout():
 	
-	if get_difficulty(Time.get_ticks_msec()*0.001) > 30 and randf_range(0,100) > 50:
+	var elapsed = Time.get_ticks_msec() - scene_start_time
+	
+	if get_difficulty(elapsed * 0.001) > 30 and randf_range(0,100) > 50:
 		spawn_elite_small_martian()
 	else:
 		spawn_small_martian()
@@ -130,7 +139,10 @@ func _on_big_martian_timer_timeout():
 func _on_missile_small_martian_timer_timeout():
 	
 	$MissileSmallMartianTimer.start()
-	if not get_difficulty(Time.get_ticks_msec() * 0.001) > 2:
+	
+	var elapsed = Time.get_ticks_msec() - scene_start_time
+	
+	if not get_difficulty(elapsed * 0.001) > 4:
 		print("returned")
 		return
 	
@@ -141,7 +153,10 @@ func _on_missile_small_martian_timer_timeout():
 func _on_elite_small_martian_timer_timeout():
 	
 	$EliteSmallMartianTimer.start()
-	if not get_difficulty(Time.get_ticks_msec() * 0.001) > 2:
+	
+	var elapsed = Time.get_ticks_msec() - scene_start_time
+	
+	if not get_difficulty(elapsed * 0.001) > 4:
 		print("returned")
 		return
 	

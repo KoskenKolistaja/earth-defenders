@@ -77,9 +77,6 @@ func get_max_items() -> int:
 
 func assign_vote(player_id,index):
 	
-	if $Timer.is_stopped():
-		$Timer.start()
-		$Time.show()
 	
 	var hud = get_tree().get_first_node_in_group("hud")
 	var money = hud.money
@@ -88,6 +85,9 @@ func assign_vote(player_id,index):
 	if price > money:
 		return
 	
+	if $Timer.is_stopped():
+		$Timer.start()
+		$Time.show()
 	
 	if player_votes.has(player_id):
 		var current_number = item_votes[player_votes[player_id]]
