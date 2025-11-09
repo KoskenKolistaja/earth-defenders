@@ -12,6 +12,7 @@ var dead = false
 
 var shield_disabled = true
 
+var Audio
 
 func _physics_process(delta):
 	
@@ -21,9 +22,10 @@ func _physics_process(delta):
 		move_fractures()
 
 func _ready():
+	Audio = get_tree().get_first_node_in_group("audio")
 	show_hp()
 	show_shield()
-	disable_shield()
+	disable_shield(0)
 
 
 
@@ -80,6 +82,7 @@ func get_hit(damage : int = 5):
 			disable_shield()
 			shield_disabled = true
 	else:
+		Audio.play_rock_hit()
 		hp -= damage
 		
 		if not shield_disabled:
@@ -118,6 +121,7 @@ func add_shield(amount : int = 1):
 
 func die():
 	var death_song = preload("res://Assets/Music/It's over.ogg")
+	var hud = get_tree().get_first_node_in_group("hud")
 	$HpBar.active = false
 	$HpBar.hide()
 	$DeathArea.active = true
@@ -128,10 +132,10 @@ func die():
 	$GPUParticles3D.emitting = true
 	$AudioStreamPlayer.play()
 	MetaData.game_over = true
+	hud.game_over_pre()
 	var music : AudioStreamPlayer = get_tree().get_first_node_in_group("music")
 	await get_tree().create_timer(0.5,false).timeout
 	music.stream = death_song
 	music.play()
 	await get_tree().create_timer(13.0,false).timeout
-	var hud = get_tree().get_first_node_in_group("hud")
 	hud.game_over()

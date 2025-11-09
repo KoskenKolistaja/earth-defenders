@@ -12,14 +12,19 @@ var speed = 0.05
 var hp = 20
 
 @export var ship : PackedScene
+@export var explosion : PackedScene
 
 var ships = 3
 
 var hit_xp = 1
 var kill_xp = 50
 
+var Audio
 
 func _ready():
+	Audio = get_tree().get_first_node_in_group("audio")
+	
+	
 	initial_position = self.global_position
 	var vector = Vector3(0,0,0) - self.global_position
 	target = -vector.limit_length(40)
@@ -52,12 +57,17 @@ func _physics_process(delta):
 
 
 func get_hit(damage : int = 5):
+	Audio.play_metal_hit()
 	hp -= damage
 	if hp <= 0:
 		die()
 
 
 func die():
+	var explosion_instance = explosion.instantiate()
+	get_parent().add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	
 	queue_free()
 
 

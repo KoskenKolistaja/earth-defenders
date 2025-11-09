@@ -45,7 +45,7 @@ var ships = {
 
 var item_prices = {
 	"speeder" : 500,
-	"combat_ship" : 500,
+	"combat_ship" : 1000,
 	"repair_station" : 1500,
 	"geo_repair_station" : 5000,
 	"shield_generator" : 1500,

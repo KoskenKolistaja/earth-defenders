@@ -34,13 +34,13 @@ func gravitate(delta):
 
 
 func _on_area_entered(area):
-	if area.has_method("get_hit"):
-		area.get_hit(0)
+	#if area.has_method("get_hit"):
+		#area.get_hit(0)
 	
 	queue_free()
 
 func _on_body_entered(body):
-	if body.has_method("get_hit"):
-		body.get_hit(0)
+	#if body.has_method("get_hit"):
+		#body.get_hit(0)
 	
 	queue_free()

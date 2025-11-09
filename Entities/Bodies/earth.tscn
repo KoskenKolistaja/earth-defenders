@@ -1963,7 +1963,7 @@ texture_over = ExtResource("13_rrla0")
 texture_progress = ExtResource("13_rrla0")
 tint_under = Color(1, 1, 1, 0.143)
 tint_over = Color(0.37804863, 0.37804863, 0.37804863, 0)
-tint_progress = Color(0.14699998, 0.59126663, 0.98, 0.77254903)
+tint_progress = Color(0.14699998, 0.59126663, 0.98, 0.54901963)
 script = ExtResource("14_6j7in")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
@@ -1989,7 +1989,7 @@ texture_over = ExtResource("13_rrla0")
 texture_progress = ExtResource("13_rrla0")
 tint_under = Color(1, 1, 1, 0.143)
 tint_over = Color(0.37804863, 0.37804863, 0.37804863, 0)
-tint_progress = Color(0.3703063, 1, 0.3703063, 0.77300006)
+tint_progress = Color(0.37, 1, 0.37, 0.5372549)
 script = ExtResource("9_apjqm")
 
 [node name="ShieldMesh" type="MeshInstance3D" parent="."]

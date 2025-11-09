@@ -237,7 +237,7 @@ autostart = true
 [node name="light" type="OmniLight3D" parent="."]
 visible = false
 light_energy = 0.0
-omni_range = 15.0
+omni_range = 50.0
 omni_attenuation = 0.329877
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

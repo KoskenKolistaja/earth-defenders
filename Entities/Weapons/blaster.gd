@@ -62,8 +62,7 @@ func shoot():
 	if loaded:
 		var bullet_instance = bullet.instantiate()
 		
-		var direction = (-$Barrel.global_transform.basis.z + Vector3(randf_range(-spread,spread),randf_range(-spread,spread),0)).normalized()
-		bullet_instance.weapon_ref = self           # reference to the weapon node
+		var direction = (-$Barrel.global_transform.basis.z + Vector3(randf_range(-spread,spread),randf_range(-spread,spread),0)).normalized()         # reference to the weapon node
 		bullet_instance.damage = damage
 		bullet_instance.direction = direction
 		bullet_instance.speed = bullet_velocity
@@ -74,7 +73,9 @@ func shoot():
 		loaded = false
 		$Timer.start()
 		$AudioStreamPlayer.play()
-
+		
+		if player_id:
+			bullet_instance.weapon_ref = self   
 
 
 
@@ -136,7 +137,7 @@ func to_machine_gun():
 		update_weapon_name()
 
 func to_sentinel():
-	$Timer.wait_time = 0.1
+	$Timer.wait_time = 0.15
 	damage = 2
 	self.name = "sentinel"
 	spread = 0.05
@@ -152,7 +153,11 @@ func to_martian_sentinel():
 	spread = 0.05
 	bullet_velocity = 0.4
 
-
+func to_martian_machine_gun():
+	$Timer.wait_time = 0.2
+	self.name = "machine_gun"
+	spread = 0.02
+	bullet_velocity = 0.4
 
 func to_minigun():
 	$Timer.wait_time = 0.04

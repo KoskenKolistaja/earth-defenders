@@ -21,7 +21,7 @@ var turn_speed = 0.05
 
 var gravitation_strength = 0.02
 
-
+var Audio : Control
 
 
 
@@ -31,6 +31,9 @@ var gravitation_strength = 0.02
 
 
 func _ready():
+	
+	Audio = get_tree().get_first_node_in_group("audio")
+	
 	player_color = PlayerData.player_colors[player_id]
 	
 	hp = max_hp

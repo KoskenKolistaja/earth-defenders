@@ -12,7 +12,7 @@ func _ready():
 	MetaData.reset_settings()
 	PlayerData.reset_settings()
 	assign_player_controls()
-
+	$AudioStreamPlayer.play()
 
 
 

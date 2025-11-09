@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://cc62jnr1trjns"]
+[gd_scene load_steps=23 format=4 uid="uid://cc62jnr1trjns"]
 
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="1_ovupw"]
 [ext_resource type="Script" uid="uid://bdsrmd5jhcrrf" path="res://Entities/Enemies/big_martian.gd" id="1_veh66"]
 [ext_resource type="PackedScene" uid="uid://n4bmvhrg6lyu" path="res://Entities/Enemies/small_martian.tscn" id="3_0y8ri"]
+[ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="3_gqekp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dt56p"]
 resource_name = "Material.001"
@@ -233,6 +234,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 17
 script = ExtResource("1_veh66")
 ship = ExtResource("3_0y8ri")
+explosion = ExtResource("3_gqekp")
 
 [node name="Martian" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)

@@ -85,6 +85,7 @@ func release():
 		shoot_missile()
 		loaded = false
 		$Timer.start()
+		$AudioStreamPlayer4.play()
 	
 	reset_targeting()
 

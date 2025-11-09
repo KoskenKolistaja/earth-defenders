@@ -61,7 +61,6 @@ func shoot():
 		var bullet_instance = rifle_bullet.instantiate()
 		bullet_instance.direction = -$Barrel.global_transform.basis.z
 		var world = get_tree().get_first_node_in_group("objects")
-		bullet_instance.weapon_ref = self
 		bullet_instance.penetration = penetration
 		bullet_instance.fly_time = fly_time
 		bullet_instance.xp_multiplier = xp_multiplier
@@ -72,7 +71,8 @@ func shoot():
 		loaded = false
 		$Timer.start()
 		$AudioStreamPlayer.play()
-
+		if player_id:
+			bullet_instance.weapon_ref = self   
 
 func award_xp(amount : int = 1):
 	if self.name == "super_sniper":

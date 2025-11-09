@@ -2,7 +2,7 @@ extends NinePatchRect
 
 @export var player_cursor : PackedScene
 
-
+var active = false
 
 var player_votes = {}
 
@@ -20,9 +20,20 @@ var item_votes = {
 
 func _ready():
 	get_parent().pause_space()
-	spawn_cursors()
 	disable_unavailable()
 	update_item_prices()
+	
+	fade_in()
+	
+	spawn_cursors()
+	await get_tree().create_timer(1).timeout
+	active = true
+
+
+func fade_in():
+	modulate.a = 0.0
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.5)
 
 
 func update_item_prices():
@@ -77,6 +88,8 @@ func get_max_items() -> int:
 
 func assign_vote(player_id,index):
 	
+	if not active:
+		return
 	
 	var hud = get_tree().get_first_node_in_group("hud")
 	var money = hud.money

@@ -27,8 +27,12 @@ var random_position
 var hit_xp = 1
 var kill_xp = 20
 
+var Audio : Control
 
 func _ready():
+	
+	Audio = get_tree().get_first_node_in_group("audio")
+	
 	# normalize initial direction and set initial rotation (z axis) so basis.y points toward it
 	if typeof(initial_direction) == TYPE_VECTOR3:
 		initial_direction = Vector2(initial_direction.x, initial_direction.y)
@@ -48,7 +52,7 @@ func _ready():
 
 
 func change_weapon():
-	$weapon/Blaster.to_machine_gun()
+	$weapon/Blaster.to_martian_machine_gun()
 
 
 
@@ -153,6 +157,7 @@ func get_steering(target_pos: Vector3) -> Vector3:
 	return desired
 
 func get_hit(damage: int = 5) -> void:
+	Audio.play_metal_hit()
 	hp -= damage
 	if hp <= 0:
 		die()

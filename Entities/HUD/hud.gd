@@ -22,9 +22,24 @@ func _physics_process(delta):
 	if not MetaData.game_over:
 		update_difficulty()
 
+
+func game_over_pre():
+	$PlayerHUDS.hide()
+	
+	$PanelL.hide()
+	$PanelR.hide()
+	
+	for c in $PlayerHUDS.get_children():
+		c.queue_free()
+
+
+
+
 func  game_over():
 	$GameOverPanel.show()
 	$GameOverPanel/HBoxContainer/Restart.grab_focus()
+	
+	
 	pause_space()
 
 func trigger_purchase_selection():
@@ -35,6 +50,10 @@ func trigger_purchase_selection():
 
 
 func spawn_ship_hud(exported_id):
+	
+	if MetaData.game_over:
+		return
+	
 	var hud_instance = ship_hud.instantiate()
 	hud_instance.player_id = exported_id
 	$PlayerHUDS.add_child(hud_instance)

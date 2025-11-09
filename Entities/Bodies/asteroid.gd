@@ -13,8 +13,10 @@ var dead = false
 var hit_xp = 1
 var kill_xp = 5
 
+var Audio
 
 func _ready():
+	Audio = get_tree().get_first_node_in_group("audio")
 	velocity = Vector3(randf_range(-1,1),randf_range(-1,1),0)
 
 
@@ -45,6 +47,7 @@ func rotate_fire():
 
 
 func get_hit(damage : int = 1):
+	Audio.play_rock_hit()
 	hp -= damage
 	if hp <= 0:
 		die()
