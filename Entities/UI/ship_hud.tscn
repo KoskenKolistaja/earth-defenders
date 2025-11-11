@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi8si437hlwxp"]
+[gd_scene load_steps=13 format=3 uid="uid://bi8si437hlwxp"]
 
 [ext_resource type="Script" uid="uid://bby8y05b3boks" path="res://Entities/UI/ship_hud.gd" id="1_fot4q"]
 [ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="1_ursxy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3veslpvk13dn" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/2 Frames/Frame_14.png" id="3_elj2m"]
 [ext_resource type="Texture2D" uid="uid://bd4s1sqjw7oh2" path="res://Assets/Textures/ShipIcons/speeder.png" id="3_nj7l3"]
 [ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="5_v85bf"]
+[ext_resource type="Texture2D" uid="uid://baw6gtcxe4cqa" path="res://Assets/Textures/ShipIcons/old_ship.png" id="6_u1j3t"]
 [ext_resource type="Texture2D" uid="uid://cs4n604fm2chl" path="res://Assets/Textures/PlayerIcons/Prince.png" id="7_u1j3t"]
 [ext_resource type="AudioStream" uid="uid://bg66y3jcwom06" path="res://Assets/Sci-fi SFX/Ting_Pitched_Up.wav" id="7_v85bf"]
 [ext_resource type="AudioStream" uid="uid://bsxhv8b3lpo7u" path="res://Assets/Sci-fi SFX/Click_Scoop_Up.wav" id="8_7v30e"]
@@ -112,6 +113,27 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="Panel/Selection/speeder"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_v85bf")
+theme_override_font_sizes/font_size = 36
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="old_ship" type="TextureRect" parent="Panel/Selection"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("6_u1j3t")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/Selection/old_ship"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

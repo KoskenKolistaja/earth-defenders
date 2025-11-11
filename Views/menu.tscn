@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dssu0472fe5to" path="res://Views/menu.gd" id="1_6k64v"]
 [ext_resource type="Texture2D" uid="uid://ca811gvb7qfe3" path="res://Assets/Images/Earth.png" id="2_g1lwj"]
 [ext_resource type="AudioStream" uid="uid://2qcj1wumajbg" path="res://Assets/Music/On A Mission.ogg" id="2_upog6"]
-[ext_resource type="FontFile" uid="uid://bkcijhxhyehm4" path="res://Assets/Fonts/Login.ttf" id="4_g1lwj"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="4_g1lwj"]
 [ext_resource type="Script" uid="uid://b0hep8kjhysca" path="res://Views/player_menus.gd" id="5_f2th2"]
 [ext_resource type="PackedScene" uid="uid://buvj3aanpqr8h" path="res://Entities/UI/player_menu.tscn" id="5_mij3b"]
 [ext_resource type="AudioStream" uid="uid://bg7dr3hjcrt25" path="res://Assets/Sci-fi SFX/Tone2A_FifthOctaveUp.wav" id="7_as7vt"]

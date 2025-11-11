@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var avoid_start_multiplier: float = 1.0   # start avoiding when dist < planet_radius * avoid_start_multiplier
 @export var avoid_strength: float = 10.0
 @export var rotation_speed_deg: float = 90.0     # degrees per second
-@export var speed: float = 2.0
+@export var speed: float = 3.0
 
 var full_speed = 3.0
 

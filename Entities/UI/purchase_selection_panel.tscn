@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhh7shqfkqpf3"]
+[gd_scene load_steps=16 format=3 uid="uid://dhh7shqfkqpf3"]
 
 [ext_resource type="Script" uid="uid://c0ftg2e34ygnw" path="res://Entities/UI/purchase_selection_panel.gd" id="1_8ae43"]
 [ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="1_d18px"]
 [ext_resource type="Texture2D" uid="uid://bd4s1sqjw7oh2" path="res://Assets/Textures/ShipIcons/speeder.png" id="1_hlcg7"]
 [ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="2_8ae43"]
 [ext_resource type="Texture2D" uid="uid://chp7dmvm2orce" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_11.png" id="3_k2uhh"]
+[ext_resource type="Texture2D" uid="uid://baw6gtcxe4cqa" path="res://Assets/Textures/ShipIcons/old_ship.png" id="4_e5w42"]
 [ext_resource type="Texture2D" uid="uid://s770i2ebduo" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_17.png" id="4_fsi7h"]
 [ext_resource type="Texture2D" uid="uid://v42h8gphx7ke" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_32.png" id="5_7qont"]
 [ext_resource type="Texture2D" uid="uid://b51r13lskf28b" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_38.png" id="6_d18px"]
@@ -16,15 +17,14 @@
 [ext_resource type="FontFile" uid="uid://bgf74iaxesp32" path="res://Assets/Fonts/verti___.ttf" id="13_e5w42"]
 
 [node name="PurchaseSelectionPanel" type="NinePatchRect"]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -528.0
+offset_left = -625.0
 offset_top = -265.0
-offset_right = 528.0
+offset_right = 625.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -42,9 +42,33 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -64.0
+offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="old_ship" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("4_e5w42")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/old_ship"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -56.0
+offset_right = 49.0
+offset_bottom = -1.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_d18px")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="speeder" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
@@ -309,6 +333,14 @@ offset_top = -89.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="old_ship" type="Label" parent="ItemPricesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "100$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="speeder" type="Label" parent="ItemPricesContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
@@ -378,6 +410,15 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 43.0
 grow_horizontal = 2
+alignment = 1
+
+[node name="Label9" type="Label" parent="ItemNamesContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_d18px")
+text = "old ship"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="ItemNamesContainer"]
 custom_minimum_size = Vector2(128, 0)

@@ -6,6 +6,7 @@ var direction : Vector3 = Vector3.UP
 var speed : float = 0.3
 var damage : int = 1
 
+var fly_time = 1.0
 
 var weapon_ref
 
@@ -13,7 +14,7 @@ var xp_multiplier = 1
 
 
 func  _ready():
-	await get_tree().create_timer(1,false).timeout
+	await get_tree().create_timer(fly_time,false).timeout
 	queue_free()
 
 

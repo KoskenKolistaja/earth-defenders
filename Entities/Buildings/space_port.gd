@@ -4,6 +4,7 @@ extends Area3D
 var reserved_ships = {
 	"combat_ship" : 3,
 	"speeder" : 1,
+	"old_ship" : 1
 }
 
 var player_weapons = {}

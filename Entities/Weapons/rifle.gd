@@ -7,8 +7,8 @@ var loaded = true
 
 var player_id
 
-var bullet_velocity = 0.3
-var bullet_damage = 2
+var bullet_velocity = 0.4
+var bullet_damage = 3
 
 var penetration = false
 
@@ -101,7 +101,7 @@ func upgrade_weapon():
 
 
 func to_sniper():
-	$Timer.wait_time = 0.8
+	$Timer.wait_time = 0.5
 	bullet_velocity = 0.7
 	bullet_damage = 5
 	self.name = "sniper"
@@ -110,7 +110,7 @@ func to_sniper():
 	update_weapon_name()
 
 func to_super_sniper():
-	$Timer.wait_time = 0.6
+	$Timer.wait_time = 0.4
 	bullet_velocity = 1
 	bullet_damage = 5
 	penetration = true

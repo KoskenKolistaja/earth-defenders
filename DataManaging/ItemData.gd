@@ -32,33 +32,37 @@ var facilities = {
 }
 
 
+var old_ship = preload("res://Entities/Player/old_ship.tscn")
 var combat_ship = preload("res://Entities/Player/combat_ship.tscn")
 var speeder = preload("res://Entities/Player/speeder.tscn")
 
 
 var ships = {
 	"combat_ship" : combat_ship,
-	"speeder" : speeder
+	"speeder" : speeder,
+	"old_ship" : old_ship
 }
 
 
 
 var item_prices = {
+	"old_ship" : 100,
 	"speeder" : 500,
-	"combat_ship" : 1000,
+	"combat_ship" : 2000,
 	"repair_station" : 1500,
-	"geo_repair_station" : 5000,
-	"shield_generator" : 1500,
+	"geo_repair_station" : 6000,
+	"shield_generator" : 2000,
 	"technology_institute" : 1000,
 	"bank" : 1000,
 	"none" : 0,
 }
 
-
+#A state-of-the-art combat ship that makes no compromises in performance. However, due to its advanced design, the production line has yet to be optimized, making it significantly more expensive than other ships.
 
 var item_info = {
+	"old_ship" : "Once the pride of the fleet, this warship was never meant to return to service. Years of defense cuts left it outdated and worn, but with no new ships available, it’s been pressed back into duty—and it can still get the job done. Several units remain in reserve from earlier investments so acquiring one only requires covering deployment costs",
 	"speeder" : "A lightweight, inexpensive ship built for speed and agility. It’s not designed for combat, but in desperate situations, it can be converted for defense or light skirmishes. Quick to build, quick to fly — the Speeder is perfect for anyone who values mobility over firepower.",
-	"combat_ship" : "Once the pride of the fleet, this warship was never meant to return to service. Years of defense cuts left it outdated and worn, but with no new ships available, it’s been pressed back into duty—and it can still get the job done.",
+	"combat_ship" : "A state-of-the-art combat ship that makes no compromises in performance. However, due to its advanced design, the production line has yet to be optimized, making it significantly more expensive than other ships.",
 	"repair_station" : "Repair station is an earth installation that uses ion ray technology to carry required supplies and energy to maintain any ship in the earths lower orbit. No landings needed!",
 	"geo_repair_station" : "Geo repair station doesn't have anything to do with ships or the ongoing war with Martians. It is a vast set of infrastructure needed to patch up possible damage caused to a planet. It is expensive but it is much needed to protect the most valuable asset: Earth.",
 	"shield_generator" : "Shield generator is an advanced technology used to protect earth. It provides regenerated protection",

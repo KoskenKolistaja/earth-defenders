@@ -38,6 +38,13 @@ func get_random_position():
 	
 	return target_position
 
+func game_over():
+	$AsteroidTimer.stop()
+	$SmallMartianTimer.stop()
+	$BigMartianTimer.stop()
+	$EliteSmallMartianTimer.stop()
+	$MissileSmallMartianTimer.stop()
+
 
 func get_big_ship_position():
 	var origin = Vector3(0, 0, 0)
@@ -142,7 +149,7 @@ func _on_missile_small_martian_timer_timeout():
 	
 	var elapsed = Time.get_ticks_msec() - scene_start_time
 	
-	if not get_difficulty(elapsed * 0.001) > 4:
+	if not get_difficulty(elapsed * 0.001) > 5:
 		print("returned")
 		return
 	
@@ -156,7 +163,7 @@ func _on_elite_small_martian_timer_timeout():
 	
 	var elapsed = Time.get_ticks_msec() - scene_start_time
 	
-	if not get_difficulty(elapsed * 0.001) > 4:
+	if not get_difficulty(elapsed * 0.001) > 5:
 		print("returned")
 		return
 	

@@ -122,6 +122,8 @@ func add_shield(amount : int = 1):
 func die():
 	var death_song = preload("res://Assets/Music/It's over.ogg")
 	var hud = get_tree().get_first_node_in_group("hud")
+	var spawn_manager = get_tree().get_first_node_in_group("spawn_manager")
+	spawn_manager.game_over()
 	$HpBar.active = false
 	$HpBar.hide()
 	$DeathArea.active = true

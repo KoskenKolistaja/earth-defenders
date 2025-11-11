@@ -6,7 +6,7 @@ var gravitation_strength = 0.01
 
 @export var explosion : PackedScene
 
-var hp = 2
+var hp = 5
 
 var dead = false
 

@@ -18,7 +18,9 @@ var index = 0
 
 var spread = 0
 
-var bullet_velocity = 0.3
+var fly_time = 0.5
+
+var bullet_velocity = 0.4
 
 var ship_hud
 
@@ -65,6 +67,7 @@ func shoot():
 		var direction = (-$Barrel.global_transform.basis.z + Vector3(randf_range(-spread,spread),randf_range(-spread,spread),0)).normalized()         # reference to the weapon node
 		bullet_instance.damage = damage
 		bullet_instance.direction = direction
+		bullet_instance.fly_time = fly_time
 		bullet_instance.speed = bullet_velocity
 		bullet_instance.xp_multiplier = xp_multiplier
 		var world = get_tree().get_first_node_in_group("objects")
@@ -132,16 +135,18 @@ func to_machine_gun():
 	self.name = "machine_gun"
 	spread = 0.01
 	
+	fly_time = 0.7
+	
 	if player_id:
 		update_xp()
 		update_weapon_name()
 
 func to_sentinel():
 	$Timer.wait_time = 0.15
-	damage = 2
+	damage = 1
 	self.name = "sentinel"
 	spread = 0.05
-	bullet_velocity = 0.4
+	bullet_velocity = 0.5
 	if player_id:
 		update_xp()
 		update_weapon_name()
@@ -152,15 +157,17 @@ func to_martian_sentinel():
 	self.name = "sentinel"
 	spread = 0.05
 	bullet_velocity = 0.4
+	fly_time = 1.5
 
 func to_martian_machine_gun():
 	$Timer.wait_time = 0.2
 	self.name = "machine_gun"
-	spread = 0.02
-	bullet_velocity = 0.4
+	spread = 0.1
+	bullet_velocity = 0.3
+	fly_time = 1.5
 
 func to_minigun():
-	$Timer.wait_time = 0.04
+	$Timer.wait_time = 0.08
 	damage = 1
 	self.name = "minigun"
 	spread = 0.1

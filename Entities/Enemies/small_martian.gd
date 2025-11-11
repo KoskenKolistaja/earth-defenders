@@ -87,7 +87,7 @@ func get_new_player_target():
 	var players = get_tree().get_nodes_in_group("player_ship")
 	
 	if not players:
-		active = false
+		target_player = get_tree().get_first_node_in_group("earth")
 		return
 	
 	target_player = players[randi_range(0,players.size()-1)]
@@ -222,8 +222,14 @@ func _on_activation_timer_timeout() -> void:
 
 
 func _on_shoot_check_timer_timeout():
-	var bodies = $Area3D.get_overlapping_bodies()
+	if not is_instance_valid(target_player):
+		return
+	var bodies = $Area3D.get_overlapping_bodies().duplicate()
 	for item in bodies:
+		
+		if not is_instance_valid(item):
+			continue
+		
 		if item.is_in_group("player_ship"):
 			shooting = true
 			$ShootCheckTimer.stop()
@@ -231,8 +237,15 @@ func _on_shoot_check_timer_timeout():
 			random_position = get_random_position()
 			shooting = false
 			active = false
-
-
+		if target_player == get_tree().get_first_node_in_group("earth"):
+			if item.is_in_group("earth"):
+				shooting = true
+				$ShootCheckTimer.stop()
+				await get_tree().create_timer(0.5,false).timeout
+				target_player = null
+				random_position = get_random_position()
+				shooting = false
+				active = false
 
 
 func get_random_position():

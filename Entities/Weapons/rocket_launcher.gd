@@ -48,7 +48,7 @@ func update_xp():
 func shoot():
 	if loaded:
 		shoot_missile()
-
+		$AudioStreamPlayer.play()
 
 func release():
 	pass

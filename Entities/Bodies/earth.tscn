@@ -1580,7 +1580,7 @@ radius = 5.5
 height = 11.0
 
 [node name="Earth" type="StaticBody3D" groups=["bullet_damaged", "earth", "non_penetratable"]]
-collision_layer = 3
+collision_layer = 4099
 script = ExtResource("1_pcr5l")
 nozzle = ExtResource("2_u04n2")
 

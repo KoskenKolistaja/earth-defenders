@@ -47,7 +47,7 @@ volume_db = -11.524
 stream = ExtResource("5_05krr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.1
 one_shot = true
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]

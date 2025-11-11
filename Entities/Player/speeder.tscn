@@ -192,7 +192,7 @@ script = ExtResource("1_a6cgs")
 explosion = ExtResource("2_yv001")
 stored_weapon_right = "blaster"
 max_hp = 6
-speed = 1.5
+speed = 2.0
 type = "speeder"
 color_slot = 3
 

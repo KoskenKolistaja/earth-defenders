@@ -287,6 +287,7 @@ axis_lock_linear_z = true
 script = ExtResource("1_cuvxq")
 explosion = ExtResource("2_fg4yb")
 stored_weapon_right = "blaster"
+speed = 1.5
 type = "combat_ship"
 color_slot = 3
 

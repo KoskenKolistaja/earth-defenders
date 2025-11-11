@@ -5,7 +5,7 @@ extends Area3D
 
 var direction : Vector3 = Vector3.UP
 var speed : float = 0.5
-var damage : int = 2
+var damage : int = 3
 
 var penetration = false
 
