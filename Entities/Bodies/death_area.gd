@@ -7,7 +7,7 @@ var active = false
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if active:
 		kill()
 		$CollisionShape3D.shape.radius += 0.15

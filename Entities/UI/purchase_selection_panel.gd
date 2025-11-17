@@ -48,7 +48,7 @@ func update_item_prices():
 		
 		i.text = str(ItemData.item_prices[i.name]) + "$"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Time.text = str(snappedi($Timer.time_left,1))
 
 func disable_unavailable():

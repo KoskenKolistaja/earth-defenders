@@ -6,7 +6,7 @@ var hp = 5
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target:
 		$GPUParticles3D/GPUParticlesAttractorSphere3D.global_position = target.global_position
 		$GPUParticles3D.emitting = true

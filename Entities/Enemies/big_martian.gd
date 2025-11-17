@@ -27,11 +27,11 @@ func _ready():
 	
 	initial_position = self.global_position
 	var vector = Vector3(0,0,0) - self.global_position
-	target = -vector.limit_length(40)
+	target = vector.limit_length(40)
 	target_reached.connect(_on_target_reached)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if global_position.x < 0:
 		$Martian.rotation_degrees.y = -90
 	else:
@@ -94,8 +94,8 @@ func spawn_ship():
 		var ship_instance = ship.instantiate()
 		ship_instance.initial_direction = -$Martian.basis.x
 		var objects = get_tree().get_first_node_in_group("objects")
-		ship_instance.global_position = self.global_position
 		objects.add_child(ship_instance)
+		ship_instance.global_position = self.global_position
 		ships -= 1
 	else:
 		$Martian/AnimationPlayer.play_backwards("DoorOpen")

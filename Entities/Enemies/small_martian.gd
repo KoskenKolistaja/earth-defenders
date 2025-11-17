@@ -188,7 +188,7 @@ func explode():
 	active = false
 	random_position = false
 	$ShootCheckTimer.stop()
-	$CollisionShape3D.disabled = true
+	$CollisionShape3D.set_deferred("disabled", true)
 	
 	fracture()  # <-- do the breakup first
 
@@ -205,7 +205,7 @@ func explode():
 
 func fracture():
 	$FracturedSmallMartian.fracture(velocity)
-	$CollisionShape3D.disabled = true
+	$CollisionShape3D.set_deferred("disabled", true)
 	$Cube.hide()
 
 
@@ -238,14 +238,15 @@ func _on_shoot_check_timer_timeout():
 			shooting = false
 			active = false
 		if target_player == get_tree().get_first_node_in_group("earth"):
-			if item.is_in_group("earth"):
-				shooting = true
-				$ShootCheckTimer.stop()
-				await get_tree().create_timer(0.5,false).timeout
-				target_player = null
-				random_position = get_random_position()
-				shooting = false
-				active = false
+			if is_instance_valid(item):
+				if item.is_in_group("earth"):
+					shooting = true
+					$ShootCheckTimer.stop()
+					await get_tree().create_timer(0.5,false).timeout
+					target_player = null
+					random_position = get_random_position()
+					shooting = false
+					active = false
 
 
 func get_random_position():
@@ -257,5 +258,5 @@ func get_random_position():
 	return target_position
 
 
-func _on_area_3d_2_body_entered(body):
+func _on_area_3d_2_body_entered(_body):
 	die()

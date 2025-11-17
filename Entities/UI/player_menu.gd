@@ -40,7 +40,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	
 	if Input.is_action_just_pressed("p%s_ui_return" % player_id):
 		if submitted:

@@ -80,29 +80,29 @@ func spawn_asteroid():
 
 func spawn_big_martian():
 	var ship_instance = big_martian.instantiate()
-	ship_instance.global_position = get_big_ship_position()
 	get_parent().add_child(ship_instance)
+	ship_instance.global_position = get_big_ship_position()
 
 func spawn_small_martian():
 	var ship_instance = small_martian.instantiate()
 	ship_instance.initial_direction = -basis.x
 	var objects = get_tree().get_first_node_in_group("objects")
-	ship_instance.global_position = get_random_position()
 	objects.add_child(ship_instance)
+	ship_instance.global_position = get_random_position()
 
 func spawn_elite_small_martian():
 	var ship_instance = elite_small_martian.instantiate()
 	ship_instance.initial_direction = -basis.x
 	var objects = get_tree().get_first_node_in_group("objects")
-	ship_instance.global_position = get_random_position()
 	objects.add_child(ship_instance)
+	ship_instance.global_position = get_random_position()
 
 func spawn_missile_small_martian():
 	var ship_instance = missile_small_martian.instantiate()
 	ship_instance.initial_direction = -basis.x
 	var objects = get_tree().get_first_node_in_group("objects")
-	ship_instance.global_position = get_random_position()
 	objects.add_child(ship_instance)
+	ship_instance.global_position = get_random_position()
 
 func get_spawn_interval(base: float) -> float:
 	var difficulty = get_difficulty(MetaData.game_time_elapsed)

@@ -54,7 +54,7 @@ func _ready():
 	
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_movement()
 	handle_actions()
 	
@@ -140,7 +140,8 @@ func handle_actions():
 func get_hit(damage : int = 100):
 	hp -= damage
 	
-	ship_hud.update_hp(hp,max_hp)
+	if is_instance_valid(ship_hud):
+		ship_hud.update_hp(hp,max_hp)
 	
 	if hp <= 0:
 		die()

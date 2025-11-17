@@ -31,4 +31,5 @@ func _on_restart_pressed():
 
 
 func _on_to_menu_pressed():
+	unpause_space()
 	get_tree().change_scene_to_file("res://Views/menu.tscn")

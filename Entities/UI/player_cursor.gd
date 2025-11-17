@@ -30,7 +30,7 @@ func fade_in():
 	tween.tween_property(self, "modulate:a", 1.0, 0.2)
 
 
-func _process(delta):
+func _process(_delta):
 	
 	if not active:
 		return

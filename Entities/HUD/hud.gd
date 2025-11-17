@@ -14,7 +14,7 @@ func _ready():
 	update_money()
 	scene_start_time = Time.get_ticks_msec()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for id in PlayerData.players:
 		if Input.is_action_just_pressed("p%s_ready" % id) and not MetaData.game_over:
 			trigger_purchase_selection()
@@ -92,7 +92,7 @@ func update_time():
 
 func update_difficulty():
 	var elapsed = Time.get_ticks_msec() - scene_start_time
-	var difficulty = get_tree().get_first_node_in_group("spawn_manager").get_difficulty(Time.get_ticks_msec()*0.001)
+	var difficulty = get_tree().get_first_node_in_group("spawn_manager").get_difficulty(elapsed*0.001)
 	
 	difficulty = snappedf(difficulty,0.01)
 	$PanelR/Difficulty.text = "Difficulty: " + str(difficulty)

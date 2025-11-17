@@ -22,7 +22,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not homing:
 		initial_speed = move_toward(initial_speed,0,0.005)
 	else:

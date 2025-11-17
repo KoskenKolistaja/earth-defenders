@@ -14,7 +14,7 @@ var shield_disabled = true
 
 var Audio
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	$Pivot.rotation_degrees.z += 0.1
 	

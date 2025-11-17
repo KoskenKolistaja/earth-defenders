@@ -258,5 +258,5 @@ func get_random_position():
 	return target_position
 
 
-func _on_area_3d_2_body_entered(body):
+func _on_area_3d_2_body_entered(_body):
 	die()

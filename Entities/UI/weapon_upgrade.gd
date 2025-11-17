@@ -19,11 +19,11 @@ var left = true
 @export var xxx_icon : Texture
 @export var super_sniper_icon : Texture
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	initiate_selection(weapon_ref.name)
 
 func _ready():
-	var weapon_name = weapon_ref.name
+	weapon_name = weapon_ref.name
 	$AudioStreamPlayer.play()
 	$Panel/Label.text = PlayerData.player_names[player_id]
 	
@@ -52,8 +52,8 @@ func _ready():
 			$Panel/HBoxContainer/TextureLeft.texture = xxx_icon
 			$Panel/HBoxContainer/TextureRight.texture = super_sniper_icon
 
-func initiate_selection(weapon_name):
-	match weapon_name:
+func initiate_selection(exported_weapon_name):
+	match exported_weapon_name:
 		"blaster":
 			blaster()
 		"machine_gun":

@@ -22,7 +22,7 @@ func _ready():
 	$sound.pitch_scale += randf_range(-0.2,0.2)
 	$sound.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$light.omni_range -= 0.1
 
 func _on_timer_timeout():

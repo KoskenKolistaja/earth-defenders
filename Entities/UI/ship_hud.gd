@@ -45,7 +45,7 @@ func update_cursor_position():
 	var texture_item = $Panel/Selection.get_child(selected_item)
 	$Panel/Cursor.global_position = texture_item.global_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		selected_item -= 1
 		if selected_item < 0:

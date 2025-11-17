@@ -15,9 +15,38 @@ var player_id
 
 const FOCUS_TRESHOLD = 50
 
+var ship_hud
 
 func _ready():
 	get_parent().get_parent().check_for_weapon()
+	initiate_ship_hud()
+	update_weapon_name()
+
+func initiate_ship_hud():
+	var huds = get_tree().get_nodes_in_group("ship_hud")
+	
+	for h in huds:
+		if h.player_id == player_id:
+			ship_hud = h
+			break
+	
+	update_xp()
+
+
+func update_xp():
+	var left = false
+	if get_parent().name == "left_weapon":
+		left = true
+	
+	
+	ship_hud.update_xp(100,100,left)
+
+func update_weapon_name():
+	var left = false
+	
+	if get_parent().name == "left_weapon":
+		left = true
+	ship_hud.update_weapon_name(self.name,left)
 
 
 func shoot():
@@ -108,4 +137,4 @@ func reset_targeting():
 
 func _on_timer_timeout():
 	loaded = true
-	$AudioStreamPlayer3.play()
+	#$AudioStreamPlayer3.play()

@@ -56,12 +56,12 @@ func release():
 func shoot_missile():
 	var objects = get_tree().get_first_node_in_group("objects")
 	var missile_instance = missile.instantiate()
-	missile_instance.global_rotation = self.global_rotation
 	missile_instance.target = null
 	missile_instance.speed = 0.4
 	missile_instance.weapon_ref = self
 	missile_instance.xp_multiplier = xp_multiplier
 	objects.add_child(missile_instance)
+	missile_instance.global_rotation = self.global_rotation
 	missile_instance.global_position = self.global_position
 	loaded = false
 	$LoadTimer.start()

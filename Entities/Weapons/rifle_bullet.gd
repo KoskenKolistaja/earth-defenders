@@ -20,7 +20,7 @@ func  _ready():
 	queue_free()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_position += direction * speed
 	look_at_from_position(self.global_position,self.global_position + direction * speed)
 

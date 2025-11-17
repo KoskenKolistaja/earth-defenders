@@ -56,9 +56,8 @@ func get_hit(damage : int = 1):
 func die():
 	
 	if not dead:
-		monitorable = false
-		monitoring = false
-		$CollisionShape3D.disabled = true
+		set_deferred("monitorable" , false)
+		set_deferred("monitoring" , false)
 		$FracturedAsteroid.show()
 		$nozzle.emitting = false
 		

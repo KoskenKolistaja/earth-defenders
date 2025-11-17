@@ -26,7 +26,7 @@ func get_xp_multiplier():
 	var multiplier = 1
 	
 	for item in get_children():
-		if not item.get_child(0):
+		if item.get_child_count() == 0:
 			continue
 		
 		if item.get_child(0).name == "technology_institute":
