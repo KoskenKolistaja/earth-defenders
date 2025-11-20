@@ -1,0 +1,166 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqs1n0omobger"]
+
+[ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="1_qkov7"]
+[ext_resource type="FontFile" uid="uid://bguvkkgyu2414" path="res://Assets/Fonts/editundo.ttf" id="2_c4xuw"]
+[ext_resource type="Script" uid="uid://b3tmmjg8l4n6u" path="res://Entities/UI/stats_panel.gd" id="2_si10o"]
+
+[node name="StatsPanel" type="NinePatchRect"]
+custom_minimum_size = Vector2(200, 250)
+offset_right = 300.0
+offset_bottom = 400.0
+texture = ExtResource("1_qkov7")
+script = ExtResource("2_si10o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 56.0
+offset_right = -7.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="BulletsHit" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BulletsHit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "Bullets hit: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/BulletsHit"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "10000/20000"
+
+[node name="MissilesHit" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MissilesHit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "Missiles hit: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/MissilesHit"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "100/200"
+
+[node name="BulletAccuracy" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BulletAccuracy"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "bullet accuracy: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/BulletAccuracy"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "17%"
+
+[node name="MissileAccuracy" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MissileAccuracy"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "Missile accuracy: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/MissileAccuracy"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "53%"
+
+[node name="ShipsDestroyed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ShipsDestroyed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "Ships destroyed: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/ShipsDestroyed"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "64"
+
+[node name="RocksDestroyed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/RocksDestroyed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "rocks destroyed: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/RocksDestroyed"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "64"
+
+[node name="ShipsLost" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ShipsLost"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "Ships lost: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/ShipsLost"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_c4xuw")
+theme_override_font_sizes/font_size = 17
+text = "4"
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = 7.0
+offset_right = 43.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_c4xuw")
+text = "Statistician"
+horizontal_alignment = 1
+vertical_alignment = 1

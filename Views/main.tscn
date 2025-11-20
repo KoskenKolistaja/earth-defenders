@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=26 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cimwwm2iau306" path="res://Assets/Textures/UI/WenrexaUI/TitlePanel02.png" id="11_diku4"]
 [ext_resource type="PackedScene" uid="uid://dhh7shqfkqpf3" path="res://Entities/UI/purchase_selection_panel.tscn" id="12_20lq4"]
 [ext_resource type="Texture2D" uid="uid://bt7tpao557fyy" path="res://Assets/Textures/UI/WenrexaUI/MainPanel01.png" id="14_33ooc"]
+[ext_resource type="Script" uid="uid://cfepy6rhku5jf" path="res://Views/game_over_panel.gd" id="14_ohyl5"]
 [ext_resource type="Texture2D" uid="uid://icin6tpgsm8h" path="res://Assets/Textures/UI/WenrexaUI/Button15.png" id="15_kxu5t"]
+[ext_resource type="PackedScene" uid="uid://dqs1n0omobger" path="res://Entities/UI/stats_panel.tscn" id="16_80tuj"]
 [ext_resource type="Script" uid="uid://c5xtqu72mcuks" path="res://Entities/UI/audio.gd" id="16_dbe30"]
 [ext_resource type="AudioStream" uid="uid://bcu8io64kv5es" path="res://Assets/SFX/MetalHit.ogg" id="17_sakj3"]
 [ext_resource type="AudioStream" uid="uid://bhhgw3cyik546" path="res://Assets/SFX/RockHit.ogg" id="18_rc3x8"]
@@ -221,13 +223,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -250.0
-offset_right = 350.0
-offset_bottom = 250.0
+offset_left = -525.0
+offset_top = -375.0
+offset_right = 525.0
+offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_dbe30")
+script = ExtResource("14_ohyl5")
+stats_panel = ExtResource("16_80tuj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameOverPanel"]
 layout_mode = 1
@@ -255,6 +259,16 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("9_qwu6d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_sakj3")
 text = "to menu"
+
+[node name="StatsContainer" type="HBoxContainer" parent="HUD/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 process_mode = 3

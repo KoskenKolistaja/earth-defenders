@@ -71,6 +71,7 @@ func get_left_weapon_name():
 	if $left_weapon.get_child_count() > 0:
 		l_name = $left_weapon.get_child(0).name
 	
+	print(l_name)
 	return l_name
 
 
@@ -80,6 +81,7 @@ func get_right_weapon_name():
 	if $right_weapon.get_child_count() > 0:
 		r_name = $right_weapon.get_child(0).name
 	
+	print(r_name)
 	return r_name
 
 func check_for_weapon():
@@ -104,8 +106,9 @@ func change_weapon_left(weapon_name : String):
 	for item in weapons:
 		item.queue_free()
 	
-	var weapon_instance = ItemData[weapon_name].instantiate()
+	var weapon_instance = ItemData.weapons[weapon_name].instantiate()
 	weapon_instance.player_id = player_id
+	weapon_instance.name = weapon_name
 	$left_weapon.add_child(weapon_instance)
 
 func change_weapon_right(weapon_name : String):
@@ -116,8 +119,9 @@ func change_weapon_right(weapon_name : String):
 	var weapons = $right_weapon.get_children()
 	for item in weapons:
 		item.queue_free()
-	var weapon_instance = ItemData[weapon_name].instantiate()
+	var weapon_instance = ItemData.weapons[weapon_name].instantiate()
 	weapon_instance.player_id = player_id
+	weapon_instance.name = weapon_name
 	$right_weapon.add_child(weapon_instance)
 
 
@@ -156,9 +160,11 @@ func die():
 	var hud = get_tree().get_first_node_in_group("hud")
 	hud.erase_ship_hud(player_id)
 	
+	Statistics.add_ships_lost(player_id)
 	
 	explode()
-
+	
+	queue_free()
 
 func explode():
 	
@@ -166,8 +172,7 @@ func explode():
 	get_parent().add_child(explosion_instance)
 	explosion_instance.global_position = global_position
 	
-	
-	queue_free()
+
 
 
 

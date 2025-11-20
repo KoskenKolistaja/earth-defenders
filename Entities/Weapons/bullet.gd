@@ -40,11 +40,17 @@ func _on_body_entered(body):
 					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
 					var hud = get_tree().get_first_node_in_group("hud")
 					hud.add_money(50)
+					var player_id = weapon_ref.get_player_id()
+					if player_id:
+						Statistics.add_ships_destroyed(player_id)
 			else:
 				if weapon_ref:
 					var award_xp = body.hit_xp * damage * xp_multiplier
 					weapon_ref.award_xp(award_xp)
 					LabelSpawner.spawn_label("+" + str(award_xp) + "xp",self.global_position)
+					var player_id = weapon_ref.get_player_id()
+					if player_id:
+						Statistics.add_bullets_hit(player_id)
 	queue_free()
 
 

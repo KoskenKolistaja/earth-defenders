@@ -12,7 +12,12 @@ var weapons = {
 	"rocket_launcher" : rocket_launcher,
 	"vacuum_gun" : vacuum_gun,
 	"blaster" : blaster,
-	"rifle" : rifle
+	"machine_gun" : blaster,
+	"sentinel" : blaster,
+	"minigun" : blaster,
+	"rifle" : rifle,
+	"sniper" : rifle,
+	"super_sniper" : rifle
 }
 
 

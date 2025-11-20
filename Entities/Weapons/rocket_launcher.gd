@@ -49,6 +49,7 @@ func shoot():
 	if loaded:
 		shoot_missile()
 		$AudioStreamPlayer.play()
+		Statistics.add_missiles_fired(player_id)
 
 func release():
 	pass
@@ -66,6 +67,8 @@ func shoot_missile():
 	loaded = false
 	$LoadTimer.start()
 
+func get_player_id():
+	return player_id
 
 
 func award_xp(amount : int = 1):

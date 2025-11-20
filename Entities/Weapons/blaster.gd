@@ -29,6 +29,8 @@ var ship_hud
 
 
 func _ready():
+	
+	
 	if player_id:
 		initiate_ship_hud()
 		
@@ -39,6 +41,12 @@ func _ready():
 		
 		update_weapon_name()
 
+	if name == "machine_gun":
+		to_machine_gun()
+	if name == "sentinel":
+		to_sentinel()
+	if name == "minigun":
+		to_minigun()
 
 func update_weapon_name():
 	var left = false
@@ -78,9 +86,12 @@ func shoot():
 		$AudioStreamPlayer.play()
 		
 		if player_id:
-			bullet_instance.weapon_ref = self   
+			bullet_instance.weapon_ref = self
+			Statistics.add_bullets_fired(player_id)
 
 
+func get_player_id():
+	return player_id
 
 func release():
 	pass

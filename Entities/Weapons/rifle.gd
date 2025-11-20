@@ -23,11 +23,18 @@ var fly_time = 1.2
 var ship_hud
 
 func _ready():
+	
+	
+	
 	initiate_ship_hud()
 	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
 	xp_multiplier = facility_spawner.get_xp_multiplier()
 	
 	update_weapon_name()
+	if name == "sniper":
+		to_sniper()
+	if name == "super_sniper":
+		to_super_sniper()
 
 func initiate_ship_hud():
 	var huds = get_tree().get_nodes_in_group("ship_hud")
@@ -73,6 +80,7 @@ func shoot():
 		$AudioStreamPlayer.play()
 		if player_id:
 			bullet_instance.weapon_ref = self   
+			Statistics.add_bullets_fired(player_id)
 
 func award_xp(amount : int = 1):
 	if self.name == "super_sniper":
@@ -85,6 +93,8 @@ func award_xp(amount : int = 1):
 		xp_needed *= 3
 		upgrade_weapon()
 
+func get_player_id():
+	return player_id
 
 func upgrade_weapon():
 	

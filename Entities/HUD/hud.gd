@@ -6,7 +6,7 @@ extends Control
 
 var time = 2025
 
-var money : int = 500
+var money : int = 2000
 
 var scene_start_time = 0
 
@@ -38,7 +38,7 @@ func game_over_pre():
 func  game_over():
 	$GameOverPanel.show()
 	$GameOverPanel/HBoxContainer/Restart.grab_focus()
-	
+	$GameOverPanel.initiate_stats()
 	
 	pause_space()
 

@@ -55,7 +55,8 @@ func shoot():
 			target = get_target()
 		else:
 			focus_target()
-	
+		
+		Statistics.add_missiles_fired(player_id)
 
 func focus_target():
 	$Reticle.show()
@@ -80,7 +81,8 @@ func move_reticle(exported_target):
 	$Reticle.global_position = camera.unproject_position(exported_target.global_position)
 
 
-
+func get_player_id():
+	return player_id
 
 
 func get_target():

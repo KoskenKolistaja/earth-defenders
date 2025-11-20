@@ -128,6 +128,7 @@ func die():
 	$HpBar.hide()
 	$DeathArea.active = true
 	dead = true
+	$FacilitySpawner.queue_free()
 	$MeshInstance3D.hide()
 	$CollisionShape3D.disabled = true
 	$FracturedEarth.show()
