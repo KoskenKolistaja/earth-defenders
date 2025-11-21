@@ -40,6 +40,7 @@ func  game_over():
 	$GameOverPanel/HBoxContainer/Restart.grab_focus()
 	$GameOverPanel.initiate_stats()
 	
+	
 	pause_space()
 
 func trigger_purchase_selection():

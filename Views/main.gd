@@ -15,6 +15,8 @@ func pause_space():
 	get_tree().paused = true
 
 
+func check_records():
+	pass
 
 
 

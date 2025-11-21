@@ -8,10 +8,10 @@ func set_player_name(exported_name : String):
 
 
 func set_bullets_hit(total_shots,hit):
-	$VBoxContainer/BulletsHit/Label2.text = str(total_shots) + "/" + str(hit)
+	$VBoxContainer/BulletsHit/Label2.text =  str(hit) + "/" + str(total_shots)
 
 func set_missiles_hit(total_shots,hit):
-	$VBoxContainer/MissilesHit/Label2.text = str(total_shots) + "/" + str(hit)
+	$VBoxContainer/MissilesHit/Label2.text =  str(hit) + "/" + str(total_shots)
 
 func set_bullet_accuracy(amount):
 	$VBoxContainer/BulletAccuracy/Label2.text = str(amount) + "%"

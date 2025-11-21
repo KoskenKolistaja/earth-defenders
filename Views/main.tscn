@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=29 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://icin6tpgsm8h" path="res://Assets/Textures/UI/WenrexaUI/Button15.png" id="15_kxu5t"]
 [ext_resource type="PackedScene" uid="uid://dqs1n0omobger" path="res://Entities/UI/stats_panel.tscn" id="16_80tuj"]
 [ext_resource type="Script" uid="uid://c5xtqu72mcuks" path="res://Entities/UI/audio.gd" id="16_dbe30"]
+[ext_resource type="FontFile" uid="uid://bkcijhxhyehm4" path="res://Assets/Fonts/Login.ttf" id="16_l6pec"]
 [ext_resource type="AudioStream" uid="uid://bcu8io64kv5es" path="res://Assets/SFX/MetalHit.ogg" id="17_sakj3"]
 [ext_resource type="AudioStream" uid="uid://bhhgw3cyik546" path="res://Assets/SFX/RockHit.ogg" id="18_rc3x8"]
 
@@ -33,6 +34,20 @@ texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsp3i"]
+texture = ExtResource("11_33ooc")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80tuj"]
+texture = ExtResource("15_kxu5t")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4kudg"]
 random_pitch = 1.3
@@ -233,6 +248,30 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dbe30")
 script = ExtResource("14_ohyl5")
 stats_panel = ExtResource("16_80tuj")
 
+[node name="Leaderboard" type="Label" parent="HUD/GameOverPanel"]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 114.0
+offset_right = 353.0
+offset_bottom = 614.0
+
+[node name="Label" type="Label" parent="HUD/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 67.0
+offset_right = 20.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("16_l6pec")
+theme_override_font_sizes/font_size = 41
+text = "2810"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameOverPanel"]
 layout_mode = 1
 anchors_preset = 7
@@ -270,6 +309,64 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextEdit" type="TextEdit" parent="HUD/GameOverPanel"]
+visible = false
+clip_contents = false
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_vsp3i")
+placeholder_text = "<name>"
+
+[node name="Label" type="Label" parent="HUD/GameOverPanel/TextEdit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -130.0
+offset_right = 52.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_font_sizes/font_size = 20
+text = "NEW RECORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="HUD/GameOverPanel/TextEdit"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 31.679993
+offset_right = 4.0
+offset_bottom = 39.679993
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_80tuj")
+text = "SUBMIT"
+
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 process_mode = 3
 volume_db = -14.312
@@ -292,4 +389,5 @@ volume_db = -6.0
 [connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
 [connection signal="pressed" from="HUD/GameOverPanel/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HUD/GameOverPanel/HBoxContainer/ToMenu" to="." method="_on_to_menu_pressed"]
+[connection signal="pressed" from="HUD/GameOverPanel/TextEdit/Button" to="HUD/GameOverPanel" method="_on_button_pressed"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
