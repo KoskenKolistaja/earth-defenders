@@ -6,6 +6,8 @@ var active = false
 
 var player_votes = {}
 
+var starting_time
+
 var item_votes = {
 	0:0,
 	1:0,
@@ -23,6 +25,7 @@ func _ready():
 	get_parent().pause_space()
 	disable_unavailable()
 	update_item_prices()
+	update_facility_count()
 	
 	fade_in()
 	
@@ -59,6 +62,22 @@ func disable_unavailable():
 		var price = ItemData.item_prices[item.name]
 		if price > money:
 			item.self_modulate = Color(1,1,1,0.2)
+	
+	
+	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
+	var has_free_slots = facility_spawner.get_free_position()
+	
+	if not has_free_slots:
+		var children = $HBoxContainer.get_children()
+		for i in range(3, 8): # 8 is excluded → gives 3,4,5,6,7
+			var item = children[i]
+			item.self_modulate = Color(1, 1, 1, 0.2)
+
+func update_facility_count():
+	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
+	var count = facility_spawner.get_facility_count()
+	$FacilityCount.text = str(count) + "/20"
+
 
 func spawn_cursors():
 	for id in PlayerData.players:
@@ -98,6 +117,12 @@ func assign_vote(player_id,index):
 	
 	if price > money:
 		return
+	
+	var facility_spawner = get_tree().get_first_node_in_group("facility_spawner")
+	
+	if index in range(3, 8) and not facility_spawner.get_free_position():
+		return
+	
 	
 	if $Timer.is_stopped():
 		$Timer.start()
@@ -148,6 +173,8 @@ func action(item_name):
 		"speeder":
 			add_ship_to_reserve(item_name)
 		"combat_ship":
+			add_ship_to_reserve(item_name)
+		"old_ship":
 			add_ship_to_reserve(item_name)
 		"repair_station":
 			add_facility(item_name)

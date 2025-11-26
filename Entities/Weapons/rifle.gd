@@ -115,6 +115,7 @@ func to_sniper():
 	bullet_velocity = 0.7
 	bullet_damage = 5
 	self.name = "sniper"
+	xp_needed = 300
 	$AudioStreamPlayer.stream = rifle_sound
 	update_xp()
 	update_weapon_name()

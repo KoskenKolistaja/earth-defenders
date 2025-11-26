@@ -29,13 +29,15 @@ func check_new_score():
 	
 	$Label.text = str(score)
 	
-	if Leaderboard.qualifies(score):
+	var is_multiplayer := PlayerData.players.size() > 1
+	
+	if Leaderboard.qualifies(score,is_multiplayer):
 		$HBoxContainer.hide()
 		$StatsContainer.hide()
 		$TextEdit.show()
 	else:
-		$Leaderboard.text = Leaderboard.format_leaderboard()
-
+		$SPLeaderboard/Leaderboard.text = Leaderboard.format_leaderboard(false)
+		$MPLeaderboard/Leaderboard.text = Leaderboard.format_leaderboard(true)
 
 
 func add_stats_panel(player_id):
@@ -95,4 +97,5 @@ func _on_button_pressed():
 	var hud = get_tree().get_first_node_in_group("hud")
 	var time = hud.time
 	Leaderboard.submit_score(time,$TextEdit.text)
-	$Leaderboard.text = Leaderboard.format_leaderboard()
+	$SPLeaderboard/Leaderboard.text = Leaderboard.format_leaderboard(false)
+	$MPLeaderboard/Leaderboard.text = Leaderboard.format_leaderboard(true)

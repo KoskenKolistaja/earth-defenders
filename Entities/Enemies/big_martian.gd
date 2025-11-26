@@ -23,11 +23,16 @@ var Audio
 
 func _ready():
 	Audio = get_tree().get_first_node_in_group("audio")
-	
-	
-	initial_position = self.global_position
-	var vector = Vector3(0,0,0) - self.global_position
-	target = vector.limit_length(40)
+
+	initial_position = global_position
+	var planet_pos = Vector3.ZERO
+	var direction = (global_position - planet_pos).normalized()
+	var stop_distance = 40.0
+	target = planet_pos + direction * stop_distance
+
+	# Actual world position 40 units from the planet
+	target = planet_pos + direction * stop_distance
+
 	target_reached.connect(_on_target_reached)
 
 

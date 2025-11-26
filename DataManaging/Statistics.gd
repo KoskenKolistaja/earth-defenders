@@ -16,6 +16,9 @@ func _ready():
 	initialize_stats()
 
 
+func _physics_process(delta):
+	print(missiles_fired)
+
 
 # --- INITIALIZATION ---
 

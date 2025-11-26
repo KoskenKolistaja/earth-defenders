@@ -33,6 +33,7 @@ func _ready():
 
 
 
+
 func show_hp():
 	$HpBar.show_hp(hp)
 
@@ -126,6 +127,7 @@ func die():
 	spawn_manager.game_over()
 	$HpBar.active = false
 	$HpBar.hide()
+	$ShieldBar.hide()
 	$DeathArea.active = true
 	dead = true
 	$FacilitySpawner.queue_free()

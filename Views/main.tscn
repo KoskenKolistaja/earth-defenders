@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwj1g2ngbyou5"]
+[gd_scene load_steps=30 format=3 uid="uid://bwj1g2ngbyou5"]
 
 [ext_resource type="PackedScene" uid="uid://dxfda5ay2mfgn" path="res://Views/space.tscn" id="1_8r4uk"]
 [ext_resource type="Script" uid="uid://cngu0n8j6lavn" path="res://Views/main.gd" id="1_esl2e"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://c5xtqu72mcuks" path="res://Entities/UI/audio.gd" id="16_dbe30"]
 [ext_resource type="FontFile" uid="uid://bkcijhxhyehm4" path="res://Assets/Fonts/Login.ttf" id="16_l6pec"]
 [ext_resource type="AudioStream" uid="uid://bcu8io64kv5es" path="res://Assets/SFX/MetalHit.ogg" id="17_sakj3"]
+[ext_resource type="Texture2D" uid="uid://d1qiaix82fsh0" path="res://Assets/Textures/UI/WenrexaUI/MainPanel02.png" id="18_l6pec"]
 [ext_resource type="AudioStream" uid="uid://bhhgw3cyik546" path="res://Assets/SFX/RockHit.ogg" id="18_rc3x8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxu5t"]
@@ -248,14 +249,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dbe30")
 script = ExtResource("14_ohyl5")
 stats_panel = ExtResource("16_80tuj")
 
-[node name="Leaderboard" type="Label" parent="HUD/GameOverPanel"]
-custom_minimum_size = Vector2(300, 500)
-layout_mode = 0
-offset_left = 53.0
-offset_top = 114.0
-offset_right = 353.0
-offset_bottom = 614.0
-
 [node name="Label" type="Label" parent="HUD/GameOverPanel"]
 layout_mode = 1
 anchors_preset = 5
@@ -366,6 +359,97 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("9_qwu6d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_80tuj")
 text = "SUBMIT"
+
+[node name="MPLeaderboard" type="NinePatchRect" parent="HUD/GameOverPanel"]
+custom_minimum_size = Vector2(300, 700)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("18_l6pec")
+
+[node name="Leaderboard" type="Label" parent="HUD/GameOverPanel/MPLeaderboard"]
+custom_minimum_size = Vector2(275, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+
+[node name="Label" type="Label" parent="HUD/GameOverPanel/MPLeaderboard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.5
+offset_top = 20.2
+offset_right = 47.5
+offset_bottom = 43.199997
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_font_sizes/font_size = 30
+text = "Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SPLeaderboard" type="NinePatchRect" parent="HUD/GameOverPanel"]
+custom_minimum_size = Vector2(300, 700)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -350.0
+offset_bottom = 350.0
+grow_vertical = 2
+texture = ExtResource("18_l6pec")
+
+[node name="Leaderboard" type="Label" parent="HUD/GameOverPanel/SPLeaderboard"]
+custom_minimum_size = Vector2(275, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+
+[node name="Label" type="Label" parent="HUD/GameOverPanel/SPLeaderboard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.5
+offset_top = 20.2
+offset_right = 47.5
+offset_bottom = 43.199997
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_qwu6d")
+theme_override_font_sizes/font_size = 30
+text = "Singleplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["music"]]
 process_mode = 3

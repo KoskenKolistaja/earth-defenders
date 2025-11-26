@@ -5,12 +5,13 @@ var active = false
 
 
 
-
+func _ready():
+	$CollisionShape3D.shape.radius = 0.5
 
 func _physics_process(_delta):
 	if active:
 		kill()
-		$CollisionShape3D.shape.radius += 0.15
+		$CollisionShape3D.shape.radius += 0.25
 
 
 

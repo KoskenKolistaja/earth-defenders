@@ -109,7 +109,8 @@ func get_closest_item(list):
 			closest = item
 	return closest
 
-
+func award_xp(_empty):
+	pass
 
 func release():
 	if target_acquired:
@@ -128,6 +129,8 @@ func shoot_missile():
 	missile_instance.xp_multiplier = xp_multiplier
 	objects.add_child(missile_instance)
 	missile_instance.global_position = self.global_position
+	if player_id:
+		missile_instance.weapon_ref = self
 
 func reset_targeting():
 	$Reticle.modulate = Color(1,1,1)

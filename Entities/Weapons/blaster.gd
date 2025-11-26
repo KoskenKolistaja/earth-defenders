@@ -144,6 +144,7 @@ func upgrade_weapon():
 func to_machine_gun():
 	$Timer.wait_time = 0.2
 	self.name = "machine_gun"
+	xp_needed = 150
 	spread = 0.01
 	
 	fly_time = 0.7
@@ -156,6 +157,7 @@ func to_sentinel():
 	$Timer.wait_time = 0.15
 	damage = 1
 	self.name = "sentinel"
+	xp_needed = 450
 	spread = 0.05
 	bullet_velocity = 0.5
 	if player_id:

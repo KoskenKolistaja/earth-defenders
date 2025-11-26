@@ -1,10 +1,10 @@
 extends Node
 
-const SAVE_PATH := "user://leaderboard.save"
+const SAVE_PATH_SP := "user://leaderboard_singleplayer.save"
+const SAVE_PATH_MP := "user://leaderboard_multiplayer.save"
 
-# Each entry will look like:
-# { "name": "Run 1", "score": 123, "time": 1713465923 }
-var scores: Array = []
+var scores_sp: Array = []
+var scores_mp: Array = []
 
 
 func _ready():
@@ -12,67 +12,96 @@ func _ready():
 
 
 # ---------------------------------------------------------
-# PUBLIC: Submit score + run name
+# Submit score
+# mode_multiplayer = true → multiplayer
+# mode_multiplayer = false → singleplayer
 # ---------------------------------------------------------
-func submit_score(score: int, run_name: String) -> void:
+func submit_score(score: int, run_name: String, mode_multiplayer: bool = false) -> void:
 	var entry = {
 		"name": run_name,
 		"score": score,
-		"time": Time.get_time_string_from_system() # optional
+		"time": Time.get_time_string_from_system()
 	}
 
-	scores.append(entry)
+	var target_scores = scores_mp if mode_multiplayer else scores_sp
 
-	# Sort by score (highest first)
-	scores.sort_custom(func(a, b): return b["score"] < a["score"])
+	target_scores.append(entry)
 
-	# Keep only top 10
-	if scores.size() > 10:
-		scores = scores.slice(0, 10)
+	# Sort highest first
+	target_scores.sort_custom(func(a, b): return b["score"] < a["score"])
+
+	# Keep top 10
+	if target_scores.size() > 10:
+		target_scores = target_scores.slice(0, 10)
+
+	# Write back to correct list
+	if mode_multiplayer:
+		scores_mp = target_scores
+	else:
+		scores_sp = target_scores
 
 	save_scores()
 
 
 # ---------------------------------------------------------
-# Save to disk
+# Save both leaderboards
 # ---------------------------------------------------------
 func save_scores() -> void:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file = FileAccess.open(SAVE_PATH_SP, FileAccess.WRITE)
 	if file:
-		file.store_var(scores)
+		file.store_var(scores_sp)
+		file.close()
+
+	file = FileAccess.open(SAVE_PATH_MP, FileAccess.WRITE)
+	if file:
+		file.store_var(scores_mp)
 		file.close()
 
 
 # ---------------------------------------------------------
-# Load from disk
+# Load both leaderboards
 # ---------------------------------------------------------
 func load_scores() -> void:
-	if not FileAccess.file_exists(SAVE_PATH):
-		scores = []
-		return
+	if FileAccess.file_exists(SAVE_PATH_SP):
+		var f = FileAccess.open(SAVE_PATH_SP, FileAccess.READ)
+		if f:
+			scores_sp = f.get_var()
+			f.close()
+	else:
+		scores_sp = []
 
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if file:
-		scores = file.get_var()
-		file.close()
+	if FileAccess.file_exists(SAVE_PATH_MP):
+		var f = FileAccess.open(SAVE_PATH_MP, FileAccess.READ)
+		if f:
+			scores_mp = f.get_var()
+			f.close()
+	else:
+		scores_mp = []
 
 
-func qualifies(score: int) -> bool:
-	# If fewer than 10 scores, it always qualifies
-	if scores.size() < 10:
+# ---------------------------------------------------------
+# Check if a score qualifies (SP or MP)
+# ---------------------------------------------------------
+func qualifies(score: int, mode_multiplayer: bool = false) -> bool:
+	var target_scores = scores_mp if mode_multiplayer else scores_sp
+
+	if target_scores.size() < 10:
 		return true
 
-	# Scores are sorted from best → worst
-	# So the last one is the worst top score
-	var lowest_top_score = scores.back()["score"]
+	var lowest_top = target_scores.back()["score"]
+	return score > lowest_top
 
-	return score > lowest_top_score
 
-func format_leaderboard() -> String:
+# ---------------------------------------------------------
+# Format leaderboard (SP or MP)
+# ---------------------------------------------------------
+func format_leaderboard(mode_multiplayer: bool = false) -> String:
+	var target_scores = scores_mp if mode_multiplayer else scores_sp
+
 	var output := ""
 	var index := 1
 
-	for entry in scores:
+	for entry in target_scores:
 		output += "%d. %s - %d\n" % [
 			index,
 			entry.get("name", "Unnamed"),
@@ -80,4 +109,4 @@ func format_leaderboard() -> String:
 		]
 		index += 1
 
-	return output.strip_edges() # remove last newline
+	return output.strip_edges()

@@ -4,7 +4,7 @@ var homing = false
 var target
 var turn_speed = 1
 var speed = 0.3
-var initial_speed = 0.2
+var initial_speed = 0.3
 var acceleration = 0.1
 
 @export var explosion : PackedScene
@@ -16,6 +16,8 @@ var weapon_ref
 
 var damage = 5
 
+var exploded = false
+
 func _ready():
 	await get_tree().create_timer(5,false).timeout
 	explode()
@@ -24,7 +26,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if not homing:
-		initial_speed = move_toward(initial_speed,0,0.005)
+		initial_speed = move_toward(initial_speed,0,0.01)
 	else:
 		$CollisionShape3D.disabled = false
 		$ThrustParticles.emitting = true
@@ -51,6 +53,10 @@ func set_speed(amount,amount2):
 
 
 func _on_area_entered(area):
+	if exploded:
+		print("returned")
+		return
+	
 	if area.has_method("get_hit"):
 		area.get_hit(damage)
 		if area.is_in_group("xp"):
@@ -76,6 +82,9 @@ func _on_area_entered(area):
 
 
 func _on_body_entered(body):
+	if exploded:
+		return
+	
 	if body.has_method("get_hit"):
 		body.get_hit(damage)
 		if body.is_in_group("xp"):
@@ -109,6 +118,7 @@ func explode():
 	var explosion_instance = explosion.instantiate()
 	get_parent().add_child(explosion_instance)
 	explosion_instance.global_position = self.global_position
+	exploded = true
 	queue_free()
 
 

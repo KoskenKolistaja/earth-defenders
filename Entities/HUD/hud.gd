@@ -92,10 +92,10 @@ func update_time():
 
 
 func update_difficulty():
-	var elapsed = Time.get_ticks_msec() - scene_start_time
-	var difficulty = get_tree().get_first_node_in_group("spawn_manager").get_difficulty(elapsed*0.001)
+	var spawn_manager = get_tree().get_first_node_in_group("spawn_manager")
 	
-	difficulty = snappedf(difficulty,0.01)
+	var difficulty  = spawn_manager.get_difficulty(snapped(MetaData.game_time_elapsed,0.1))
+	
 	$PanelR/Difficulty.text = "Difficulty: " + str(difficulty)
 
 

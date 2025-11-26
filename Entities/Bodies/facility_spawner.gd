@@ -13,6 +13,13 @@ func add_facility(exported_name):
 	if exported_name == "technology_institute":
 		set_xp_multiplier_for_weapons()
 
+func get_facility_count() -> int:
+	var count = 0
+	for c in get_children():
+		if c.get_child_count() > 0:
+			count += 1
+	
+	return count
 
 
 func set_xp_multiplier_for_weapons():

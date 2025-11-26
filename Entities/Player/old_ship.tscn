@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://clkdeynk3bnj0" path="res://Entities/FX/explosion.tscn" id="2_u2554"]
 [ext_resource type="Texture2D" uid="uid://bjiqnfgk2gs1x" path="res://Assets/Textures/Explosions_Textures/Flare00.PNG" id="3_331su"]
 [ext_resource type="Script" uid="uid://d0hfx0anm57jt" path="res://Entities/Player/indicator.gd" id="4_jxpo2"]
-[ext_resource type="Texture2D" uid="uid://dffabuixqhk08" path="res://Assets/Textures/ShipIcons/combat_ship.png" id="5_fisdk"]
+[ext_resource type="Texture2D" uid="uid://baw6gtcxe4cqa" path="res://Assets/Textures/ShipIcons/old_ship.png" id="5_c881q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ix6vc"]
 
@@ -172,7 +172,6 @@ script = ExtResource("1_c881q")
 explosion = ExtResource("2_u2554")
 stored_weapon_right = "blaster"
 max_hp = 5
-speed = 0.5
 type = "old_ship"
 color_slot = 2
 
@@ -237,7 +236,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_fisdk")
+texture = ExtResource("5_c881q")
 expand_mode = 1
 
 [node name="NameLabel" type="Label" parent="Indicator"]

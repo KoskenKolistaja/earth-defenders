@@ -6,7 +6,7 @@ var loaded = true
 
 
 var xp = 0
-var xp_needed = 20
+var xp_needed = 100
 var xp_multiplier = 1
 var player_id
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bp60rljnnygaf"]
+[gd_scene load_steps=18 format=3 uid="uid://bp60rljnnygaf"]
 
 [ext_resource type="Script" uid="uid://dxreqkgmiykmq" path="res://Entities/UI/weapon_upgrade.gd" id="1_eoo41"]
 [ext_resource type="Texture2D" uid="uid://dp3ya8e37pfvj" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_22.png" id="2_pd33f"]
 [ext_resource type="Texture2D" uid="uid://cxehv4p5qcrir" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_30.png" id="3_07csr"]
-[ext_resource type="Texture2D" uid="uid://bx6mxqepk831a" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_26.png" id="3_hdiri"]
 [ext_resource type="Texture2D" uid="uid://bru4x23ent6ri" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_02.png" id="4_06c7o"]
 [ext_resource type="Texture2D" uid="uid://4tcjh4le7x7h" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_20.png" id="5_vl1in"]
 [ext_resource type="Texture2D" uid="uid://cugacmby4bafa" path="res://Assets/Textures/Free-Skill-32x32-Icons-for-Cyberpunk-Game/1 Icons/5/Skillicon5_07.png" id="6_idv2g"]
@@ -74,13 +73,11 @@ alignment = 1
 [node name="TextureLeft" type="TextureRect" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("2_pd33f")
 stretch_mode = 5
 
 [node name="TextureRight" type="TextureRect" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("3_hdiri")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel"]

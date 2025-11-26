@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://b3tmmjg8l4n6u" path="res://Entities/UI/stats_panel.gd" id="2_si10o"]
 
 [node name="StatsPanel" type="NinePatchRect"]
-custom_minimum_size = Vector2(300, 400)
-offset_right = 300.0
+custom_minimum_size = Vector2(275, 400)
+offset_right = 275.0
 offset_bottom = 400.0
 texture = ExtResource("1_qkov7")
 script = ExtResource("2_si10o")

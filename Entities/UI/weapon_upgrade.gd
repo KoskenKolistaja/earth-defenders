@@ -41,15 +41,11 @@ func _ready():
 			$Panel/HBoxContainer/TextureRight.texture = sniper_icon
 		"sentinel":
 			$Panel/HBoxContainer/TextureLeft.texture = minigun_icon
-			$Panel/HBoxContainer/TextureRight.texture = laser_icon
 		"vacuum_gun":
-			$Panel/HBoxContainer/TextureLeft.texture = planter_icon
 			$Panel/HBoxContainer/TextureRight.texture = hoover_icon
 		"rocket_launcher":
 			$Panel/HBoxContainer/TextureLeft.texture = missile_launcher_icon
-			$Panel/HBoxContainer/TextureRight.texture = xxx_icon
 		"sniper":
-			$Panel/HBoxContainer/TextureLeft.texture = xxx_icon
 			$Panel/HBoxContainer/TextureRight.texture = super_sniper_icon
 
 func initiate_selection(exported_weapon_name):
@@ -94,24 +90,24 @@ func rifle():
 func sentinel():
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		upgrade_to_minigun()
-	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		change_to_laser()
+	#if Input.is_action_just_pressed("p%s_ui_right" % player_id):
+		#change_to_laser()
 
 func vacuum_gun():
-	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
-		change_to_planter()
+	#if Input.is_action_just_pressed("p%s_ui_left" % player_id):
+		#change_to_planter()
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
 		upgrade_to_hoover()
 
 func rocket_launcher():
 	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
 		change_to_missile_launcher()
-	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
-		change_to_xxx()
+	#if Input.is_action_just_pressed("p%s_ui_right" % player_id):
+		#change_to_xxx()
 
 func sniper():
-	if Input.is_action_just_pressed("p%s_ui_left" % player_id):
-		change_to_xxx()
+	#if Input.is_action_just_pressed("p%s_ui_left" % player_id):
+		#change_to_xxx()
 	if Input.is_action_just_pressed("p%s_ui_right" % player_id):
 		upgrade_to_super_sniper()
 

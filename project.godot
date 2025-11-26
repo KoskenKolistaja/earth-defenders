@@ -28,10 +28,6 @@ LabelSpawner="*res://Entities/UI/label_spawner.gd"
 Statistics="*res://DataManaging/Statistics.gd"
 Leaderboard="*res://DataManaging/leaderboard.gd"
 
-[display]
-
-window/size/mode=3
-
 [global_group]
 
 hud=""
