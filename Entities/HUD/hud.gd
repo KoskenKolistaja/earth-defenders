@@ -52,6 +52,9 @@ func trigger_purchase_selection():
 
 func spawn_ship_hud(exported_id):
 	
+	if is_instance_valid($PlayerHUDS/Label):
+		$PlayerHUDS/Label.queue_free()
+	
 	if MetaData.game_over:
 		return
 	

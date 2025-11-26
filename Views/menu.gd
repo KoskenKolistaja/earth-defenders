@@ -1,19 +1,30 @@
 extends Control
 
+@export var player_menu_container: PackedScene
 
 func start_game():
 	get_tree().change_scene_to_file("res://Views/main.tscn")
 
 
 
+func to_start():
+	$ButtonContainer.show()
+	$ButtonContainer/PLAY.grab_focus()
+	hide_text()
 
+func hide_text():
+	$PressAny.hide()
+
+func show_text():
+	$PressAny.show()
 
 func _ready():
 	MetaData.reset_settings()
 	PlayerData.reset_settings()
 	assign_player_controls()
 	$AudioStreamPlayer.play()
-
+	
+	$ButtonContainer/PLAY.grab_focus()
 
 
 
@@ -59,3 +70,28 @@ func assign_player_controls():
 			InputMap.action_add_event(action_name, event)
 
 	print("✅ Player controls assigned for %d device(s)" % devices.size())
+
+
+func _on_play_pressed():
+	var p_menu = player_menu_container.instantiate()
+	add_child(p_menu)
+	$ButtonContainer.hide()
+	$ButtonContainer/PLAY/AudioStreamPlayer.play()
+	show_text()
+
+
+
+
+
+
+
+func _on_exit_pressed():
+	get_tree().quit()
+
+
+func _on_play_focus_exited():
+	$ButtonContainer/EXIT/AudioStreamPlayer.play()
+
+
+func _on_exit_focus_exited():
+	$ButtonContainer/EXIT/AudioStreamPlayer.play()

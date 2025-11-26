@@ -13,7 +13,13 @@ func _ready():
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 
 func _process(_delta):
-	for device_id in range(8):  # supports up to 8 controllers
+	for device_id in range(8):
+		if Input.is_joy_button_pressed(device_id, JOY_BUTTON_B):
+			if players_in_menu.size() == 0:
+				get_parent().to_start()
+				queue_free()
+				return  # prevent triggering multiple times
+
 		if _any_gamepad_input(device_id):
 			_register_player(device_id)
 
@@ -38,7 +44,8 @@ func _register_player(device_id: int):
 		players_in_menu.append(player_id)
 		spawn_menu(player_id)
 		$Register.play()
-
+	if players_in_menu.size() > 0:
+		get_parent().hide_text()
 
 func erase_player(player_id: int):
 	PlayerData.players.erase(player_id)
@@ -47,6 +54,8 @@ func erase_player(player_id: int):
 	print(players_in_menu)
 	print(players_ready)
 	$Erase.play()
+	
+
 
 func _on_joy_connection_changed(device_id: int, connected: bool):
 	var player_id := device_id + 1
