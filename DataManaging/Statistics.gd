@@ -16,8 +16,8 @@ func _ready():
 	initialize_stats()
 
 
-func _physics_process(delta):
-	print(bullets_hit)
+#func _physics_process(delta):
+	#print(bullets_hit)
 
 
 # --- INITIALIZATION ---

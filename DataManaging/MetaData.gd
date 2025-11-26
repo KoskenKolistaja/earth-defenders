@@ -1,6 +1,6 @@
 extends Node
 
-var game_time_elapsed = 0
+var game_time_elapsed = 1000
 var game_over = false
 
 

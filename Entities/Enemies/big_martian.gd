@@ -23,17 +23,24 @@ var Audio
 
 func _ready():
 	Audio = get_tree().get_first_node_in_group("audio")
-
+	
+	
 	initial_position = global_position
 	var planet_pos = Vector3.ZERO
-	var direction = (global_position - planet_pos).normalized()
-	var stop_distance = 40.0
-	target = planet_pos + direction * stop_distance
+	var direction = (Vector3.ZERO - global_position)  # vector pointing toward origo
+	target = global_position + direction * 0.7    # move halfway toward origo
 
-	# Actual world position 40 units from the planet
-	target = planet_pos + direction * stop_distance
-
+	
+	print(target)
+	
 	target_reached.connect(_on_target_reached)
+
+
+func get_spawn_position(radius: float = 80.0) -> Vector3:
+	var angle = randf() * TAU  # random angle 0..2π
+	var x = cos(angle) * radius
+	var y = sin(angle) * radius
+	return Vector3(x, y, 0.0)
 
 
 func _physics_process(_delta):
@@ -97,7 +104,11 @@ func spawn_ship():
 	if ships:
 		await get_tree().create_timer(0.5,false).timeout
 		var ship_instance = ship.instantiate()
-		ship_instance.initial_direction = -$Martian.basis.x
+		print(basis.x)
+		if global_position.x < 0:
+			ship_instance.initial_direction = basis.x
+		else:
+			ship_instance.initial_direction = -basis.x
 		var objects = get_tree().get_first_node_in_group("objects")
 		objects.add_child(ship_instance)
 		ship_instance.global_position = self.global_position
