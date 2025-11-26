@@ -43,6 +43,7 @@ func _on_body_entered(body):
 					var player_id = weapon_ref.get_player_id()
 					if player_id:
 						Statistics.add_ships_destroyed(player_id)
+						Statistics.add_bullets_hit(player_id)
 			else:
 				if weapon_ref:
 					var award_xp = body.hit_xp * damage * xp_multiplier

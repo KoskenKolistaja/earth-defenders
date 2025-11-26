@@ -17,7 +17,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	print(missiles_fired)
+	print(bullets_hit)
 
 
 # --- INITIALIZATION ---

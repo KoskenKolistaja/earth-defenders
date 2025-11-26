@@ -49,6 +49,7 @@ func shoot():
 	if loaded:
 		shoot_missile()
 		$AudioStreamPlayer.play()
+		print("Added missile fired to statistics! (" + self.name + ")")
 		Statistics.add_missiles_fired(player_id)
 
 func release():

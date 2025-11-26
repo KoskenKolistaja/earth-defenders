@@ -55,8 +55,7 @@ func shoot():
 			target = get_target()
 		else:
 			focus_target()
-		
-		Statistics.add_missiles_fired(player_id)
+
 
 func focus_target():
 	$Reticle.show()
@@ -115,6 +114,7 @@ func award_xp(_empty):
 func release():
 	if target_acquired:
 		shoot_missile()
+		Statistics.add_missiles_fired(player_id)
 		loaded = false
 		$Timer.start()
 		$AudioStreamPlayer4.play()

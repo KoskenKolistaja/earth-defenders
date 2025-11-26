@@ -6,7 +6,7 @@ extends Control
 
 var time = 2025
 
-var money : int = 2000
+var money : int = 20000
 
 var scene_start_time = 0
 
