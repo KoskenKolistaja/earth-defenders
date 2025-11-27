@@ -12,7 +12,7 @@ extends Node3D
 @export var easy_curve: Curve
 
 var base_asteroid_interval = 30.0
-var base_big_martian_interval = 12.0
+var base_big_martian_interval = 240.0
 var base_small_martian_interval = 50.0
 var base_elite_small_martian_interval = 80.0
 var base_missile_small_martian_interval = 100.0

@@ -6,7 +6,7 @@ extends Control
 
 var time = 2025
 
-var money : int = 20000
+var money : int = 2000
 
 var scene_start_time = 0
 
@@ -97,7 +97,7 @@ func update_time():
 func update_difficulty():
 	var spawn_manager = get_tree().get_first_node_in_group("spawn_manager")
 	
-	var difficulty  = spawn_manager.get_difficulty(snapped(MetaData.game_time_elapsed,0.1))
+	var difficulty  = snapped(spawn_manager.get_difficulty(MetaData.game_time_elapsed),0.1)
 	
 	$PanelR/Difficulty.text = "Difficulty: " + str(difficulty)
 
