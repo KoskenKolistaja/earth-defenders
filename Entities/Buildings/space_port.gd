@@ -45,13 +45,10 @@ func _physics_process(_delta):
 					LabelSpawner.spawn_label("Cannot reserve a damaged ship" , self.global_position,Color(1,0,0),3,30)
 					return
 				
-				print("juu")
 				reserve_ship(ship)
 				var left_weapon = ship.get_left_weapon_name()
 				var right_weapon = ship.get_right_weapon_name()
 				
-				print(left_weapon)
-				print(left_weapon)
 				
 				reserve_weapons(left_weapon,right_weapon,id)
 
@@ -61,8 +58,6 @@ func add_ship(ship_name):
 
 func reserve_weapons(left_weapon,right_weapon,player_id):
 	player_weapons[player_id] = {"left_weapon" : left_weapon, "right_weapon" : right_weapon}
-	
-	print(player_weapons)
 
 func reserve_ship(ship_ref):
 	var type = ship_ref.type

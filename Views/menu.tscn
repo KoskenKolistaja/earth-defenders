@@ -53,14 +53,15 @@ offset_bottom = 102.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.16600001)
-theme_override_colors/font_outline_color = Color(0, 0.43750012, 0.75, 1)
 theme_override_constants/shadow_offset_x = -14
 theme_override_constants/shadow_offset_y = 11
 theme_override_constants/outline_size = 15
 theme_override_constants/shadow_outline_size = 61
 theme_override_fonts/font = ExtResource("4_g1lwj")
 theme_override_font_sizes/font_size = 66
-text = "Earth Defenders 2.0"
+text = "Earth Defenders"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

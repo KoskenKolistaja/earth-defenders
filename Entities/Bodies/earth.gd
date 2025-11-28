@@ -62,7 +62,6 @@ func disable_shield(duration: float = 1.0):
 		create_tween().tween_property(
 			shield_mat, "shader_parameter/overall_opacity", 0.0, duration
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	print("Yes!!")
 
 # Animate opacity to 0.6 (activate)
 func activate_shield(duration: float = 1.0):
@@ -92,7 +91,6 @@ func get_hit(damage : int = 5):
 	if hp <= 0 and not dead:
 		die()
 	
-	print(shield)
 	
 	show_hp()
 	show_shield()

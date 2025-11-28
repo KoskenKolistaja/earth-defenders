@@ -65,8 +65,6 @@ func add_stats_panel(player_id):
 	var rocks_destroyed  = Statistics.asteroids_destroyed[player_id]
 	var ships_lost       = Statistics.ships_lost[player_id]
 
-	print("Bullet accuracy: " + str(bullet_accuracy))
-	print(missile_accuracy)
 
 	# --- Panel setters ---
 	panel.set_player_name(player_name)

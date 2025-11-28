@@ -150,7 +150,6 @@ func _on_missile_small_martian_timer_timeout():
 	var elapsed = Time.get_ticks_msec() - scene_start_time
 	
 	if not get_difficulty(elapsed * 0.001) > 5:
-		print("returned")
 		return
 	
 	$MissileSmallMartianTimer.wait_time = get_spawn_interval(base_missile_small_martian_interval)
@@ -164,7 +163,6 @@ func _on_elite_small_martian_timer_timeout():
 	var elapsed = Time.get_ticks_msec() - scene_start_time
 	
 	if not get_difficulty(elapsed * 0.001) > 5:
-		print("returned")
 		return
 	
 	$EliteSmallMartianTimer.wait_time = get_spawn_interval(base_elite_small_martian_interval)

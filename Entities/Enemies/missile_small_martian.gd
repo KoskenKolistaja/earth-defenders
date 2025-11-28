@@ -169,8 +169,6 @@ func die() -> void:
 
 func shoot_missile():
 	
-	print(target_player)
-	print(is_instance_valid(target_player))
 	
 	if is_instance_valid(target_player):
 		var objects = get_tree().get_first_node_in_group("objects")

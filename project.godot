@@ -13,7 +13,7 @@ config_version=5
 config/name="EarthDefenders"
 run/main_scene="uid://d11ksglatxht2"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://dffabuixqhk08"
+config/icon="uid://bxrj2pyvcud32"
 
 [audio]
 

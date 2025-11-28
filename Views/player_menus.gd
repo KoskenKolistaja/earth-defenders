@@ -51,8 +51,6 @@ func erase_player(player_id: int):
 	PlayerData.players.erase(player_id)
 	players_in_menu.erase(player_id)
 	players_ready.erase(player_id)
-	print(players_in_menu)
-	print(players_ready)
 	$Erase.play()
 	
 
@@ -60,9 +58,8 @@ func erase_player(player_id: int):
 func _on_joy_connection_changed(device_id: int, connected: bool):
 	var player_id := device_id + 1
 	if connected:
-		print("Gamepad", player_id, "connected")
+		pass
 	else:
-		print("Gamepad", player_id, "disconnected")
 		erase_player(player_id)
 
 func spawn_menu(player_id: int):

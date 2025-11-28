@@ -54,7 +54,6 @@ func set_speed(amount,amount2):
 
 func _on_area_entered(area):
 	if exploded:
-		print("returned")
 		return
 	
 	if area.has_method("get_hit"):

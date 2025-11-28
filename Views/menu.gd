@@ -69,7 +69,6 @@ func assign_player_controls():
 
 			InputMap.action_add_event(action_name, event)
 
-	print("✅ Player controls assigned for %d device(s)" % devices.size())
 
 
 func _on_play_pressed():

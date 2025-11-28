@@ -41,7 +41,6 @@ func _run():
 			points_created += 1
 		i += 1
 
-	print("✅ Created %d nodes around %s" % [points_created, target.name])
 
 
 func get_fibonacci_sphere_position(i: int, n: int) -> Vector3:

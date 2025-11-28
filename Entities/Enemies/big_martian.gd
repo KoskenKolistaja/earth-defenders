@@ -29,9 +29,8 @@ func _ready():
 	var planet_pos = Vector3.ZERO
 	var direction = (Vector3.ZERO - global_position)  # vector pointing toward origo
 	target = global_position + direction * 0.7    # move halfway toward origo
-
 	
-	print(target)
+	
 	
 	target_reached.connect(_on_target_reached)
 
@@ -104,7 +103,6 @@ func spawn_ship():
 	if ships:
 		await get_tree().create_timer(0.5,false).timeout
 		var ship_instance = ship.instantiate()
-		print(basis.x)
 		if global_position.x < 0:
 			ship_instance.initial_direction = basis.x
 		else:
